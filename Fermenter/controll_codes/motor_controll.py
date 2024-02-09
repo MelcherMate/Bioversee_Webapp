@@ -1,4 +1,4 @@
-from gpiozero import OutputDevice
+from __init__ import OutputDevice
 
 motor_pin = 2
 motor = OutputDevice(motor_pin)
