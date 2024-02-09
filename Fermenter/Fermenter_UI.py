@@ -1,6 +1,6 @@
 import tkinter as tk
-from controll_codes.motor_controll import Motor
-from controll_codes.air_controll import Airpump
+from __init__ import Motor
+from __init__ import Airpump
 
 #app window
 app = tk.Tk()
