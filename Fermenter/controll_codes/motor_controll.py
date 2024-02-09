@@ -1,6 +1,6 @@
 from __init__ import OutputDevice
 
-motor_pin = 2
+motor_pin = 18
 motor = OutputDevice(motor_pin)
 
 class Motor:

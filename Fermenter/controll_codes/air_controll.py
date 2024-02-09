@@ -1,6 +1,6 @@
 from __init__ import OutputDevice
 
-air_pin = 2
+air_pin = 16
 airpump = OutputDevice(air_pin)
 
 class Airpump:
