@@ -1,4 +1,4 @@
-from __init__ import OutputDevice
+from gpiozero import OutputDevice
 
 air_pin = 16
 airpump = OutputDevice(air_pin)
