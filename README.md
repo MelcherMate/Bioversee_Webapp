@@ -1,5 +1,15 @@
 This is a prototype project of my idea to create a basic fermenter machine, which can be controlled by air via a web service.
 
+How to run the code:
+The code is desigend in python 3.12.0
+Designed on Apple Macbook Air M1 (2020)
+Tested on Raspberry PI 5 8GB
+
+Used packages:
+-git
+-venv
+-pymongo
+
 Programming tasktree:
 1. First step of the project is to build a basic code, which does the job and turns On and OFF the devices.
 2. Second step is to be able to controll the airflow, the motor rotation speed and the temprerature. (Last is a hard one for me, cause it has hardware difficulities)
