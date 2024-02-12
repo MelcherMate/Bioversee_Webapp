@@ -1,6 +1,8 @@
 This is a prototype project of my idea to create a basic fermenter machine, which can be controlled by air via a web service.
 
 How to run the code:
+The code is desigened to run on raspberry PI
+
 The code is desigend in python 3.12.0
 Designed on Apple Macbook Air M1 (2020)
 Tested on Raspberry PI 5 8GB
