@@ -42,21 +42,21 @@ root = tk.Tk()
 root.title("Controll_test_window")
 root.geometry("800x600")
 
-# Motor vezérlő gombok
+# Motor controll buttons
 on_button_motor = tk.Button(root, text="Motor ON", command=motor_on)
 on_button_motor.pack(pady=10)
 
 off_button_motor = tk.Button(root, text="Motor OFF", command=motor_off)
 off_button_motor.pack(pady=10)
 
-# Airpump vezérlő gombok
+# Airpump controll buttons
 on_button_airpump = tk.Button(root, text="Airpump ON", command=airpump_on)
 on_button_airpump.pack(pady=10)
 
 off_button_airpump = tk.Button(root, text="Airpump OFF", command=airpump_off)
 off_button_airpump.pack(pady=10)
 
-# Hőmérsékletmérés gombok
+# Temperature controll button
 start_button = tk.Button(root, text="Hőmérséklet mérés indítása", command=start_temperature_measurement)
 start_button.pack(pady=10)
 
