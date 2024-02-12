@@ -8,7 +8,7 @@ class Airpump:
     #air controll
     def air_pump_on ():
         airpump.on
-        return f"levegoztetes bekapcsolva"
+        return f"airpump turned on"
     def air_pump_off ():
         airpump.off
-        return f"levegoztetes kikapcsolva"
+        return f"airpump turned off"
