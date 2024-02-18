@@ -4,6 +4,11 @@ from __init__ import Airpump
 from __init__ import read_temp
 from time import sleep
 
+from tkinter import *
+from ttkbootstrap.constants import *
+import ttkbootstrap as tb
+
+
 def start_temperature_measurement():
     temperature_label.config(text="Stop temperature recording")
     measure_temperature()
@@ -39,7 +44,7 @@ def airpump_off():
     status_label.config(text="Airpump OFF")
 
 root = tk.Tk()
-root.title("Controll_test_window")
+root.title("Fermenter")
 root.geometry("800x600")
 
 # Motor controll buttons
@@ -70,3 +75,6 @@ status_label = tk.Label(root, text="")
 status_label.pack(pady=10)
 
 root.mainloop()
+
+# Temp data read back
+
