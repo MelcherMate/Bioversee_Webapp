@@ -1,80 +1,42 @@
+from tkinter import *
+import ttkbootstrap as tb
 import tkinter as tk
 from __init__ import Motor
 from __init__ import Airpump
-from __init__ import read_temp
-from time import sleep
 
-from tkinter import *
-from ttkbootstrap.constants import *
-import ttkbootstrap as tb
+#APP WINDOW
+root = tb.Window(themename="superhero")
+root.title("Fermenter Controller")
+root.iconbitmap('images/codemy.ico')
+window_width = 600
+window_height = 400
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x_coordinate = int((screen_width - window_width) / 2)
+y_coordinate = int((screen_height - window_height) / 2)
+root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
+#TITLE
+frame = tk.Frame(root)
+frame.grid(row=0, column=0, sticky="nsew")
 
-def start_temperature_measurement():
-    temperature_label.config(text="Stop temperature recording")
-    measure_temperature()
+title_label = Label(text = "Fermenter Controller", font = ("Helvetica", 28))
 
-def stop_temperature_measurement():
-    global running
-    running = False
-    temperature_label.config(text="Start temperature recording")
+#MOTOR BUTTON
+motor_label = Label(text = "The motor is OFF", font = ("Helvetica", 16))
+var1 = IntVar()
+motor_button = tb.Checkbutton(bootstyle = "success, round-toggle", text = "Motor", variable = var1, onvalue=1, offvalue=0, command = Motor.motor_turn_on_off)
 
-def measure_temperature():
-    global running
-    running = True
-    while running:
-        temperature = read_temp()
-        temperature_label.config(text=f"Current temperature: {temperature} Celsius")
-        root.update()
-        sleep(5)
+#AIRPUMP BUTTON
+airpump_label = Label(text = "The airpump is OFF", font = ("Helvetica", 16))
+var2 = IntVar()
+airpump_button = tb.Checkbutton(bootstyle = "success, round-toggle", text = "Airpump", variable = var2, onvalue=1, offvalue=0, command = Airpump.airpump_turn_on_off)
 
-def motor_on():
-    Motor.motor_turn_on()
-    status_label.config(text="Motor ON")
-
-def motor_off():
-    Motor.motor_turn_off()
-    status_label.config(text="Motor OFF")
-
-def airpump_on():
-    Airpump.air_pump_on()
-    status_label.config(text="Airpump ON")
-
-def airpump_off():
-    Airpump.air_pump_off()
-    status_label.config(text="Airpump OFF")
-
-root = tk.Tk()
-root.title("Fermenter")
-root.geometry("800x600")
-
-# Motor controll buttons
-on_button_motor = tk.Button(root, text="Motor ON", command=motor_on)
-on_button_motor.pack(pady=10)
-
-off_button_motor = tk.Button(root, text="Motor OFF", command=motor_off)
-off_button_motor.pack(pady=10)
-
-# Airpump controll buttons
-on_button_airpump = tk.Button(root, text="Airpump ON", command=airpump_on)
-on_button_airpump.pack(pady=10)
-
-off_button_airpump = tk.Button(root, text="Airpump OFF", command=airpump_off)
-off_button_airpump.pack(pady=10)
-
-# Temperature controll button
-start_button = tk.Button(root, text="Start temperature data recording", command=start_temperature_measurement)
-start_button.pack(pady=10)
-
-stop_button = tk.Button(root, text="Stop temperature data recording", command=stop_temperature_measurement)
-stop_button.pack(pady=10)
-
-temperature_label = tk.Label(root, text="")
-temperature_label.pack(pady=10)
-
-status_label = tk.Label(root, text="")
-status_label.pack(pady=10)
+#PLACEMENT
+title_label.place(relx=0.5, rely=0.1, anchor="center")
+motor_label.place(relx=0.3, rely=0.3, anchor="center")
+motor_button.place(relx=0.7, rely=0.3, anchor="center")
+airpump_label.place(relx=0.3, rely=0.5, anchor="center")
+airpump_button.place(relx=0.7, rely=0.5, anchor="center")
 
 root.mainloop()
-
-# Temp data read back
-
