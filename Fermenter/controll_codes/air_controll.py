@@ -1,14 +1,12 @@
 from gpiozero import OutputDevice
-from Fermenter_UI import var2
 
-air_pin = 16
-airpump = OutputDevice(air_pin)
+airpump_pin = 16
+airpump = OutputDevice(airpump_pin)
 
-class Airpump:
-
-    #air controll
-    def airpump_turn_on_off ():
-        if var2 == 1 is True:
-            airpump.on
-        else:
-            airpump.off
+def airpump_turn_on_off():
+    if var2 is None:
+        var2 = 0 
+    if var2.get() == 1:
+        airpump.on()
+    else:
+        airpump.off()

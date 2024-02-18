@@ -1,8 +1,8 @@
 from tkinter import *
 import ttkbootstrap as tb
 import tkinter as tk
-from __init__ import Motor
-from __init__ import Airpump
+from controll_codes.air_controll import airpump_turn_on_off
+from controll_codes.motor_controll import motor_turn_on_off
 
 #APP WINDOW
 root = tb.Window(themename="superhero")
@@ -21,17 +21,17 @@ root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 frame = tk.Frame(root)
 frame.grid(row=0, column=0, sticky="nsew")
 
-title_label = Label(text = "Fermenter Controller", font = ("Helvetica", 28))
+title_label = Label(text="Fermenter Controller", font=("Helvetica", 28))
 
 #MOTOR BUTTON
-motor_label = Label(text = "The motor is OFF", font = ("Helvetica", 16))
+motor_label = Label(text="The motor is OFF", font=("Helvetica", 16))
 var1 = IntVar()
-motor_button = tb.Checkbutton(bootstyle = "success, round-toggle", text = "Motor", variable = var1, onvalue=1, offvalue=0, command = Motor.motor_turn_on_off)
+motor_button = tb.Checkbutton(bootstyle="success, round-toggle", text="Motor", variable=var1, onvalue=1, offvalue=0, command=motor_turn_on_off)
 
 #AIRPUMP BUTTON
-airpump_label = Label(text = "The airpump is OFF", font = ("Helvetica", 16))
+airpump_label = Label(text="The airpump is OFF", font=("Helvetica", 16))
 var2 = IntVar()
-airpump_button = tb.Checkbutton(bootstyle = "success, round-toggle", text = "Airpump", variable = var2, onvalue=1, offvalue=0, command = Airpump.airpump_turn_on_off)
+airpump_button = tb.Checkbutton(bootstyle="success, round-toggle", text="Airpump", variable=var2, onvalue=1, offvalue=0, command=airpump_turn_on_off)
 
 #PLACEMENT
 title_label.place(relx=0.5, rely=0.1, anchor="center")
