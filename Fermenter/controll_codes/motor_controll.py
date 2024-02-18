@@ -8,7 +8,7 @@ class Motor:
 
     #motor controll
     def motor_turn_on_off():
-        if var1 == 1:
+        if var1 == 1 is True:
             motor.on
         else:
             motor.off
