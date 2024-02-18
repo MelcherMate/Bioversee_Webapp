@@ -1,6 +1,6 @@
 from gpiozero import OutputDevice
 
-motor_pin = 18
+motor_pin = 24
 motor = OutputDevice(motor_pin)
 
 var1 = None
