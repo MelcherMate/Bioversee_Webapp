@@ -1,6 +1,5 @@
 from pymongo import MongoClient
 from datetime import datetime
-from __init__ import read_temp
 
 #connet to database
 client = MongoClient('localhost', 27017)
@@ -32,9 +31,11 @@ class AirpumpData:
         log_data = {'button': 'Airpump OFF', 'timestap': datetime.now()}
         log_airpump.insert_one(log_data)
 
+'''
 class TempData:
     @staticmethod
     def log_temperature():
         temperature = read_temp()
         log_data = {'temperature': temperature, 'timestamp': datetime.now()}
         log_temperature.insert_one(log_data)
+'''
