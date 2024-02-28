@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+
+td {
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+    text-align: center;
+    background-color: #80f095;
+}
+
+button {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 140px;
+    height: 30px;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+#headerTable {
+    margin-bottom: 10px;
+}
+
+#mainTable {
+    margin-bottom: 10px;
+}
+
+#footerTable {
+    margin-bottom: 10px;
+}
