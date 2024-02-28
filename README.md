@@ -11,6 +11,8 @@ Used packages:
 -git
 -venv
 -pymongo
+-ttkbootstrap
+-gpiozero
 
 Programming tasktree:
 1. First step of the project is to build a basic code, which does the job and turns On and OFF the devices.
