@@ -18,7 +18,17 @@ Programming tasktree:
 1. First step of the project is to build a basic code, which does the job and turns On and OFF the devices.
 2. Second step is to be able to controll the airflow, the motor rotation speed and the temprerature. (Last is a hard one for me, cause it has hardware difficulities)
 3. Thirs step is to create a log system for which stores the changes made in the devices.
-4. Create a basic desktop app interface for easy controll (this is a development tool for me, it will evolve trough the development. In here I wanna finalyse it, than change it to a web UI.)
-5. create a website for the controlls
+4. create a website for the controlls
+5. Create a basic desktop app interface for easy controll (this is a development tool for me, it will evolve trough the development. In here I wanna finalyse it, than change it to a web UI.)
 6. add a user system to the website
 7. make the users able to controll their own devices and see their recorsd from the database
+
+Progress:
+
+So the controll of the GPIO pins turned out to be a bigger task then it felt like before.
+
+I did the mongodb database for the program.
+
+I started creating the fist version of the website.
+
+I built the method to request data from the HTML file.
