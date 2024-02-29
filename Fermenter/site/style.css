@@ -3,15 +3,19 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 10px;
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 150;
+    font-style: normal;
 }
 
 td {
     padding: 15px;
-    border-radius: 10px;
-    margin-left: 500px;
-    margin-right: 500px;
-    text-align: center;
-    background-color: #80f095;
+}
+
+th {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 button {
@@ -26,12 +30,30 @@ button {
 
 #headerTable {
     margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 48px;
+    text-transform: uppercase;
+    text-align: left;
+    background-color:aqua;
 }
 
 #mainTable {
     margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: aquamarine;
 }
 
 #footerTable {
     margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color:aqua;
+}
+#footerTable.green{
+    background-color: seagreen;
+}
+
+#footerTable.yellow{
+    background-color: yellow;
 }
