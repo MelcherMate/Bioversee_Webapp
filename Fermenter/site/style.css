@@ -1,21 +1,75 @@
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-columns: 20% auto 20%;
+    font-size: 1.5rem;
+    height: 100%;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-rows:
+            6rem 6rem 6rem auto 6rem 6rem;
+        grid-template-columns: 1fr;
+    }
+
+    aside,
+    main {
+        grid-column: 1 / 4;
+    }
+}
+
+nav,
+header,
+footer {
+    background: #F6C356;
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background: #AAEC8A;
+}
+
+aside,
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside {
+    background: white;
+}
+
+main {
+    background: whitesmoke;
+}
+
+#mainTable{
     margin-bottom: 10px;
-    font-family: "Urbanist", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 150;
-    font-style: normal;
-}
-
-td {
-    padding: 15px;
-}
-
-th {
-    padding-left: 5px;
-    padding-right: 5px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: lightblue;
+    border-spacing: 50px;
 }
 
 button {
@@ -25,35 +79,13 @@ button {
     width: 140px;
     height: 30px;
     text-align: center;
-    background-color: aquamarine;
+    background-color: lightcoral;
 }
 
-#headerTable {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    font-size: 48px;
-    text-transform: uppercase;
-    text-align: left;
-    background-color:aqua;
+#motorButton.green{
+    background: #AAEC8A;
 }
 
-#mainTable {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: aquamarine;
-}
-
-#footerTable {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    text-align: center;
-    background-color:aqua;
-}
-#footerTable.green{
-    background-color: seagreen;
-}
-
-#footerTable.yellow{
-    background-color: yellow;
+#airpumpButton.green{
+    background:#AAEC8A ;
 }

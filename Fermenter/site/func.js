@@ -8,11 +8,11 @@ function toggleMotorState() {
     }
     console.log("motorState value: " + motorState);
     
-    var footerTable = document.getElementById("footerTable");
+    var motorButton = document.getElementById("motorButton");
     if (motorState === 1) {
-        footerTable.classList.add("green"); 
+        motorButton.classList.add("green"); 
     } else {
-        footerTable.classList.remove("green");
+        motorButton.classList.remove("green");
     }
 }
 
@@ -26,11 +26,11 @@ function toggleAirpumpState(){
     }
     console.log("airpumpState value: " + airpumpState)
 
-    var footerTable = document.getElementById("footerTable");
+    var airpumpButton = document.getElementById("airpumpButton");
     if (airpumpState === 1) {
-        footerTable.classList.add("yellow"); 
+        airpumpButton.classList.add("green"); 
     } else {
-        footerTable.classList.remove("yellow");
+        airpumpButton.classList.remove("green");
     }
 }
 
