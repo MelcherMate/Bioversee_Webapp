@@ -6,7 +6,7 @@ app = Flask(__name__)
 motor_state = 0
 airpump_state = 0
 
-@app.route("Fermenter\controll_codes\variables.py", methods=["POST"])
+@app.route("\Fermenter\data_transfer\data_pull\variables.py", methods=["POST"])
 def handle_ajax_request():
     global motor_state, airpump_state
     motor_state = request.form.get("motorState")

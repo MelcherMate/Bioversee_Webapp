@@ -32,3 +32,5 @@ I did the mongodb database for the program.
 I started creating the fist version of the website.
 
 I built the method to request data from the HTML file.
+
+New layout and data pull
