@@ -36,7 +36,7 @@ function toggleAirpumpState(){
 
 $.ajax({
     type: "POST",
-    url: "C:\Users\melch\OneDrive\Documents\Programming\Project_fermentor\Fermenter\online_data_pull.py",
+    url: "Fermenter\data_transfer\data_pull\online_data_pull.py",
     data: { motorState: motorState,
             airpumpState: airpumpState
     },
