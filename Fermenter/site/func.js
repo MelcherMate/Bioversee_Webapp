@@ -14,7 +14,7 @@ function toggleMotorState() {
     } else {
         motorButton.classList.remove("green");
     }
-    sendAjaxRequest();
+    sendAjaxRequestMotor();
 }
 
 var airpumpState = 0;
@@ -33,15 +33,29 @@ function toggleAirpumpState(){
     } else {
         airpumpButton.classList.remove("green");
     }
-    sendAjaxRequest();
+    sendAjaxRequestAirpump();
 }
 
-function sendAjaxRequest() {
+function sendAjaxRequestMotor() {
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:5000/Fermenter/data_transfer/data_pull/online_data_pull",
         data: { motorState: motorState,
-                airpumpState: airpumpState
+        },
+        success: function(response) {
+            console.log("AJAX sent Successfully");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error sending AJAX", error);
+        }
+    });
+}
+
+function sendAjaxRequestAirpump() {
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/Fermenter/data_transfer/data_pull/online_data_pull",
+        data: { airpumpState: airpumpState,
         },
         success: function(response) {
             console.log("AJAX sent Successfully");
