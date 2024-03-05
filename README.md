@@ -1,10 +1,10 @@
 This is a prototype project of my idea to create a basic fermenter machine, which can be controlled by air via a web service.
 
 How to run the code:
-The code is desigened to run on raspberry PI
+Right now I am testing the code with "live server" vscode addon for the website part and running the online_data_pull.py manually from console. To see the resutl you need to use the same adresses and ports just like I do and also you have to use mongoDB comapass to see the data in your local db. Cloud saveing coming soon...
 
 The code is desigend in python 3.12.0
-Designed on Apple Macbook Air M1 (2020)
+Designed on Apple Macbook Air M1 (2020) and PC wiht windows 10 (latest version)
 Tested on Raspberry PI 5 8GB
 
 Used packages:
@@ -13,6 +13,7 @@ Used packages:
 -pymongo
 -gpiozero
 -flask
+-flask_cors
 
 Programming tasktree:
 1. First step of the project is to build a basic code, which does the job and turns On and OFF the devices.
