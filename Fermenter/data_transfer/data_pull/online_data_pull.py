@@ -13,20 +13,29 @@ motor_log = db['Motor_log']
 airpump_log = db['Airpump_log']
 
 
-@app.route('/Fermenter/data_transfer/data_pull/online_data_pull', methods=['POST'])
-def online_data_pull():
+@app.route('/Fermenter/data_transfer/data_pull/online_data_pull_motor', methods=['POST'])
+def online_data_pull_motor():
     if request.method == 'POST':
         
         motorState = request.form['motorState']
-        airpumpState = request.form['airpumpState']
-
         current_time = datetime.now()
-
         motor_log.insert_one({'motorState': motorState, 'timestamp': current_time})
-        airpump_log.insert_one({'airpumpState': airpumpState, 'timestamp': current_time})
-
+        
         response_data = {
             'motorState': motorState,
+            'timestamp': current_time.strftime("%Y-%m-%d %H:%M:%S")
+        }
+        return jsonify(response_data)
+
+@app.route('/Fermenter/data_transfer/data_pull/online_data_pull_airpump', methods=['POST'])
+def online_data_pull_airpump():
+    if request.method == 'POST':
+        
+        airpumpState = request.form['airpumpState']
+        current_time = datetime.now()
+        airpump_log.insert_one({'airpumpState': airpumpState, 'timestamp': current_time})
+        
+        response_data = {
             'airpumpState': airpumpState,
             'timestamp': current_time.strftime("%Y-%m-%d %H:%M:%S")
         }
