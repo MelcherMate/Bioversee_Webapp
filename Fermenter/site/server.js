@@ -1,36 +1,36 @@
-const { MongoClient } = require('mongodb');
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const app = express();
 
 const url = 'mongodb://localhost:27017';
 const dbName = 'Fermenter';
 
-async function getLatestState() {
-    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-    
-    try {
-        await client.connect();
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    if (err) throw err;
 
-        const db = client.db(dbName);
-        const motorCollection = db.collection('Motor_log');
-        const airpumpCollection = db.collection('Airpump_log');
+    console.log("Connected successfully to server");
 
-        const latestMotorState = await motorCollection.findOne({}, { sort: { timestamp: -1 } });
-        const latestAirpumpState = await airpumpCollection.findOne({}, { sort: { timestamp: -1 } });
+    const db = client.db(dbName);
+    const motorLog = db.collection('Motor_log');
+    const airpumpLog = db.collection('Airpump_log');
 
-        const initialMotorState = latestMotorState ? parseInt(latestMotorState.motorState) : 0;
-        const initialAirpumpState = latestAirpumpState ? parseInt(latestAirpumpState.airpumpState) : 0;
+    app.get('/api/motorState', (req, res) => {
+        motorLog.findOne({}, { sort: { _id: -1 } }, (err, result) => {
+            if (err) throw err;
+            res.json({ motorState: result ? result.state : 0 });
+        });
+    });
 
-        console.log("Initial motorState:", initialMotorState);
-        console.log("Initial airpumpState:", initialAirpumpState);
+    app.get('/api/airpumpState', (req, res) => {
+        airpumpLog.findOne({}, { sort: { _id: -1 } }, (err, result) => {
+            if (err) throw err;
+            res.json({ airpumpState: result ? result.state : 0 });
+        });
+    });
 
-        return { initialMotorState, initialAirpumpState };
-
-    } catch (error) {
-        console.error("Error in MongoDB data request", error);
-    } finally {
-        await client.close();
-    }
-}
-
-module.exports = { getLatestState };
+    app.listen(3000, () => {
+        console.log('Server is running on port 3000');
+    });
+});
 
 
