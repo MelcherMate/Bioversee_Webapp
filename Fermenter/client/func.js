@@ -15,6 +15,26 @@ $(document).ready(function() {
     });
 });
 
+// Function to update motor button style
+function updateMotorButton() {
+    var motorButton = document.getElementById("motorButton");
+    if (motorState === 1) {
+        motorButton.classList.add("green"); 
+    } else {
+        motorButton.classList.remove("green");
+    }
+}
+
+// Function to update airpump button style
+function updateAirpumpButton() {
+    var airpumpButton = document.getElementById("airpumpButton");
+    if (airpumpState === 1) {
+        airpumpButton.classList.add("green"); 
+    } else {
+        airpumpButton.classList.remove("green");
+    }
+}
+//#############################################################//
 // Function to toggle motorState
 function toggleMotorState() {
     if (motorState === 0) {
@@ -41,31 +61,12 @@ function toggleAirpumpState(){
     sendAirpumpAjaxRequest();
 }
 
-// Function to update motor button style
-function updateMotorButton() {
-    var motorButton = document.getElementById("motorButton");
-    if (motorState === 1) {
-        motorButton.classList.add("green"); 
-    } else {
-        motorButton.classList.remove("green");
-    }
-}
-
-// Function to update airpump button style
-function updateAirpumpButton() {
-    var airpumpButton = document.getElementById("airpumpButton");
-    if (airpumpState === 1) {
-        airpumpButton.classList.add("green"); 
-    } else {
-        airpumpButton.classList.remove("green");
-    }
-}
-
+//#############################################################//
 // Function to send motorState to server
 function sendMotorAjaxRequest() {
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:5000/Fermenter/data_transfer/online_data_pull_motor",
+        url: "http://127.0.0.1:5000/Fermenter/backend/flask_server/motor_info",
         data: { motorState: motorState },
         success: function(response) {
             console.log("Motor AJAX sent Successfully");
@@ -80,7 +81,7 @@ function sendMotorAjaxRequest() {
 function sendAirpumpAjaxRequest() {
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:5000/Fermenter/data_transfer/online_data_pull_airpump",
+        url: "http://127.0.0.1:5000/Fermenter/backend/flask_server/airpump_info",
         data: { airpumpState: airpumpState },
         success: function(response) {
             console.log("Airpump AJAX sent Successfully");

@@ -13,8 +13,8 @@ motor_log = db['Motor_log']
 airpump_log = db['Airpump_log']
 
 # flask functions
-@app.route('/Fermenter/data_transfer/online_data_pull_motor', methods=['POST'])
-def online_data_pull_motor():
+@app.route('/Fermenter/backend/flask_server/motor_info', methods=['POST'])
+def motor_info():
     if request.method == 'POST':
         motorState = request.form['motorState']
         current_time = datetime.now()
@@ -26,8 +26,8 @@ def online_data_pull_motor():
         }
         return jsonify(response_data)
 
-@app.route('/Fermenter/data_transfer/online_data_pull_airpump', methods=['POST'])
-def online_data_pull_airpump():
+@app.route('/Fermenter/backend/flask_server/airpump_info', methods=['POST'])
+def airpump_info():
     if request.method == 'POST':
         airpumpState = request.form['airpumpState']
         current_time = datetime.now()
