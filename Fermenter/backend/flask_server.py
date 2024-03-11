@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 from datetime import datetime
@@ -18,7 +18,12 @@ def motor_info():
     if request.method == 'POST':
         motorState = request.form['motorState']
         current_time = datetime.now()
-        motor_log.insert_one({'motorState': motorState, 'timestamp': current_time})
+        
+        motor_log.update_one(
+            {},
+            {'$set': {'motorState': motorState, 'timestamp': current_time}},
+            upsert=True
+        )
         
         response_data = {
             'motorState': motorState,
@@ -31,7 +36,12 @@ def airpump_info():
     if request.method == 'POST':
         airpumpState = request.form['airpumpState']
         current_time = datetime.now()
-        airpump_log.insert_one({'airpumpState': airpumpState, 'timestamp': current_time})
+        
+        airpump_log.update_one(
+            {},
+            {'$set': {'airpumpState': airpumpState, 'timestamp': current_time}},
+            upsert=True
+        )
         
         response_data = {
             'airpumpState': airpumpState,
