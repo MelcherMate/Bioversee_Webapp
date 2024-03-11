@@ -32,6 +32,3 @@ window.onload = function() {
     fetchMotorState();
     fetchAirpumpState();
 };
-
-
-

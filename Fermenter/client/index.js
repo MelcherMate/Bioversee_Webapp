@@ -1,6 +1,8 @@
 var motorState = 0;
 var airpumpState = 0;
 
+/*
+//
 $(document).ready(function() {
     // Inicialize: motorState from server
     $.get("/api/motorState", function(data) {
@@ -14,6 +16,7 @@ $(document).ready(function() {
         updateAirpumpButton();
     });
 });
+*/
 
 // Function to update motor button style
 function updateMotorButton() {
