@@ -10,6 +10,7 @@ dotenv.config({ path: path.resolve(__dirname + "/.env") });
 
 // Mongoose connecting
 mongoose.Promise = global.Promise;
+mongoose.set("strictQuery", true)
 mongoose.connect(process.env.MONGODB_URI);
 
 console.log("*********************************************************");

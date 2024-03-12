@@ -5,11 +5,7 @@ import path from "path";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
-if (process.env.NODE_ENV === "development") {
-  dotenv.config({ path: path.resolve(__dirname + "./.env.dev") });
-} else {
-  dotenv.config({ path: path.resolve(__dirname + "./.env.prod") });
-}
+dotenv.config({ path: path.resolve(__dirname + "./.env") });
 
 // # Server Creation
 const app = express();
