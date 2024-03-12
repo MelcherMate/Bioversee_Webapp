@@ -24,10 +24,10 @@ app.use(cors(corsOptions));
 // # Serving
 // serving the frontend dev, and prod folders as static resources
 
-app.use("/", express.static(path.join(__dirname, "./client/")));
+app.use("/", express.static(path.join(__dirname, "../client/")));
 /* final catch-all route to index.html defined last; trailing / is important (!!!) */
 app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "./client/"));
+  res.sendFile(path.join(__dirname, "../client/"));
 });
 app.use("*", function (req, res, next) {
   // serve files upon refresh window
