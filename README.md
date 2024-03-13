@@ -1,7 +1,7 @@
 # Solution to controll any fermenter remote via a webapplication
 
 ## General idea:
-This is a prototype project of my idea to create a basic fermenter controller website, which can controll any hooked up device. For the system it doesn`t matter how old or new a fermenter is. It just needs a Raspberry PI to connect the devices with a computer and access to the internet and it will be good to go.
+This is a prototype project of my idea to create a basic fermenter controller website, which can controll any hooked up device. For the system it doesn't matter how old or new a fermenter is. It just needs a Raspberry PI to connect the devices with a computer and access to the internet and it will be good to go.
 
 ## In dept review of a basic fermenter:
 A fermenter is a common machine with a few controllers and devices attached to it. Fermenters al also called as bioreactors which refers to their purpose. We call a device bioreactor, when inside of them, there is a biologically active environment, inwhich a chemical process is carried out involving organisms or biochemically active stubstance. (like enzimes)
