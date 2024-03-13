@@ -15,6 +15,8 @@ Bioreactors commonly use dual layer chambers. Between the layers we can circulat
 The idea was that to have a Raspberry PI and trough the GPIO pins hook up the devices from an existing fermenter and access the device setting on a website.
 To do that, first I need to create the webservice and the when thats ready to test I need to build the actual device. As a product I want to give the code and documentation to the customer. They have to buy their own devices for the system. I will create a guidebook, how to set up the hardware. On the customer side we will need to run python codes to actually controll the bioreactor. On server side the website has to communicate with the database. We can set the current state we want for the controllest in the database. From there the locally runing python codes can give feedback to the server and the customer will be able to see the current state of their device on the website.
 
+In theory the website works separate from the local python codes, but they are connected with useing the same database.
+
 ## How to run the code:
 Run server: `node app.js` in terminal within the backend library
 Stop server: `control+c`
