@@ -17,6 +17,10 @@ To do that, first I need to create the webservice and the when thats ready to te
 
 In theory the website works separate from the local python codes, but they are connected with useing the same database.
 
+## Server side file tree:
+
+![alt text](blueprints/codeLayout.png)
+
 ## How to run the code:
 Run server: `node app.js` in terminal within the backend library
 Stop server: `control+c`
