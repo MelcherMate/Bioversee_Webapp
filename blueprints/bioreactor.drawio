@@ -205,18 +205,6 @@
                 <mxCell id="72" value="" style="shape=corner;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;dx=20;dy=20;flipV=0;flipH=1;" vertex="1" parent="1">
                     <mxGeometry x="230" y="230" width="170" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="75" value="" style="shape=flexArrow;endArrow=classic;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="530" y="270" as="sourcePoint"/>
-                        <mxPoint x="470" y="320" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="77" value="" style="shape=flexArrow;endArrow=classic;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="300" y="270" as="sourcePoint"/>
-                        <mxPoint x="360" y="320" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="78" value="Base in" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;" vertex="1" parent="1">
                     <mxGeometry x="130" y="230" width="90" height="30" as="geometry"/>
                 </mxCell>
