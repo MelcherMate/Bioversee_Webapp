@@ -63,34 +63,3 @@ function toggleAirpumpState(){
     updateAirpumpButton(); 
     sendAirpumpAjaxRequest();
 }
-
-//#############################################################//
-// Function to send motorState to server
-function sendMotorAjaxRequest() {
-    $.ajax({
-        type: "POST",
-        url: "http://127.0.0.1:5000/Fermenter/backend/flask_server/motor_info",
-        data: { motorState: motorState },
-        success: function(response) {
-            console.log("Motor AJAX sent Successfully");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error sending Motor AJAX", error);
-        }
-    });
-}
-
-// Function to send airpumpState to server
-function sendAirpumpAjaxRequest() {
-    $.ajax({
-        type: "POST",
-        url: "http://127.0.0.1:5000/Fermenter/backend/flask_server/airpump_info",
-        data: { airpumpState: airpumpState },
-        success: function(response) {
-            console.log("Airpump AJAX sent Successfully");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error sending Airpump AJAX", error);
-        }
-    });
-}
