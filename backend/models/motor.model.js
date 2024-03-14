@@ -3,9 +3,7 @@ const { Schema } = mongoose;
 
 // # motorSchema
 const motorSchema = Schema(
-  {
-    motor: { type: Boolean, default: false },
-  },
+  { motor: { type: Boolean, default: false },},
   { timestamps: true },
 );
 
