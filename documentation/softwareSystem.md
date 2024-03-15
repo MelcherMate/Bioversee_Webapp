@@ -25,3 +25,5 @@ In the data tier we have a MongoDB cloud based database where we will store the 
 To be able to controll the pins on the Raspberry Pi I use a python application with the GPIOZERO module. The python code has to run locally on the Raspberry Pi which is connected to the bioreactor. To set an actuators the needed setting set on the controller webiste, the python app will use the same MongoDB database as the website. If the customer sets a setting on the website, the data goes to the database and from there the python application will read the change and ajust the setting of the actuator. It will give us a json conformation file, which will be sent to the motor of the website and presented to the customer, letting him/her know, the change in the settings was successful.
 
 ## Logical blueprint for the software setup:
+
+![Blueprint for hardware logical design](../blueprints/softwareDesign.png)
