@@ -1,15 +1,22 @@
 import Actuator from '../models/actuator.model';
 
-// # patchActuator
-const patchActuator = (req, res) => {
-    const {data} = req.body;
-    console.log(data, data._id, data.state);
-Actuator.findByIdAndUpdate(data._id, data, { upsert: true, new: true }, (err) => {
-    if (err) return res.status(400).json({ status: 400, error: "Error" });
-    res.status(200).json({ status: 200, message: 'Actuator was sucessfully patched.' });
+const addActuator = (req, res, next) => {
+    const newActuator = new Actuator({
+      name: req.body.data.name,
+      state: req.body.data.state,
     });
-};
+  
+    newActuator.save((err, savedActuator) => {
+      if (err) {
+        return res.status(400).json({ error: "Error saving actuator state" });
+      }
+      req.actuator = savedActuator;
+      res.status(201).json({
+        message: 'Actuator saved successfully!',
+      });
+    });
+  };
 
 export default {
-    patchActuator
+    addActuator
 };

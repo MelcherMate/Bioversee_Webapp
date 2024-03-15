@@ -1,17 +1,17 @@
 // Function to fetch actuator state from server
-const patchActuatorState = async () => {
+const addActuatorState = async () => {
     // Define the URL of the API endpoint
-    const url = '/api/v1/actuator/patchactuator';
+    const url = '/api/v1/actuator/addactuator';
 
-    // Prepare the dataRotor to be patched (usually in JSON format)
+    // Prepare the dataRotor to be added (usually in JSON format)
     const data = {
-        _id: "65f396993378bcf36c8662cd",
-        state: true
+        name: "rotor",
+        state: 20
     };
 
-    // Make the PATCH request
+    // Make the POST request
     fetch('http://localhost:4321' + url, {
-        method: 'PATCH',
+        method: 'POST',
         headers: {
             'Accept' : 'application/json',
             'Content-Type' : 'application/json'
@@ -26,16 +26,16 @@ const patchActuatorState = async () => {
             return response.json();
         })
         // Now parse the JSON response
-        .then(patchedData => {
-            // Handle the patched data here (e.g., update UI)
-            console.log('Data patched successfully:', patchedData);
+        .then(addedData => {
+            // Handle the added data here (e.g., update UI)
+            console.log('Data added successfully:', addedData);
         })
         .catch(error => {
-            console.error('Error patching data:', error);
+            console.error('Error adding data:', error);
         });
 }
 
 // Fetch motor and airpump states when the page loads
 window.onload = function() {
-    patchActuatorState();
+    addActuatorState();
 };

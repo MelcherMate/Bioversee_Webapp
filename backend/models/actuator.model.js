@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 // # actuatorSchema
 const actuatorSchema = Schema(
-  { state: { type: Boolean, default: false } },
+  { name: { type: String }, state: { type: Number } },
   { timestamps: true },
 );
 
