@@ -1,27 +1,10 @@
-var motorState = 0;
-var airpumpState = 0;
-
-/*
-//
-$(document).ready(function() {
-    // Inicialize: motorState from server
-    $.get("/api/motorState", function(data) {
-        motorState = data.motorState;
-        updateMotorButton();
-    });
-
-    // Inicialize: airpumpState from server
-    $.get("/api/airpumpState", function(data) {
-        airpumpState = data.airpumpState;
-        updateAirpumpButton();
-    });
-});
-*/
+var motorState = false;
+var airpumpState = false;
 
 // Function to update motor button style
 function updateMotorButton() {
     var motorButton = document.getElementById("motorButton");
-    if (motorState === 1) {
+    if (motorState === true) {
         motorButton.classList.add("green"); 
     } else {
         motorButton.classList.remove("green");
@@ -31,35 +14,32 @@ function updateMotorButton() {
 // Function to update airpump button style
 function updateAirpumpButton() {
     var airpumpButton = document.getElementById("airpumpButton");
-    if (airpumpState === 1) {
+    if (airpumpState === true) {
         airpumpButton.classList.add("green"); 
     } else {
         airpumpButton.classList.remove("green");
     }
 }
-//#############################################################//
 // Function to toggle motorState
 function toggleMotorState() {
-    if (motorState === 0) {
-        motorState = 1;
+    if (motorState === false) {
+        motorState = true;
     } else {
-        motorState = 0;
+        motorState = false;
     }
     console.log("motorState value: " + motorState);
     
     updateMotorButton();
-    sendMotorAjaxRequest();
 }
 
 // Function to toggle airpumpState
 function toggleAirpumpState(){
-    if (airpumpState == 0){
-        airpumpState = 1;
+    if (airpumpState == false){
+        airpumpState = true;
     } else {
-        airpumpState = 0;
+        airpumpState = false;
     }
     console.log("airpumpState value: " + airpumpState)
 
     updateAirpumpButton(); 
-    sendAirpumpAjaxRequest();
 }
