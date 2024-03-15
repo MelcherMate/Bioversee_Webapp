@@ -32,6 +32,6 @@ Designed on Apple Macbook Air M1 (2020) and PC on Windows 10 (latest version)
 Tested on Raspberry PI 5 8GB
 
 ## Used packages:
--git
--node.js
--express.js
+- git
+- node.js
+- express.js
