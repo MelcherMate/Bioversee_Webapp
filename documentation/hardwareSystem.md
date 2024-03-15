@@ -20,6 +20,6 @@ Most bioreactors work the same. They will 5 activators for electric motors (for 
 
 - ph meter: This sensor is also a simple one. Works the same like the thermometer and gives back live pH value feed to the Rapsberry. From it's feed we can set controll codes for the base and acid pumps. This also will need a ground pin, a 3.3V pin and a GPIO pin.
 
-![alt text](image.png)
+![alt text](blueprints/hardwareDesign.png)
 
 ## Blueprint for wiring the activators and sersors to the Raspberry Pi:
