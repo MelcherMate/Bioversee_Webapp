@@ -16,3 +16,5 @@ Most bioreactors work the same. They will 5 activators for electric motors (for 
 - Thermometer: The thermometer is a simple device. I needs some power and a pin where the sensor can give the Rasperry the current temperature. From the temperature data I can decide weather I need to ciculate warm or cold water. This will take 3 pins. A ground pin, a 3.3V pin and GPIO pin. (GPIO 4 recommended)
 
 - ph meter: This sensor is also a simple one. Works the same like the thermometer and gives back live pH value feed to the Rapsberry. From it's feed we can set controll codes for the base and acid pumps. This also will need a ground pin, a 3.3V pin and a GPIO pin.
+
+## Blueprint for wiring the activators and sersors to the Raspberry Pi:
