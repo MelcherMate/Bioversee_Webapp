@@ -13,6 +13,6 @@ Most bioreactors work the same. They will 5 activators for electric motors (for 
 - Base and acid pipe: The set the required pH in the fluid we have to add base or acid to the system. To do that we need 2 pumps, each able to pump 1 liquid. These can be just simple on/off instruments, here we do not need more specific settings. This part of the system needs 2 GPIO pins on Rapsberry Pi.
 
 ### Measuring instruments:
-1. Thermometer: The thermometer is a simple device. I needs some power and a pin where the sensor can give the Rasperry the current temperature. From the temperature data I can decide weather I need to ciculate warm or cold water. This will take 3 pins. A ground pin, a 3.3V pin and GPIO pin. (GPIO 4 recommended)
+- Thermometer: The thermometer is a simple device. I needs some power and a pin where the sensor can give the Rasperry the current temperature. From the temperature data I can decide weather I need to ciculate warm or cold water. This will take 3 pins. A ground pin, a 3.3V pin and GPIO pin. (GPIO 4 recommended)
 
-2. ph meter: This sensor is also a simple one. Works the same like the thermometer and gives back live pH value feed to the Rapsberry. From it's feed we can set controll codes for the base and acid pumps. This also will need a ground pin, a 3.3V pin and a GPIO pin.
+- ph meter: This sensor is also a simple one. Works the same like the thermometer and gives back live pH value feed to the Rapsberry. From it's feed we can set controll codes for the base and acid pumps. This also will need a ground pin, a 3.3V pin and a GPIO pin.
