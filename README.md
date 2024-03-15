@@ -27,9 +27,7 @@ In theory the website works separate from the local python codes, but they are c
 Run server: `node app.js` in terminal within the backend library
 Stop server: `control+c`
 
-The code is desigend in python 3.12.0
-Designed on Apple Macbook Air M1 (2020) and PC on Windows 10 (latest version)
-Tested on Raspberry PI 5 8GB
+Designed on Apple Macbook Air M1 (2020) and PC on Windows 10 (latest version) and will be tested on Raspberry PI 5 8GB.
 
 ## Used packages:
 - git
