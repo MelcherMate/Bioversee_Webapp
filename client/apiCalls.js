@@ -10,7 +10,7 @@ const addActuatorState = async () => {
     };
 
     // Make the POST request
-    fetch('http://localhost:4321' + url, {
+        fetch('http://localhost:4321' + url, {
         method: 'POST',
         headers: {
             'Accept' : 'application/json',
