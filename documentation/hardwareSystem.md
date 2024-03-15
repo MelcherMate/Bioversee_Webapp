@@ -3,7 +3,7 @@
 ## General
 Most bioreactors work the same. They will 5 activators for electric motors (for the rotor, the aerator, the fluid circulation and for acid and base intake) and 2 measuring instruments (temperature and pH) to have informations abut the system. We can add additional instruments as well, like for measuring the purity of the air that goes into the aerator, or measuring the weight live troughout the fermentation process. In the first stage of my development I would like to focus on the basic 5+2 setup and than work on these optional devices. All of our devices and sensors needs to be heat, corrosion, acid and base resistant.
 
-### Activators:
+### Activators
     - Rotor: The rotors purpose is simple. It needs to create a flow in the fluid to provide a homogen system. The rotor is powered by an electric motor with can be 1 speed design or an instrument, which can be set to a needed %. The rotor need 1 GPIO pin on the Raspberry Pi.
     
     - Aerator: The aerator works just like the rotor except it's purpose is different. It provides oxygen the organisms. The aerator need an airpump (which is basically an other electric motor) it can be also an on/off device or an ajustable setup. this need 1 GPIO pin on Raspberry Pi.
