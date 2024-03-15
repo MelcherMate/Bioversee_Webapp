@@ -22,7 +22,7 @@ Most bioreactors work the same. They will 5 activators for electric motors (for 
 
 ### Blueprint:
 
-![harware Design blueprint](blueprints/hardwareDesign.png)
+![Alt text](../blueprints/hardwareDesign.png)
 
 ## Blueprint for wiring the activators and sersors to the Raspberry Pi:
 
