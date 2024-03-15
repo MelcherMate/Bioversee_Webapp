@@ -5,8 +5,8 @@ const patchActuatorState = async () => {
 
     // Prepare the dataRotor to be patched (usually in JSON format)
     const data = {
-        _id: "65f320219d7a50a4e56bdd0a",
-        state: false
+        _id: "65f396993378bcf36c8662cd",
+        state: true
     };
 
     // Make the PATCH request
