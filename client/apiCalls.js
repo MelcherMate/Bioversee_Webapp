@@ -1,12 +1,14 @@
 // Function to fetch actuator state from server
-const addActuatorState = async () => {
+const addActuatorState = async (val) => {
+  var output = document.getElementById("output");
+
   // Define the URL of the API endpoint
   const url = "/api/v1/actuator/addactuator";
 
   // Prepare the dataRotor to be added (usually in JSON format)
   const data = {
     name: "rotor",
-    state: 20,
+    state: val,
   };
 
   // Make the POST request
@@ -37,5 +39,12 @@ const addActuatorState = async () => {
 
 // Fetch motor and airpump states when the page loads
 window.onload = function () {
-  addActuatorState();
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("output");
+  output.value = slider.value;
+
+  slider.oninput = function () {
+    output.value = this.value;
+    addActuatorState(this.value);
+  };
 };
