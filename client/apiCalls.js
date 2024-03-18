@@ -1,5 +1,5 @@
 // Function to fetch actuator states from server
-const fetchActuatorStates = async () => {
+const getActuatorStates = async () => {
   try {
     // Define the URL of the API endpoint
     const url = "/api/v1/actuator/getactuators";
@@ -73,5 +73,5 @@ window.onload = function () {
   };
 
   // Fetch actuator states
-  fetchActuatorStates();
+  getActuatorStates();
 };
