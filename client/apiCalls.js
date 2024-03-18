@@ -16,7 +16,7 @@ const getActuatorStates = async () => {
     const actuators = await response.json();
 
     // Handle the retrieved actuators
-    console.log("Retrieved actuators:", actuators);
+    console.log("Retrieved actuators:", actuators.reverse());
   } catch (error) {
     console.error("Error fetching actuators:", error);
   }
