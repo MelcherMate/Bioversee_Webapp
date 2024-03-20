@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Online Fermenter Controll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="./index.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./apiCalls.js"></script>
+    <script src="./index.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="grid">
-        <header>
-            Welcome
-        </header>
-        <nav>&lt;menu&gt;</nav>
-        <aside class="sidebar-left">&lt;aside&gt;</aside>
-        <main>
-            <table id="mainTable">
-                <tr>
-                    <td id="buttonArea" rowspan="2">
-                        <button id="motorButton" onclick="toggleMotorState()">Motor on/off</button><br>
-                        <button id="airpumpButton" onclick="toggleAirpumpState()">Airpump on/off</button>
-                    </td>
-                    <th></th>
-                    <td id="infoArea" rowspan="2">
-                        This section is for giving a feedback about your fermenter. Here I want to have boxes of information for you.<br><br>Works in progress...
-                    </td>
-                </tr>
-            </table>
-        </main>
-        <aside class="sidebar-right">&lt;aside&gt;</aside>
-        <footer>I use this section to test the feedbacks of my buttons.<br>
-            This is for testing only. Don't expect anything to work as intended cause you may be dissapointed.
-        </footer>
+      <header>Welcome</header>
+      <nav>&lt;menu&gt;</nav>
+      <aside class="sidebar-left">&lt;aside&gt;</aside>
+      <main>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="myRange"
+          />
+          <input type="number" id="output" name="fname" value="" />
+        </div>
+      </main>
+      <aside class="sidebar-right">&lt;aside&gt;</aside>
+      <footer>
+        I use this section to test the feedbacks of my buttons.<br />
+        This is for testing only. Don't expect anything to work as intended
+        cause you may be dissapointed.
+      </footer>
     </div>
-</body>
-
+  </body>
 </html>
-
-
-

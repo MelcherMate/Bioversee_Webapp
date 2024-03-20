@@ -1,91 +1,82 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    height: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  height: 100%;
 }
 
 .grid {
-    display: grid;
-    grid-template-rows: 6rem 5rem auto 5rem;
-    grid-template-columns: 20% auto 20%;
-    font-size: 1.5rem;
-    height: 100%;
+  display: grid;
+  grid-template-rows: 6rem 5rem auto 5rem;
+  grid-template-columns: 20% auto 20%;
+  font-size: 1.5rem;
+  height: 100%;
 }
 
 @media (max-width: 480px) {
-    .grid {
-        grid-template-rows:
-            6rem 6rem 6rem auto 6rem 6rem;
-        grid-template-columns: 1fr;
-    }
+  .grid {
+    grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
+    grid-template-columns: 1fr;
+  }
 
-    aside,
-    main {
-        grid-column: 1 / 4;
-    }
+  aside,
+  main {
+    grid-column: 1 / 4;
+  }
 }
 
 nav,
 header,
 footer {
-    background: #F6C356;
-    grid-column: 1 / 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #f6c356;
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav {
-    background: #AAEC8A;
+  background: #aaec8a;
 }
 
 aside,
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 aside {
-    background: white;
+  background: white;
 }
 
 main {
-    background: whitesmoke;
+  background: whitesmoke;
 }
 
-#mainTable{
-    margin-bottom: 10px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: lightblue;
-    border-spacing: 50px;
+#mainTable {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: lightblue;
+  border-spacing: 50px;
 }
 
 button {
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    width: 140px;
-    height: 30px;
-    text-align: center;
-    background-color: lightcoral;
-}
-
-#motorButton.green{
-    background: #AAEC8A;
-}
-
-#airpumpButton.green{
-    background:#AAEC8A ;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 140px;
+  height: 30px;
+  text-align: center;
+  background-color: lightcoral;
 }
