@@ -22,7 +22,7 @@ const getActuatorStates = async () => {
   }
 };
 
-// Function to fetch actuator state from server
+// Function to add an actuator state to the server
 const addActuatorState = async (val) => {
   var output = document.getElementById("output");
 
@@ -61,6 +61,39 @@ const addActuatorState = async (val) => {
     });
 };
 
+// Function to set initial actuator states
+const setActuatorStates = async () => {
+  try {
+    // Fetch actuator states from the server
+    const response = await fetch("/api/v1/actuator/getactuators");
+
+    // Check for successful response status
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Parse the JSON response
+    let actuators = await response.json();
+
+    // Reverse the order of actuators
+    actuators = actuators.reverse();
+
+    // Handle the retrieved actuators
+    console.log("Retrieved actuators:", actuators);
+
+    // Set the initial value of the slider to the state of the first actuator
+    if (actuators.length > 0) {
+      const firstActuatorState = actuators[0].state;
+      const slider = document.getElementById("myRange");
+      const output = document.getElementById("output");
+      output.value = firstActuatorState;
+      slider.value = firstActuatorState;
+    }
+  } catch (error) {
+    console.error("Error setting actuator states:", error);
+  }
+};
+
 // Fetch actuator states when the page loads
 window.onload = function () {
   var slider = document.getElementById("myRange");
@@ -73,5 +106,5 @@ window.onload = function () {
   };
 
   // Fetch actuator states
-  getActuatorStates();
+  setActuatorStates();
 };
