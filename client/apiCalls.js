@@ -22,6 +22,17 @@ const getActuatorStates = async () => {
   }
 };
 
+// Function to avoid func called to often
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
 // Function to add an actuator state to the server
 const addActuatorState = async (val) => {
   var output = document.getElementById("output");
@@ -60,6 +71,9 @@ const addActuatorState = async (val) => {
       console.error("Error adding data:", error);
     });
 };
+
+// Debounce the addActuatorState function with a delay of 500 milliseconds
+const debouncedAddActuatorState = debounce(addActuatorState, 500);
 
 // Function to set initial actuator states
 const setActuatorStates = async () => {
@@ -102,7 +116,7 @@ window.onload = function () {
 
   slider.oninput = function () {
     output.value = this.value;
-    addActuatorState(this.value);
+    debouncedAddActuatorState(this.value);
   };
 
   // Fetch actuator states
