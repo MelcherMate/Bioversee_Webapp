@@ -22,7 +22,7 @@ In the data tier we have a MongoDB cloud-based database where we will store the 
 
 ## Bioreactor controller:
 
-To be able to control the pins on the Raspberry Pi I use a python application with the GPIOZERO module. The python code must run locally on the Raspberry Pi which is connected to the bioreactor. To set an actuator the needed setting set on the controller website, the python app will use the same MongoDB database as the website. If the customer sets a setting on the website, the data goes to the database and from there the python application will read the change and adjust the setting of the actuator. It will give us a Json conformation file, which will be sent to the motor of the website and presented to the customer, letting him/her know, the change in the settings was successful.
+The original idea was using python codes to controll the actuators on the Raspberry Pi. However scince I started the webdevelopment using HTML, CSS and Javascript and built an express.js server to run the aplication, for the first prototype it is better, if I use these languages to controll the actuators with Javascript as well. I plan to use the already exisiting server to give commands for the Raspberry Pi. Before I enter to the stage when I add users to the project I belive It will get the job done for hardware and backend testing.
 
 ## Logical blueprint for the software setup:
 

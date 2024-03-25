@@ -62,21 +62,3 @@ aside {
 main {
   background: whitesmoke;
 }
-
-#mainTable {
-  margin-bottom: 10px;
-  border-radius: 10px;
-  text-align: center;
-  background-color: lightblue;
-  border-spacing: 50px;
-}
-
-button {
-  padding: 5px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  width: 140px;
-  height: 30px;
-  text-align: center;
-  background-color: lightcoral;
-}
