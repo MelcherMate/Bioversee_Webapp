@@ -1,3 +1,14 @@
+// Function to avoid func called to often
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
 // Function to fetch actuator states from server
 const getActuatorStates = async () => {
   try {
@@ -20,17 +31,6 @@ const getActuatorStates = async () => {
   } catch (error) {
     console.error("Error fetching actuators:", error);
   }
-};
-
-// Function to avoid func called to often
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
 };
 
 // Function to add an actuator state to the server
