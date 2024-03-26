@@ -35,7 +35,7 @@ const debounce = (func, delay) => {
 
 // Function to add an actuator state to the server
 const addActuatorState = async (val) => {
-  var output = document.getElementById("rotorDisplay");
+  var output = document.getElementById("displayRotor");
 
   // Define the URL of the API endpoint
   const url = "/api/v1/actuator/addactuator";
@@ -98,8 +98,8 @@ const setActuatorStates = async () => {
     // Set the initial value of the slider to the state of the first actuator
     if (actuators.length > 0) {
       const firstActuatorState = actuators[0].state;
-      const slider = document.getElementById("rotorSlider");
-      const output = document.getElementById("rotorDisplay");
+      const slider = document.getElementById("sliderRotor");
+      const output = document.getElementById("displayRotor");
       output.value = firstActuatorState;
       slider.value = firstActuatorState;
     }
@@ -110,8 +110,8 @@ const setActuatorStates = async () => {
 
 // Fetch actuator states when the page loads
 window.onload = function () {
-  var slider = document.getElementById("rotorSlider");
-  var output = document.getElementById("rotorDisplay");
+  var slider = document.getElementById("sliderRotor");
+  var output = document.getElementById("displayRotor");
   output.value = slider.value;
 
   slider.oninput = function () {
