@@ -1,4 +1,4 @@
-// Function to avoid func called to often
+// Function to avoid func called too often
 const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {
@@ -34,15 +34,20 @@ const getActuatorStates = async () => {
 };
 
 // Function to add an actuator state to the server
-const addActuatorState = async (val) => {
-  var output = document.getElementById("displayRotor");
+const addActuatorState = async (val, name) => {
+  var output;
+  if (name === "rotor") {
+    output = document.getElementById("displayRotor");
+  } else if (name === "aerator") {
+    output = document.getElementById("displayAerator");
+  }
 
   // Define the URL of the API endpoint
   const url = "/api/v1/actuator/addactuator";
 
   // Prepare the data to be added (usually in JSON format)
   const data = {
-    name: "rotor",
+    name: name,
     state: val,
   };
 
@@ -97,11 +102,29 @@ const setActuatorStates = async () => {
 
     // Set the initial value of the slider to the state of the first actuator
     if (actuators.length > 0) {
-      const firstActuatorState = actuators[0].state;
-      const slider = document.getElementById("sliderRotor");
-      const output = document.getElementById("displayRotor");
-      output.value = firstActuatorState;
-      slider.value = firstActuatorState;
+      // Find the first actuator for rotor and aerator respectively
+      const rotorActuator = actuators.find(
+        (actuator) => actuator.name === "rotor"
+      );
+      const aeratorActuator = actuators.find(
+        (actuator) => actuator.name === "aerator"
+      );
+
+      // Set initial values for rotor slider and display
+      if (rotorActuator) {
+        const rotorSlider = document.getElementById("sliderRotor");
+        const rotorOutput = document.getElementById("displayRotor");
+        rotorOutput.value = rotorActuator.state;
+        rotorSlider.value = rotorActuator.state;
+      }
+
+      // Set initial values for aerator slider and display
+      if (aeratorActuator) {
+        const aeratorSlider = document.getElementById("sliderAerator");
+        const aeratorOutput = document.getElementById("displayAerator");
+        aeratorOutput.value = aeratorActuator.state;
+        aeratorSlider.value = aeratorActuator.state;
+      }
     }
   } catch (error) {
     console.error("Error setting actuator states:", error);
@@ -110,13 +133,24 @@ const setActuatorStates = async () => {
 
 // Fetch actuator states when the page loads
 window.onload = function () {
-  var slider = document.getElementById("sliderRotor");
-  var output = document.getElementById("displayRotor");
-  output.value = slider.value;
+  // Set up rotor slider and display
+  var sliderRotor = document.getElementById("sliderRotor");
+  var outputRotor = document.getElementById("displayRotor");
+  outputRotor.value = sliderRotor.value;
 
-  slider.oninput = function () {
-    output.value = this.value;
-    debouncedAddActuatorState(this.value);
+  sliderRotor.oninput = function () {
+    outputRotor.value = this.value;
+    debouncedAddActuatorState(this.value, "rotor");
+  };
+
+  // Set up aerator slider and display
+  var sliderAerator = document.getElementById("sliderAerator");
+  var outputAerator = document.getElementById("displayAerator");
+  outputAerator.value = sliderAerator.value;
+
+  sliderAerator.oninput = function () {
+    outputAerator.value = this.value;
+    debouncedAddActuatorState(this.value, "aerator");
   };
 
   // Fetch actuator states
