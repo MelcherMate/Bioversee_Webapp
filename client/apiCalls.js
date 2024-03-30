@@ -1,29 +1,5 @@
 import { debounce } from "./utils/debounce.js";
 
-// Function to fetch actuator states from server
-const getActuatorStates = async () => {
-  try {
-    // Define the URL of the API endpoint
-    const url = "/api/v1/actuator/getactuators";
-
-    // Make the GET request
-    const response = await fetch(url);
-
-    // Check for successful response status
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    // Parse the JSON response
-    const actuators = await response.json();
-
-    // Handle the retrieved actuators
-    console.log("Retrieved actuators:", actuators.reverse());
-  } catch (error) {
-    console.error("Error fetching actuators:", error);
-  }
-};
-
 // Function to add an actuator state to the server
 const addActuatorState = async (val, name) => {
   var output;
@@ -144,8 +120,5 @@ window.onload = function () {
     debouncedAddActuatorState(this.value, "aerator");
   };
 
-  // Fetch actuator states
   setActuatorStates();
-
-  getActuatorStates();
 };
