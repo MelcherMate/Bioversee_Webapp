@@ -1,13 +1,4 @@
-// Function to avoid func called too often
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-};
+import { debounce } from "./utils/debounce.js";
 
 // Function to fetch actuator states from server
 const getActuatorStates = async () => {
@@ -155,4 +146,6 @@ window.onload = function () {
 
   // Fetch actuator states
   setActuatorStates();
+
+  getActuatorStates();
 };

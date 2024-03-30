@@ -1,10 +1,10 @@
 # Hardware aspect of the project
 
-## General:
+## General
 
 Most bioreactors work the same. They have 5-6 activators for electric motors (for the rotor, the aerator, the fluid circulation and for acid and base intake) and 2 measuring instruments (temperature and pH) to have information about the system. We can add additional instruments as well, like for measuring the purity of the air that goes into the aerator, or measuring the weight throughout the fermentation process. In the first stage of my development, I would like to focus on the basic 5+2 setup and then work on these optional devices. All our devices and sensors need to be heat, corrosion, acid and base resistant.
 
-### Activators:
+### Activators
 
 - Rotor: The rotor’s purpose is simple. It needs to create a flow in the fluid to provide a homogenic system. The rotor is powered by an electric motor with can be 1 speed design or an instrument, which can be set to a needed %. The rotor needs 1 GPIO pin on the Raspberry Pi.
 
@@ -14,16 +14,16 @@ Most bioreactors work the same. They have 5-6 activators for electric motors (fo
 
 - Base and acid pipe: The set the required pH in the fluid we must add base or acid to the system. To do that we need 2 pumps, each able to pump 1 liquid. These can be just simple on/off instruments, here we do not need more specific settings. This part of the system needs 2 GPIO pins on Raspberry Pi.
 
-### Measuring instruments:
+### Measuring instruments
 
 - Thermometer: The thermometer is a simple device. I need some power and a pin where the sensor can give the Raspberry the current temperature. From the temperature data I can decide whether I need to circulate warm or cold water. This will take 3 pins. A ground pin, a 3.3V pin and GPIO pin. (GPIO 4 recommended)
 
 - pH meter: This sensor is also a simple one. Works the same as the thermometer and gives back live pH value feed to the Raspberry. From its feed we can set control codes for the base and acid pumps. This also will need a ground pin, a 3.3V pin and a GPIO pin.
 
-## Logical blueprint for the hardware setup:
+## Logical blueprint for the hardware setup
 
 ![Blueprint for hardware logical design](../blueprints/hardwareDesign.png)
 
-## Blueprint for wiring the activators and sersors to the Raspberry Pi:
+## Blueprint for wiring the activators and sersors to the Raspberry Pi
 
 `Coming soon...`
