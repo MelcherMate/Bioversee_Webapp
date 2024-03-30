@@ -40,11 +40,27 @@
           <input type="number" id="displayAerator" name="fname" value="" />
         </div>
         <!-- Pumps -->
-        <div class="buttonContainer">
-          <button id="buttonWarmWaterPump">Warm water</button>
-          <button id="buttonColdWaterPump">Cold water</button>
-          <button id="buttonAcidPump">Acid in</button>
-          <button id="buttonBasePump">Base in</button>
+        <div class="switchContainer">
+          <label class="switch">
+            <input type="checkbox" id="switchWarmWaterPump" />
+            <span class="slider"></span>
+            Warm water
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="switchColdWaterPump" />
+            <span class="slider"></span>
+            Cold water
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="switchAcidPump" />
+            <span class="slider"></span>
+            Acid in
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="switchBasePump" />
+            <span class="slider"></span>
+            Base in
+          </label>
         </div>
       </main>
       <aside class="sidebar-right">&lt;aside&gt;</aside>

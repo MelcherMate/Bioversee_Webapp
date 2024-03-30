@@ -92,3 +92,12 @@ input[type="number"] {
   height: 20px;
   text-align: center;
 }
+
+.switchContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.switch {
+  margin-bottom: 10px;
+}

@@ -1,51 +1,6 @@
 import { debounce } from "./utils/debounce.js";
 
-// Function to add an actuator state to the server
-const addActuatorState = async (val, name) => {
-  var output;
-  if (name === "rotor") {
-    output = document.getElementById("displayRotor");
-  } else if (name === "aerator") {
-    output = document.getElementById("displayAerator");
-  }
-
-  // Define the URL of the API endpoint
-  const url = "/api/v1/actuator/addactuator";
-
-  // Prepare the data to be added (usually in JSON format)
-  const data = {
-    name: name,
-    state: val,
-  };
-
-  // Make the POST request
-  fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ data }), // Convert data to JSON string
-  })
-    .then((response) => {
-      // Check for successful response status before parsing as JSON
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    // Now parse the JSON response
-    .then((addedData) => {
-      // Handle the added data here (e.g., update UI)
-      console.log("Data added successfully:", addedData);
-    })
-    .catch((error) => {
-      console.error("Error adding data:", error);
-    });
-};
-
-// Debounce the addActuatorState function with a delay of 500 milliseconds
-const debouncedAddActuatorState = debounce(addActuatorState, 500);
+//------------------------------------------------//
 
 // Function to set initial actuator states
 const setActuatorStates = async () => {
@@ -97,6 +52,55 @@ const setActuatorStates = async () => {
     console.error("Error setting actuator states:", error);
   }
 };
+
+//------------------------------------------------//
+
+// Function to add an actuator state to the server
+const addActuatorState = async (val, name) => {
+  var output;
+  if (name === "rotor") {
+    output = document.getElementById("displayRotor");
+  } else if (name === "aerator") {
+    output = document.getElementById("displayAerator");
+  }
+
+  // Define the URL of the API endpoint
+  const url = "/api/v1/actuator/addactuator";
+
+  // Prepare the data to be added (usually in JSON format)
+  const data = {
+    name: name,
+    state: val,
+  };
+
+  // Make the POST request
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }), // Convert data to JSON string
+  })
+    .then((response) => {
+      // Check for successful response status before parsing as JSON
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    // Now parse the JSON response
+    .then((addedData) => {
+      // Handle the added data here (e.g., update UI)
+      console.log("Data added successfully:", addedData);
+    })
+    .catch((error) => {
+      console.error("Error adding data:", error);
+    });
+};
+
+// Debounce the addActuatorState function with a delay of 500 milliseconds
+const debouncedAddActuatorState = debounce(addActuatorState, 500);
 
 // Fetch actuator states when the page loads
 window.onload = function () {
