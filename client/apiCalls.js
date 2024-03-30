@@ -1,8 +1,7 @@
 import { debounce } from "./utils/debounce.js";
 
 //------------------------------------------------//
-
-// Function to set initial actuator states
+// Function to set initial actuator states from database
 const setActuatorStates = async () => {
   try {
     // Fetch actuator states from the server
@@ -54,8 +53,7 @@ const setActuatorStates = async () => {
 };
 
 //------------------------------------------------//
-
-// Function to add an actuator state to the server
+// Function to send actuator state to database
 const addActuatorState = async (val, name) => {
   var output;
   if (name === "rotor") {
@@ -102,6 +100,8 @@ const addActuatorState = async (val, name) => {
 // Debounce the addActuatorState function with a delay of 500 milliseconds
 const debouncedAddActuatorState = debounce(addActuatorState, 500);
 
+//------------------------------------------------//
+//------------------------------------------------//
 // Fetch actuator states when the page loads
 window.onload = function () {
   // Set up rotor slider and display
