@@ -101,9 +101,89 @@ const addActuatorState = async (val, name) => {
 const debouncedAddActuatorState = debounce(addActuatorState, 500);
 
 //------------------------------------------------//
-//------------------------------------------------//
-// Fetch actuator states when the page loads
-window.onload = function () {
+// Function to set initial switch states from database
+const setSwitchStates = async () => {
+  try {
+    // Fetch switch states from the server
+    const response = await fetch("/api/v1/actuator/getactuators");
+
+    // Check for successful response status
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Parse the JSON response
+    let switches = await response.json();
+
+    // Handle the retrieved switches
+    console.log("Retrieved switches:", switches);
+
+    // Set the initial value of the switches
+    switches.forEach((sw) => {
+      const switchElement = document.getElementById(sw.id);
+      if (switchElement) {
+        switchElement.checked = sw.state;
+      }
+    });
+  } catch (error) {
+    console.error("Error setting switch states:", error);
+  }
+};
+
+// Function to send switch state to database
+const updateSwitchState = async (val, id) => {
+  // Convert to boolean state
+  const booleanState = val === 1 ? true : false;
+
+  var output;
+  if (id === "switchWarmWaterPump") {
+    output = document.getElementById("switchWarmWaterPump");
+  } else if (id === "switchColdWaterPump") {
+    output = document.getElementById("switchColdWaterPump");
+  } else if (id === "switchAcidPump") {
+    output = document.getElementById("switchAcidPump");
+  } else if (id === "switchBasePump") {
+    output = document.getElementById("switchBasePump");
+  }
+
+  // Define the URL of the API endpoint
+  const url = "/api/v1/actuator/addactuator";
+
+  // Prepare the data to be added (in JSON format)
+  const data = {
+    name: id,
+    state: booleanState,
+  };
+
+  // Make the POST request
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }), // Convert data to JSON string
+  })
+    .then((response) => {
+      // Check for successful response status before parsing as JSON
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    // Now parse the JSON response
+    .then((addedData) => {
+      // Handle the added data here (e.g., update UI)
+      console.log("Data added successfully:", addedData);
+    })
+    .catch((error) => {
+      console.error("Error adding data:", error);
+    });
+};
+
+// Fetch switch states when the page loads
+window.onload = async function () {
+  // Set up sliders
   // Set up rotor slider and display
   var sliderRotor = document.getElementById("sliderRotor");
   var outputRotor = document.getElementById("displayRotor");
@@ -124,5 +204,34 @@ window.onload = function () {
     debouncedAddActuatorState(this.value, "aerator");
   };
 
-  setActuatorStates();
+  // Set up switches
+  // Set up warm water switch
+
+  const switchWarmWaterPump = document.getElementById("switchWarmWaterPump");
+  const switchColdWaterPump = document.getElementById("switchColdWaterPump");
+  const switchAcidPump = document.getElementById("switchAcidPump");
+  const switchBasePump = document.getElementById("switchBasePump");
+
+  // Add event listeners to each checkbox
+  switchWarmWaterPump.addEventListener("change", () => {
+    updateSwitchState(switchWarmWaterPump.checked, switchWarmWaterPump.id);
+  });
+
+  switchColdWaterPump.addEventListener("change", () => {
+    updateSwitchState(switchColdWaterPump.checked, switchColdWaterPump.id);
+  });
+
+  switchAcidPump.addEventListener("change", () => {
+    updateSwitchState(switchAcidPump.checked, switchAcidPump.id);
+  });
+
+  switchBasePump.addEventListener("change", () => {
+    updateSwitchState(switchBasePump.checked, switchBasePump.id);
+  });
+
+  // Set initial states for switches from database
+  await setSwitchStates();
+
+  // Set initial states for actuators from database
+  await setActuatorStates();
 };
