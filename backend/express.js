@@ -1,12 +1,13 @@
+import compress from "compression";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import compress from "compression";
-import helmet from "helmet";
 import express from "express";
+import helmet from "helmet";
 import path from "path";
 // * Importing Routes
-import actuatorRoutes from './routes/actuator.routes';
+import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
+import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
@@ -34,7 +35,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // # Routes
-app.use('/', actuatorRoutes);
+app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes);
 
 // # Serving
 // serving the frontend dev, and prod folders as static resources
