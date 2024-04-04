@@ -1,7 +1,7 @@
-import Actuator from "../models/actuator.model";
+import ActuatorSliders from "../models/actuatorSliders.model";
 
 const addActuator = (req, res, next) => {
-  const newActuator = new Actuator({
+  const newActuator = new ActuatorSliders({
     name: req.body.data.name,
     state: req.body.data.state,
   });
@@ -18,7 +18,7 @@ const addActuator = (req, res, next) => {
 };
 
 const getActuators = (req, res, next) => {
-  Actuator.find({}, (err, actuators) => {
+  ActuatorSliders.find({}, (err, actuators) => {
     if (err) {
       return res.status(500).json({ error: "Error retrieving actuators" });
     }
