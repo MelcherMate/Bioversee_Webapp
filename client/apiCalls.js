@@ -1,6 +1,7 @@
 import { debounce } from "./utils/debounce.js";
 
 //------------------------------------------------//
+//------------------------------------------------//
 // Function to set initial actuator states from database
 const setActuatorStates = async () => {
   try {
@@ -101,6 +102,7 @@ const addActuatorState = async (val, name) => {
 const debouncedAddActuatorState = debounce(addActuatorState, 500);
 
 //------------------------------------------------//
+//------------------------------------------------//
 // Function to set initial switch states from database
 const setSwitchStates = async () => {
   try {
@@ -113,14 +115,14 @@ const setSwitchStates = async () => {
     }
 
     // Parse the JSON response
-    let switches = await response.json();
+    const switches = await response.json();
 
     // Handle the retrieved switches
     console.log("Retrieved switches:", switches);
 
     // Set the initial value of the switches
     switches.forEach((sw) => {
-      const switchElement = document.getElementById(sw.id);
+      const switchElement = document.getElementById(sw.name);
       if (switchElement) {
         switchElement.checked = sw.state;
       }
@@ -130,29 +132,17 @@ const setSwitchStates = async () => {
   }
 };
 
+//------------------------------------------------//
+// Function to send switch state to database
 // Function to send switch state to database
 const updateSwitchState = async (val, id) => {
-  // Convert to boolean state
-  const booleanState = val === 1;
-
-  var output;
-  if (id === "switchWarmWaterPump") {
-    output = document.getElementById("switchWarmWaterPump");
-  } else if (id === "switchColdWaterPump") {
-    output = document.getElementById("switchColdWaterPump");
-  } else if (id === "switchAcidPump") {
-    output = document.getElementById("switchAcidPump");
-  } else if (id === "switchBasePump") {
-    output = document.getElementById("switchBasePump");
-  }
-
   // Define the URL of the API endpoint
   const url = "/api/v1/actuator/addactuator";
 
   // Prepare the data to be added (in JSON format)
   const data = {
     name: id,
-    state: booleanState,
+    state: val,
   };
 
   // Make the POST request
@@ -230,8 +220,8 @@ window.onload = async function () {
   });
 
   // Set initial states for switches from database
-  await setSwitchStates();
+  setSwitchStates();
 
   // Set initial states for actuators from database
-  await setActuatorStates();
+  setActuatorStates();
 };
