@@ -134,8 +134,7 @@ const setSwitchStates = async () => {
 
 //------------------------------------------------//
 // Function to send switch state to database
-// Function to send switch state to database
-const updateSwitchState = async (val, id) => {
+const addSwitchState = async (val, id) => {
   // Define the URL of the API endpoint
   const url = "/api/v1/actuator/addactuator";
 
@@ -163,13 +162,16 @@ const updateSwitchState = async (val, id) => {
     })
     // Now parse the JSON response
     .then((addedData) => {
-      // Handle the added data here (e.g., update UI)
+      // Handle the added data here
       console.log("Data added successfully:", addedData);
     })
     .catch((error) => {
       console.error("Error adding data:", error);
     });
 };
+
+// Debounce the addActuatorState function with a delay of 500 milliseconds
+const debouncedAddSwitchState = debounce(addSwitchState, 500);
 
 // Fetch switch states when the page loads
 window.onload = async function () {
@@ -204,19 +206,25 @@ window.onload = async function () {
 
   // Add event listeners to each checkbox
   switchWarmWaterPump.addEventListener("change", () => {
-    updateSwitchState(switchWarmWaterPump.checked, switchWarmWaterPump.id);
+    debouncedAddSwitchState(
+      switchWarmWaterPump.checked,
+      switchWarmWaterPump.id
+    );
   });
 
   switchColdWaterPump.addEventListener("change", () => {
-    updateSwitchState(switchColdWaterPump.checked, switchColdWaterPump.id);
+    debouncedAddSwitchState(
+      switchColdWaterPump.checked,
+      switchColdWaterPump.id
+    );
   });
 
   switchAcidPump.addEventListener("change", () => {
-    updateSwitchState(switchAcidPump.checked, switchAcidPump.id);
+    debouncedAddSwitchState(switchAcidPump.checked, switchAcidPump.id);
   });
 
   switchBasePump.addEventListener("change", () => {
-    updateSwitchState(switchBasePump.checked, switchBasePump.id);
+    debouncedAddSwitchState(switchBasePump.checked, switchBasePump.id);
   });
 
   // Set initial states for switches from database
