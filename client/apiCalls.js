@@ -133,7 +133,7 @@ const setSwitchStates = async () => {
 // Function to send switch state to database
 const updateSwitchState = async (val, id) => {
   // Convert to boolean state
-  const booleanState = val === 1 ? true : false;
+  const booleanState = val === 1;
 
   var output;
   if (id === "switchWarmWaterPump") {
