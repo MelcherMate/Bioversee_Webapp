@@ -124,7 +124,7 @@ const setSwitchStates = async () => {
     switches.forEach((sw) => {
       const switchElement = document.getElementById(sw.name);
       if (switchElement) {
-        switchElement.checked = sw.state;
+        switchElement.checked = sw.state === 1;
       }
     });
   } catch (error) {
