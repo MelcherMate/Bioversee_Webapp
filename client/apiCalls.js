@@ -173,7 +173,9 @@ const addSwitchState = async (val, id) => {
 // Debounce the addActuatorState function with a delay of 500 milliseconds
 const debouncedAddSwitchState = debounce(addSwitchState, 500);
 
-// Fetch switch states when the page loads
+//------------------------------------------------//
+//------------------------------------------------//
+//------------------------------------------------//
 window.onload = async function () {
   // Set up sliders
   // Set up rotor slider and display
