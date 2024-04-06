@@ -170,8 +170,8 @@ const addSwitchState = async (val, id) => {
     });
 };
 
-// Debounce the addActuatorState function with a delay of 500 milliseconds
-const debouncedAddSwitchState = debounce(addSwitchState, 500);
+// Debounce the addActuatorState function with a delay of 100 milliseconds
+const debouncedAddSwitchState = debounce(addSwitchState, 100);
 
 //------------------------------------------------//
 //------------------------------------------------//
