@@ -6,7 +6,7 @@ import { debounce } from "./utils/debounce.js";
 const setActuatorStates = async () => {
   try {
     // Fetch actuator states from the server
-    const response = await fetch("/api/v1/actuator/getactuators");
+    const response = await fetch("/api/v1/actuator/getSliderActuators");
 
     // Check for successful response status
     if (!response.ok) {
@@ -64,7 +64,7 @@ const addActuatorState = async (val, name) => {
   }
 
   // Define the URL of the API endpoint
-  const url = "/api/v1/actuator/addactuator";
+  const url = "/api/v1/actuator/addSliderActuator";
 
   // Prepare the data to be added (usually in JSON format)
   const data = {
@@ -107,7 +107,7 @@ const debouncedAddActuatorState = debounce(addActuatorState, 500);
 const setSwitchStates = async () => {
   try {
     // Fetch switch states from the server
-    const response = await fetch("/api/v1/actuator/getactuators");
+    const response = await fetch("/api/v1/actuator/getSwitchesActuators");
 
     // Check for successful response status
     if (!response.ok) {
@@ -124,7 +124,7 @@ const setSwitchStates = async () => {
     switches.forEach((sw) => {
       const switchElement = document.getElementById(sw.name);
       if (switchElement) {
-        switchElement.checked = sw.state === 1;
+        switchElement.checked = sw.state === true;
       }
     });
   } catch (error) {
@@ -136,7 +136,7 @@ const setSwitchStates = async () => {
 // Function to send switch state to database
 const addSwitchState = async (val, id) => {
   // Define the URL of the API endpoint
-  const url = "/api/v1/actuator/addactuator";
+  const url = "/api/v1/actuator/addSwitchesActuator";
 
   // Prepare the data to be added (in JSON format)
   const data = {
