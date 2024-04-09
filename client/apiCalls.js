@@ -175,6 +175,41 @@ const debouncedAddSwitchState = debounce(addSwitchState, 100);
 
 //------------------------------------------------//
 //------------------------------------------------//
+// Function to set initial temperature value from database
+const setTempValue = async () => {
+  try {
+    // Fetch temperature state from the server
+    const response = await fetch("/api/v1/sensor/getTemperature");
+
+    // Check for successful response status
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Parse the JSON response
+    const temperatureState = await response.json();
+
+    // Handle the retrieved temperature state
+    console.log("Retrieved temperature state:", temperatureState);
+
+    // Check if there's any data retrieved
+    if (temperatureState.length > 0) {
+      // Assume the latest temperature data is the first one
+      const latestTemperature = temperatureState[0];
+
+      // Set the value of the sensor display
+      const sensorDisplay = document.querySelector(".sensorDisplay");
+      sensorDisplay.textContent = `Temperature: ${latestTemperature.value}`;
+    } else {
+      console.warn("No temperature data retrieved");
+    }
+  } catch (error) {
+    console.error("Error setting temperature state:", error);
+  }
+};
+
+//------------------------------------------------//
+//------------------------------------------------//
 //------------------------------------------------//
 window.onload = async function () {
   // Set up sliders
@@ -199,8 +234,6 @@ window.onload = async function () {
   };
 
   // Set up switches
-  // Set up warm water switch
-
   const switchWarmWaterPump = document.getElementById("switchWarmWaterPump");
   const switchColdWaterPump = document.getElementById("switchColdWaterPump");
   const switchAcidPump = document.getElementById("switchAcidPump");
@@ -234,4 +267,7 @@ window.onload = async function () {
 
   // Set initial states for actuators from database
   setActuatorStates();
+
+  // Set initial value for temperature from database
+  setTempValue();
 };

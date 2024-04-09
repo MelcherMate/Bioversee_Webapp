@@ -101,3 +101,14 @@ input[type="number"] {
 .switch {
   margin-bottom: 10px;
 }
+
+/* temperature display */
+.sensorDisplay {
+  width: 200px;
+  height: 70px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}

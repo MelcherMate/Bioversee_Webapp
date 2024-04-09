@@ -16,7 +16,6 @@ const addActuator = (req, res, next) => {
     });
   });
 };
-
 const getActuators = (req, res, next) => {
   ActuatorSliders.find({}, (err, actuators) => {
     if (err) {
