@@ -77,7 +77,7 @@ def monitor_database_changes():
                 elif switch_name == 'switchBasePump':
                     control_base_pump(switch_state)
 
-        time.sleep(1)  # Waiting for new data
+        time.sleep(0.1)  # Waiting for new data
 
 if __name__ == "__main__":
     monitor_database_changes()

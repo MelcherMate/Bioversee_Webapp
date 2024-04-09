@@ -2,6 +2,8 @@ import os
 import glob
 import time
 from pymongo import MongoClient
+from datetime import datetime
+import json
 
 # These two lines initialize the device:
 os.system('modprobe w1-gpio')
@@ -26,20 +28,25 @@ def read_temp():
     pos = temp.index('t=')
     if pos != -1:
         temp_string = temp[pos+2:]
-        temp_c = float(temp_string)/1000.0 
-        return temp_c
+        temp_c = float(temp_string) / 1000.0 
+        return round(temp_c, 1)
 
 def connect_to_mongodb():
     client = MongoClient("mongodb+srv://matemelcher:Mate2000@bioreactor.3u294gi.mongodb.net/")  # MongoDB server access
     db = client["bioreactor"]  # Selecting the database
-    collection = db["temperature"]  # Selecting the collection
+    collection = db["sensormonitor"]  # Selecting the collection
     return collection
 
 def insert_temperature_data(collection, temperature_c):
     data = {
-        "temperature_celsius": temperature_c,
+        "name": "temperature",
+        "value": temperature_c,
+        "createdAt": datetime.utcnow(),  # Current UTC time
+        "updatedAt": datetime.utcnow(),  # Current UTC time
+        "__v": 0
     }
     collection.insert_one(data)
+    print("Data inserted successfully.")
 
 if __name__ == "__main__":
     print('ROM: ' + rom)
@@ -50,9 +57,9 @@ if __name__ == "__main__":
 
     while True:
         c = read_temp()
-        print('C={:,.3f}'.format(c))
+        print('C={:,.1f}'.format(c))
         
         # Insert temperature data into MongoDB
         insert_temperature_data(collection, c)
         
-        time.sleep(1)
+        time.sleep(2)
