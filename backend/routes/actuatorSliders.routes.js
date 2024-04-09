@@ -4,10 +4,10 @@ import actuatorCtrl from "../controllers/actuatorSliders.controller";
 const router = express.Router();
 
 router
-  .route("/api/v1/actuator/addSliderActuator")
+  .route("/api/v1/actuator/addslideractuator")
   .post(actuatorCtrl.addActuator);
 router
-  .route("/api/v1/actuator/getSliderActuators")
+  .route("/api/v1/actuator/getslideractuators")
   .get(actuatorCtrl.getActuators);
 
 export default router;

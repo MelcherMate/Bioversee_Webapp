@@ -6,7 +6,7 @@ import { debounce } from "./utils/debounce.js";
 const setActuatorStates = async () => {
   try {
     // Fetch actuator states from the server
-    const response = await fetch("/api/v1/actuator/getSliderActuators");
+    const response = await fetch("/api/v1/actuator/getslideractuators");
 
     // Check for successful response status
     if (!response.ok) {
@@ -64,7 +64,7 @@ const addActuatorState = async (val, name) => {
   }
 
   // Define the URL of the API endpoint
-  const url = "/api/v1/actuator/addSliderActuator";
+  const url = "/api/v1/actuator/addslideractuator";
 
   // Prepare the data to be added (usually in JSON format)
   const data = {
@@ -107,7 +107,7 @@ const debouncedAddActuatorState = debounce(addActuatorState, 500);
 const setSwitchStates = async () => {
   try {
     // Fetch switch states from the server
-    const response = await fetch("/api/v1/actuator/getSwitchesActuators");
+    const response = await fetch("/api/v1/actuator/getswitchesactuators");
 
     // Check for successful response status
     if (!response.ok) {
@@ -136,7 +136,7 @@ const setSwitchStates = async () => {
 // Function to send switch state to database
 const addSwitchState = async (val, id) => {
   // Define the URL of the API endpoint
-  const url = "/api/v1/actuator/addSwitchesActuator";
+  const url = "/api/v1/actuator/addswitchesactuator";
 
   // Prepare the data to be added (in JSON format)
   const data = {
@@ -179,7 +179,7 @@ const debouncedAddSwitchState = debounce(addSwitchState, 100);
 const setTempValue = async () => {
   try {
     // Fetch temperature state from the server
-    const response = await fetch("/api/v1/sensor/getTemperature");
+    const response = await fetch("/api/v1/sensor/gettemperature");
 
     // Check for successful response status
     if (!response.ok) {
