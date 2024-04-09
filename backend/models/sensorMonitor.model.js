@@ -1,10 +1,10 @@
 import mongoose, { model } from "mongoose";
 const { Schema } = mongoose;
 
-// # monitorTempSchema
-const monitorTempSchema = Schema(
+// # sensorMonitorSchema
+const sensorMonitorSchema = Schema(
   { name: { type: String }, value: { type: Number } },
   { timestamps: true }
 );
 
-export default model("MonitorTemp", monitorTempSchema);
+export default model("SensorMonitor", sensorMonitorSchema);

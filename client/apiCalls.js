@@ -179,7 +179,7 @@ const debouncedAddSwitchState = debounce(addSwitchState, 100);
 const setTempValue = async () => {
   try {
     // Fetch temperature state from the server
-    const response = await fetch("/api/v1/sensor/gettemperature");
+    const response = await fetch("/api/v1/sensor/getsensordata");
 
     // Check for successful response status
     if (!response.ok) {
@@ -190,7 +190,7 @@ const setTempValue = async () => {
     const temperatureState = await response.json();
 
     // Handle the retrieved temperature state
-    console.log("Retrieved temperature state:", temperatureState);
+    console.log("Retrieved temperature value:", temperatureState);
 
     // Check if there's any data retrieved
     if (temperatureState.length > 0) {
