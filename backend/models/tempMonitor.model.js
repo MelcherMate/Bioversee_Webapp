@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 // # monitorTempSchema
 const monitorTempSchema = Schema(
   { name: { type: String }, value: { type: Number } },
-  { timestamps: false }
+  { timestamps: true }
 );
 
 export default model("MonitorTemp", monitorTempSchema);
