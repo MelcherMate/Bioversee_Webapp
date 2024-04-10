@@ -8,6 +8,7 @@ import path from "path";
 // * Importing Routes
 import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
+import sensorRoutes from "./routes/sensor.routes";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
@@ -35,7 +36,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // # Routes
-app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes);
+app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
 
 // # Serving
 // serving the frontend dev, and prod folders as static resources

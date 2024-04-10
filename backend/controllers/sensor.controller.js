@@ -1,9 +1,7 @@
 import Sensor from "../models/sensor.model";
 
 const getSensors = (req, res, next) => {
-  console.log("Test");
   Sensor.find({}, (err, temperature) => {
-    console.log(temperature);
     if (err) {
       return res.status(500).json({ error: "Error retrieving sensor data" });
     }
