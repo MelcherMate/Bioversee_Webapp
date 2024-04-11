@@ -176,9 +176,9 @@ const debouncedAddSwitchState = debounce(addSwitchState, 100);
 //------------------------------------------------//
 //------------------------------------------------//
 // Function to set initial temperature value from database
-const setTempValue = async () => {
+const setSensorValue = async (dataType) => {
   try {
-    // Fetch temperature state from the server
+    // Fetch sensor data from the server
     const response = await fetch("/api/v1/sensor/getsensordata");
 
     // Check for successful response status
@@ -187,27 +187,28 @@ const setTempValue = async () => {
     }
 
     // Parse the JSON response
-    const temperatureState = await response.json();
+    const sensorData = await response.json();
 
-    // Handle the retrieved temperature state
-    console.log("Retrieved temperature value:", temperatureState);
+    // Handle the retrieved sensor data
+    console.log("Retrieved sensor data:", sensorData);
 
-    // Check if there's any data retrieved
-    if (temperatureState.length > 0) {
-      // Reverse the order of temperature data
-      temperatureState.reverse();
+    // Filter sensor data based on data type
+    const filteredData = sensorData.filter((data) => data.name === dataType);
 
-      // Assume the latest temperature data is the first one
-      const latestTemperature = temperatureState[0];
-
-      // Set the value of the sensor display using ID
-      const displaySensor = document.getElementById("displayTemp");
-      displaySensor.textContent = `Temperature: ${latestTemperature.value}`;
+    // Check if filtered data is available
+    if (filteredData.length > 0) {
+      // Set the value to the corresponding display element
+      const displayElement = document.getElementById(
+        `display${dataType.charAt(0).toUpperCase() + dataType.slice(1)}`
+      );
+      displayElement.textContent = `${
+        dataType.charAt(0).toUpperCase() + dataType.slice(1)
+      }: ${filteredData[0].value}`;
     } else {
-      console.warn("No temperature data retrieved");
+      console.warn(`No ${dataType} data retrieved`);
     }
   } catch (error) {
-    console.error("Error setting temperature state:", error);
+    console.error(`Error setting ${dataType} data:`, error);
   }
 };
 
@@ -271,14 +272,19 @@ window.onload = async function () {
   // Set initial states for actuators from database
   setActuatorStates();
 
-  // Set initial value for temperature from database
-  setTempValue();
-
-  // Add event listener to the refresh button
+  // Add event listener to the refresh button for temperature
   const buttonSetTemp = document.getElementById("buttonSetTemp");
   buttonSetTemp.addEventListener("click", function () {
     // Call the function to set the temperature value
-    setTempValue();
+    setSensorValue("temperature");
     console.log("Temperature data has been refreshed successfully!");
+  });
+
+  // Add event listener to the refresh button for pH
+  const buttonSetPh = document.getElementById("buttonSetPh");
+  buttonSetPh.addEventListener("click", function () {
+    // Call the function to set the pH value
+    setSensorValue("ph");
+    console.log("Ph data has been refreshed successfully!");
   });
 };
