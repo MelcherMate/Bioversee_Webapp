@@ -194,12 +194,15 @@ const setTempValue = async () => {
 
     // Check if there's any data retrieved
     if (temperatureState.length > 0) {
+      // Reverse the order of temperature data
+      temperatureState.reverse();
+
       // Assume the latest temperature data is the first one
       const latestTemperature = temperatureState[0];
 
-      // Set the value of the sensor display
-      const sensorDisplay = document.querySelector(".sensorDisplay");
-      sensorDisplay.textContent = `Temperature: ${latestTemperature.value}`;
+      // Set the value of the sensor display using ID
+      const displaySensor = document.getElementById("displayTemp");
+      displaySensor.textContent = `Temperature: ${latestTemperature.value}`;
     } else {
       console.warn("No temperature data retrieved");
     }
@@ -270,4 +273,12 @@ window.onload = async function () {
 
   // Set initial value for temperature from database
   setTempValue();
+
+  // Add event listener to the refresh button
+  const buttonSetTemp = document.getElementById("buttonSetTemp");
+  buttonSetTemp.addEventListener("click", function () {
+    // Call the function to set the temperature value
+    setTempValue();
+    console.log("Temperature data has been refreshed successfully!");
+  });
 };
