@@ -192,6 +192,9 @@ const setSensorValue = async (dataType) => {
     // Handle the retrieved sensor data
     console.log("Retrieved sensor data:", sensorData);
 
+    // Reverse the order of sensor data
+    sensorData.reverse();
+
     // Filter sensor data based on data type
     const filteredData = sensorData.filter((data) => data.name === dataType);
 
