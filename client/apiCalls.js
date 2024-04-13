@@ -175,7 +175,7 @@ const debouncedAddSwitchState = debounce(addSwitchState, 100);
 
 //------------------------------------------------//
 //------------------------------------------------//
-// Function to set initial temperature value from database
+// Function to set initial sensor value from database
 const setSensorValue = async (dataType) => {
   try {
     // Fetch sensor data from the server
@@ -212,6 +212,34 @@ const setSensorValue = async (dataType) => {
     }
   } catch (error) {
     console.error(`Error setting ${dataType} data:`, error);
+  }
+};
+
+// Add event listener to the refresh button for temperature
+const buttonSetTemp = document.getElementById("buttonSetTemp");
+buttonSetTemp.addEventListener("click", function () {
+  // Call the function to set the temperature value
+  setSensorValue("temperature");
+  console.log("Temperature data has been refreshed successfully!");
+});
+
+// Add event listener to the refresh button for pH
+const buttonSetPh = document.getElementById("buttonSetPh");
+buttonSetPh.addEventListener("click", function () {
+  // Call the function to set the pH value
+  setSensorValue("ph");
+  console.log("Ph data has been refreshed successfully!");
+});
+
+//------------------------------------------------//
+// Function to set initial start sensor value from database
+const setSensorStartValue = async () => {
+  try {
+    await setSensorValue("temperature");
+    await setSensorValue("ph");
+    console.log("Initial sensor start data has been loaded successfully!");
+  } catch (error) {
+    console.error("Error loading initial start sensor data:", error);
   }
 };
 
@@ -275,19 +303,6 @@ window.onload = async function () {
   // Set initial states for actuators from database
   setActuatorStates();
 
-  // Add event listener to the refresh button for temperature
-  const buttonSetTemp = document.getElementById("buttonSetTemp");
-  buttonSetTemp.addEventListener("click", function () {
-    // Call the function to set the temperature value
-    setSensorValue("temperature");
-    console.log("Temperature data has been refreshed successfully!");
-  });
-
-  // Add event listener to the refresh button for pH
-  const buttonSetPh = document.getElementById("buttonSetPh");
-  buttonSetPh.addEventListener("click", function () {
-    // Call the function to set the pH value
-    setSensorValue("ph");
-    console.log("Ph data has been refreshed successfully!");
-  });
+  // Set initial states for sensors from database
+  setSensorStartValue();
 };
