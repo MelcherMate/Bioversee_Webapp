@@ -102,13 +102,49 @@ input[type="number"] {
   margin-bottom: 10px;
 }
 
-/* temperature display */
-.sensorDisplay {
-  width: 200px;
-  height: 70px;
-  background-color: lightgray;
+.switchContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.switch {
+  display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 17px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.switch label::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.switch input:checked + label::before {
+  transform: translateX(26px) translateY(-50%);
+}
+
+.switch input:checked + label {
+  background-color: green;
 }
