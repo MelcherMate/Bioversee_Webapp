@@ -1,5 +1,11 @@
+import "./Button.css";
+
 function Button(props) {
-  return <>{props.label}</>;
+  return (
+    <>
+      <button id={props.name}>{props.label}</button>
+    </>
+  );
 }
 
 Button.displayName = "Button";

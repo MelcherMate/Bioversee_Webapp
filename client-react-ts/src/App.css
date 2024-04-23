@@ -9,60 +9,36 @@ html {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   height: 100%;
 }
 
 #root {
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .grid {
   display: grid;
-  grid-template-rows: 6rem 5rem auto 5rem;
-  grid-template-columns: 20% auto 20%;
-  font-size: 1.5rem;
+  grid-template-rows: 50px auto 50px;
+  grid-template-columns: auto;
   height: 100%;
 }
 
-@media (max-width: 480px) {
-  .grid {
-    grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
-    grid-template-columns: 1fr;
-  }
-
-  aside,
-  main {
-    grid-column: 1 / 4;
-  }
-}
-
-nav,
 header,
 footer {
   background: #f6c356;
-  grid-column: 1 / 4;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-nav {
-  background: #aaec8a;
-}
-
-aside,
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-aside {
-  background: white;
-}
-
-main {
   background: whitesmoke;
 }

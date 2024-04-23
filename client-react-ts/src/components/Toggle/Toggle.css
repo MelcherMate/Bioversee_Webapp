@@ -1,0 +1,41 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 17px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.toggle label::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle input:checked + label::before {
+  transform: translateX(26px) translateY(-50%);
+}
+
+.toggle input:checked + label {
+  background-color: green;
+}
