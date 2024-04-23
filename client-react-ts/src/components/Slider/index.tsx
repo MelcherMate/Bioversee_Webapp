@@ -1,5 +1,5 @@
-function Slider() {
-  return <>Slider</>;
+function Slider(props) {
+  return <>{props.label}</>;
 }
 
 Slider.displayName = "Slider";

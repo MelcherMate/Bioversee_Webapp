@@ -1,5 +1,5 @@
-function Toggle() {
-  return <>Toggle</>;
+function Toggle(props) {
+  return <>{props.label}</>;
 }
 
 Toggle.displayName = "Toggle";

@@ -1,5 +1,5 @@
-function Button() {
-  return <>Button</>;
+function Button(props) {
+  return <>{props.label}</>;
 }
 
 Button.displayName = "Button";

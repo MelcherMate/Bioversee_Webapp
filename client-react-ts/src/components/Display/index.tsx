@@ -1,5 +1,5 @@
-function Display() {
-  return <>Display</>;
+function Display(props) {
+  return <>{props.label}</>;
 }
 
 Display.displayName = "Display";
