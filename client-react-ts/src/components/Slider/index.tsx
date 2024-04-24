@@ -8,7 +8,7 @@ function Slider(props) {
           type="range"
           min="0"
           max="100"
-          value="0"
+          // value="0"
           className="slider"
           id={props.name}
         />

@@ -36,9 +36,18 @@ footer {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
   justify-content: center;
   align-items: center;
-  background: whitesmoke;
+}
+
+Toggle,
+Slider,
+Display,
+Button {
+  width: 100%;
+  max-width: 200px;
 }
