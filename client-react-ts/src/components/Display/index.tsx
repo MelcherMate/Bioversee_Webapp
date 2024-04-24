@@ -5,7 +5,8 @@ function Display(props) {
     <>
       <div className="display" id={props.name}>
         <span>
-          {props.label} {props.value}
+          {props.label}
+          {/* {props.value} */}
         </span>
       </div>
     </>
