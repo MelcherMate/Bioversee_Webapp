@@ -18,9 +18,9 @@ function App() {
             label="Warm water pump"
             url="/api/v1/actuator/getswitchesactuators"
           />
-          {/* <Toggle name="coldWaterPump" label="Cold water pump" />
+          <Toggle name="coldWaterPump" label="Cold water pump" />
           <Toggle name="acidPump" label="Acid pump" />
-          <Toggle name="basePump" label="Base pump" /> */}
+          <Toggle name="basePump" label="Base pump" />
           <Display
             name="rotorDisplay"
             label="Rotor display" //value="0"
