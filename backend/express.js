@@ -33,7 +33,8 @@ var corsOptions = {
   // credentials: true,
   optionsSuccessStatus: 200, // For legacy browser support
 };
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors());
 
 // # Routes
 app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
@@ -41,13 +42,20 @@ app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
 // # Serving
 // serving the frontend dev, and prod folders as static resources
 
-app.use("/", express.static(path.join(__dirname, "../client/")));
-/* final catch-all route to index.html defined last; trailing / is important (!!!) */
-app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../client/"));
+// app.use("/", express.static(path.join(__dirname, "../client/")));
+// /* final catch-all route to index.html defined last; trailing / is important (!!!) */
+// app.get("/*", (req, res, next) => {
+//   res.sendFile(path.join(__dirname, "../client/"));
+// });
+// app.use("*", function (req, res, next) {
+//   // serve files upon refresh window
+// });
+
+app.use("/", express.static(path.join(__dirname, "indexReact.html")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "indexReact.html"));
 });
-app.use("*", function (req, res, next) {
-  // serve files upon refresh window
-});
+
+app.use("*", function (req, res, next) {});
 
 export default app;

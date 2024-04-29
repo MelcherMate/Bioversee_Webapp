@@ -14,13 +14,25 @@ function App() {
         <header>Bioversee</header>
         <main>
           <Toggle
-            name="warmWaterPump"
+            name="switchWarmWaterPump"
             label="Warm water pump"
             url="/api/v1/actuator/getswitchesactuators"
           />
-          <Toggle name="coldWaterPump" label="Cold water pump" />
-          <Toggle name="acidPump" label="Acid pump" />
-          <Toggle name="basePump" label="Base pump" />
+          <Toggle
+            name="switchColdWaterPump"
+            label="Cold water pump"
+            url="/api/v1/actuator/getswitchesactuators"
+          />
+          <Toggle
+            name="switchAcidPump"
+            label="Acid pump"
+            url="/api/v1/actuator/getswitchesactuators"
+          />
+          <Toggle
+            name="switchBasePump"
+            label="Base pump"
+            url="/api/v1/actuator/getswitchesactuators"
+          />
           <Display
             name="rotorDisplay"
             label="Rotor display" //value="0"

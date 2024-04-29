@@ -16,13 +16,13 @@ const addActuator = (req, res, next) => {
     });
   });
 };
+
 const getActuators = (req, res, next) => {
-  ActuatorSliders.find({}, (err, actuators) => {
-    if (err) {
-      return res.status(500).json({ error: "Error retrieving actuators" });
-    }
-    res.status(200).json(actuators);
-  });
+  ActuatorSliders.find({}, null, { sort: { createdAt: 1 } })
+    .then((actuators) => res.json(actuators))
+    .catch((err) =>
+      res.status(500).json({ error: "Error retrieving actuators" })
+    );
 };
 
 export default {
