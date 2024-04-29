@@ -2,7 +2,7 @@
 
 ## General:
 
-The main idea behind the project comes from the fact that most bioreactors in the fermentation industry are in a lack the ability to be controlled remotely via internet. To solve this problem, there are many easy accessible off-the-shelf devices which can be the foundation of upgrading aged machinery. With these, it`s relatively easy to hook up the sensors and actuators from an existing bioreactor and control them. Nowadays software developers focus on building web applications rather than desktop apps, so I decided I would like to do the same with my idea. This new system will be capable of controlling any bioreactor with a web-based, modern-looking and easy to use controller and it offers a cheap solution for bioreactor renovation.
+The main idea behind the project comes from the fact that many bioreactors in laboratory environment are in a lack the ability to be controlled remotely via internet. To solve this problem, there are many easy accessible off-the-shelf devices which can be the foundation of upgrading aged machinery. With these, it`s relatively easy to hook up the sensors and actuators from an existing bioreactor and control them. Nowadays software developers focus on building web applications rather than desktop apps, so I decided I would like to do the same with my idea. This new system will be capable of controlling any bioreactor with a web-based, modern-looking and easy to use controller and it offers a cheap solution for bioreactor renovation.
 
 ## Controller website:
 
