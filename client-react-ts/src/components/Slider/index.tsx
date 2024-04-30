@@ -4,7 +4,7 @@ import "./Slider.css";
 
 function Slider(props) {
   // States
-  const [val, setValue] = useState(0);
+  const [val, setVal] = useState(0);
   const [data, setData] = useState([]); // Optional for set Data
   const [isLoading, setIsLoading] = useState(false); // Optional for loading state
   const [error, setError] = useState(null); // Optional for error state
@@ -30,7 +30,7 @@ function Slider(props) {
             data.reverse(),
             props.name
           );
-          setValue(firstWithName.state);
+          setVal(firstWithName.state);
         })
         .catch((error) => console.log(error));
     }
@@ -39,7 +39,7 @@ function Slider(props) {
   // Update the value when the slider is moved
   const handleChange = (event) => {
     const newValue = parseInt(event.target.value, 10);
-    setValue(newValue);
+    setVal(newValue);
     sendSliderValueToDatabase(newValue);
   };
 
@@ -61,10 +61,10 @@ function Slider(props) {
       .catch((error) => console.log(error));
   };
 
-  // Optional: Set initial value based on props
+  // Set initial value based on props
   useEffect(() => {
     if (!isUndefined(props.initialValue)) {
-      setValue(props.initialValue);
+      setVal(props.initialValue);
     }
   }, [props.initialValue]);
 
