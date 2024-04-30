@@ -1,8 +1,8 @@
 import { isUndefined } from "lodash";
 import { useEffect, useState } from "react";
-import "./Toggle.css";
+import "./Switch.css";
 
-function Toggle(props) {
+function Switch(props) {
   // States
   const [val, setVal] = useState(false);
   const [data, setData] = useState([]); // Optional for set Data
@@ -37,7 +37,7 @@ function Toggle(props) {
   }, [props.url, props.name]);
 
   // Function send new state value to the database
-  const sendToggleStateToDatabase = (newValue) => {
+  const sendSwitchStateToDatabase = (newValue) => {
     const data = { name: props.name, state: newValue };
     fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.updateUrl}`, {
       method: "POST",
@@ -56,7 +56,7 @@ function Toggle(props) {
 
   return (
     <>
-      <div className="toggle">
+      <div className="switch">
         <input
           type="checkbox"
           checked={val}
@@ -64,7 +64,7 @@ function Toggle(props) {
           onChange={(event) => {
             const newValue = event.target.checked;
             setVal(newValue);
-            sendToggleStateToDatabase(newValue);
+            sendSwitchStateToDatabase(newValue);
           }}
         />
         <label htmlFor={props.name}></label>
@@ -74,5 +74,5 @@ function Toggle(props) {
   );
 }
 
-Toggle.displayName = "Toggle";
-export default Toggle;
+Switch.displayName = "Switch";
+export default Switch;

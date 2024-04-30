@@ -3,7 +3,7 @@ import "./App.css";
 import Button from "./components/Button";
 import Display from "./components/Display";
 import Slider from "./components/Slider";
-import Toggle from "./components/Toggle";
+import Switch from "./components/Switch";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,25 +13,25 @@ function App() {
       <div className="grid">
         <header>Bioversee</header>
         <main>
-          <Toggle
+          <Switch
             name="switchWarmWaterPump"
             label="Warm water pump"
             url="/api/v1/actuator/getswitchesactuators"
             updateUrl="/api/v1/actuator/postswitchactuator"
           />
-          <Toggle
+          <Switch
             name="switchColdWaterPump"
             label="Cold water pump"
             url="/api/v1/actuator/getswitchesactuators"
             updateUrl="/api/v1/actuator/postswitchactuator"
           />
-          <Toggle
+          <Switch
             name="switchAcidPump"
             label="Acid pump"
             url="/api/v1/actuator/getswitchesactuators"
             updateUrl="/api/v1/actuator/postswitchactuator"
           />
-          <Toggle
+          <Switch
             name="switchBasePump"
             label="Base pump"
             url="/api/v1/actuator/getswitchesactuators"

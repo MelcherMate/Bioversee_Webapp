@@ -1,14 +1,14 @@
-.toggle {
+.switch {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.toggle input[type="checkbox"] {
+.switch input[type="checkbox"] {
   display: none;
 }
 
-.toggle label {
+.switch label {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -20,7 +20,7 @@
   padding: 2px;
 }
 
-.toggle label::before {
+.switch label::before {
   content: "";
   position: absolute;
   width: 25px;
@@ -32,10 +32,10 @@
   transform: translateY(-50%);
 }
 
-.toggle input:checked + label::before {
+.switch input:checked + label::before {
   transform: translateX(26px) translateY(-50%);
 }
 
-.toggle input:checked + label {
+.switch input:checked + label {
   background-color: green;
 }
