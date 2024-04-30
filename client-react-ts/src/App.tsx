@@ -45,8 +45,18 @@ function App() {
             name="aeratorDisplay"
             label="Aerator display" //value="0"
           />
-          <Slider name="rotorSlider" label="Rotor" />
-          <Slider name="aeratorSlider" label="Aerator" />
+          <Slider
+            name="rotor"
+            label="Rotor"
+            url="/api/v1/actuator/getslideractuators"
+            updateUrl="/api/v1/actuator/postslideractuator"
+          />
+          <Slider
+            name="aerator"
+            label="Aerator"
+            url="/api/v1/actuator/getslideractuators"
+            updateUrl="/api/v1/actuator/postslideractuator"
+          />
           <Display
             name="tempDisplay"
             label="Temperature display" //value="0"

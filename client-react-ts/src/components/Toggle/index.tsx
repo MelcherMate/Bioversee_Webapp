@@ -5,7 +5,7 @@ import "./Toggle.css";
 function Toggle(props) {
   // States
   const [val, setVal] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // Optional for set Data
   const [isLoading, setIsLoading] = useState(false); // Optional for loading state
   const [error, setError] = useState(null); // Optional for error state
 
