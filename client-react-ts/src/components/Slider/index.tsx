@@ -61,13 +61,6 @@ function Slider(props) {
       .catch((error) => console.log(error));
   };
 
-  // Set initial value based on props
-  useEffect(() => {
-    if (!isUndefined(props.initialValue)) {
-      setVal(props.initialValue);
-    }
-  }, [props.initialValue]);
-
   return (
     <>
       <div className="slider">
