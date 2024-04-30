@@ -10,14 +10,13 @@ function Toggle(props) {
   const [error, setError] = useState(null); // Optional for error state
 
   // Functions
-
+  // Function to get state value database
   const getFirstObjectByName = (arr, nameToFind) => {
     return arr.find((obj) => obj.name === nameToFind);
   };
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
-      //console.log(import.meta.env.VITE_SERVER_BASE_URL + props.url);
       fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
         method: "GET",
         headers: {
@@ -27,19 +26,33 @@ function Toggle(props) {
       })
         .then((response) => response.json())
         .then((data) => {
-          //console.log(data);
-          //console.log(data, props.name);
           const firstWithName = getFirstObjectByName(
             data.reverse(),
             props.name
           );
-          //console.log(firstWithName);
-          //console.log(firstWithName.state);
           setVal(firstWithName.state);
         })
         .catch((error) => console.log(error));
     }
   }, [props.url, props.name]);
+
+  // Function send new state value to the database
+  const sendToggleStateToDatabase = (newValue) => {
+    const data = { name: props.name, state: newValue };
+    fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.updateUrl}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the database:", data);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -48,8 +61,10 @@ function Toggle(props) {
           type="checkbox"
           checked={val}
           id={props.name}
-          onChange={() => {
-            setVal(!val);
+          onChange={(event) => {
+            const newValue = event.target.checked;
+            setVal(newValue);
+            sendToggleStateToDatabase(newValue);
           }}
         />
         <label htmlFor={props.name}></label>

@@ -1,6 +1,6 @@
 import ActuatorSliders from "../models/actuatorSwitches.model";
 
-const addActuator = (req, res, next) => {
+const postActuator = (req, res, next) => {
   const newActuator = new ActuatorSliders({
     name: req.body.data.name,
     state: req.body.data.state,
@@ -26,6 +26,6 @@ const getActuators = (req, res, next) => {
 };
 
 export default {
-  addActuator,
+  postActuator,
   getActuators,
 };

@@ -17,21 +17,25 @@ function App() {
             name="switchWarmWaterPump"
             label="Warm water pump"
             url="/api/v1/actuator/getswitchesactuators"
+            updateUrl="/api/v1/actuator/postswitchactuator"
           />
           <Toggle
             name="switchColdWaterPump"
             label="Cold water pump"
             url="/api/v1/actuator/getswitchesactuators"
+            updateUrl="/api/v1/actuator/postswitchactuator"
           />
           <Toggle
             name="switchAcidPump"
             label="Acid pump"
             url="/api/v1/actuator/getswitchesactuators"
+            updateUrl="/api/v1/actuator/postswitchactuator"
           />
           <Toggle
             name="switchBasePump"
             label="Base pump"
             url="/api/v1/actuator/getswitchesactuators"
+            updateUrl="/api/v1/actuator/postswitchactuator"
           />
           <Display
             name="rotorDisplay"
