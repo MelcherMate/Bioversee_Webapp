@@ -35,10 +35,18 @@ footer {
   align-items: center;
 }
 
-main {
+.mainGrid {
   display: grid;
-  grid-template-rows: repeat(4, auto);
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.switchContainer,
+.sliderContainer,
+.buttonContainer {
+  display: grid;
   gap: 10px;
   justify-content: center;
   align-items: center;
