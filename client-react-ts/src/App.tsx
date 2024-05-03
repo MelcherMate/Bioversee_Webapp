@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
-import Display from "./components/Display";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
 
@@ -48,14 +47,6 @@ function App() {
             label="Aerator"
             url="/api/v1/actuator/getslideractuators"
             updateUrl="/api/v1/actuator/postslideractuator"
-          />
-          <Display
-            name="tempDisplay"
-            label="Temperature display" //value="0"
-          />
-          <Display
-            name="pHDisplay"
-            label="pH display" //value="0"
           />
           <Button
             name="temperature"
