@@ -73,6 +73,7 @@ function Slider(props) {
           className="slider"
           id={props.name}
         />
+        <span className="sliderValue">{val}%</span>
         <span>{props.label}</span>
       </div>
     </>

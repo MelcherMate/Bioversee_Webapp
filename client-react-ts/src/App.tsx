@@ -37,14 +37,6 @@ function App() {
             url="/api/v1/actuator/getswitchesactuators"
             updateUrl="/api/v1/actuator/postswitchactuator"
           />
-          <Display
-            name="rotorDisplay"
-            label="Rotor display" //value="0"
-          />
-          <Display
-            name="aeratorDisplay"
-            label="Aerator display" //value="0"
-          />
           <Slider
             name="rotor"
             label="Rotor"

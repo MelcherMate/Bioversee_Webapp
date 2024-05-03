@@ -1,0 +1,12 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider input[type="range"] {
+  margin-bottom: 10px;
+}
+
+.slider-value {
+  text-align: center;
+}
