@@ -57,8 +57,16 @@ function App() {
             name="pHDisplay"
             label="pH display" //value="0"
           />
-          <Button name="tempCall" label="Temperature button" />
-          <Button name="phCall" label="pH value button" />
+          <Button
+            name="temperature"
+            label="Temperature button"
+            url="/api/v1/sensor/getsensordata"
+          />
+          <Button
+            name="ph"
+            label="pH value button"
+            url="/api/v1/sensor/getsensordata"
+          />
         </main>
         <footer>Bioversee open-source software</footer>
       </div>
