@@ -5,13 +5,15 @@
 }
 
 html {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 #root {
@@ -21,10 +23,48 @@ body {
 }
 
 .grid {
-  display: grid;
-  grid-template-rows: 50px auto 50px;
-  grid-template-columns: auto;
-  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  position: relative;
+  flex: 0 1 auto;
+  height: 50px;
+}
+nav {
+  display: flex;
+  position: relative;
+  flex: 0 1 auto;
+  width: 320px;
+  flex-direction: column;
+}
+.container {
+  display: flex;
+  position: relative;
+  flex: 1 1 auto;
+}
+main {
+  display: flex;
+  position: relative;
+  flex: 1 1 auto;
+  background-color: aqua;
+}
+aside {
+  display: flex;
+  position: relative;
+  flex: 0 1 auto;
+  width: 320px;
+  flex-direction: column;
+}
+footer {
+  display: flex;
+  position: relative;
+  flex: 0 1 auto;
+  height: 50px;
 }
 
 header,
@@ -33,29 +73,4 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.mainGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.switchContainer,
-.sliderContainer,
-.buttonContainer {
-  display: grid;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-Switch,
-Slider,
-Display,
-Button {
-  width: 100%;
-  max-width: 200px;
 }
