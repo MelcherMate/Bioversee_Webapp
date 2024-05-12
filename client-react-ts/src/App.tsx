@@ -22,45 +22,51 @@ function App() {
       <div className="grid">
         <header>Bioversee</header>
         <div className="container">
-          <nav>
-            <Switch
-              name="switchWarmWaterPump"
-              label="Warm water pump"
-              url="/api/v1/actuator/getswitchesactuators"
-              updateUrl="/api/v1/actuator/postswitchactuator"
-            />
-            <Switch
-              name="switchColdWaterPump"
-              label="Cold water pump"
-              url="/api/v1/actuator/getswitchesactuators"
-              updateUrl="/api/v1/actuator/postswitchactuator"
-            />
-            <Switch
-              name="switchAcidPump"
-              label="Acid pump"
-              url="/api/v1/actuator/getswitchesactuators"
-              updateUrl="/api/v1/actuator/postswitchactuator"
-            />
-            <Switch
-              name="switchBasePump"
-              label="Base pump"
-              url="/api/v1/actuator/getswitchesactuators"
-              updateUrl="/api/v1/actuator/postswitchactuator"
-            />
-            <Slider
-              name="rotor"
-              label="Rotor"
-              url="/api/v1/actuator/getslideractuators"
-              updateUrl="/api/v1/actuator/postslideractuator"
-            />
-            <Slider
-              name="aerator"
-              label="Aerator"
-              url="/api/v1/actuator/getslideractuators"
-              updateUrl="/api/v1/actuator/postslideractuator"
-            />
-          </nav>
-          <main>Hello main</main>
+          <aside>
+            <div className="switchBox">
+              <Switch
+                name="switchWarmWaterPump"
+                label="Warm water pump"
+                url="/api/v1/actuator/getswitchesactuators"
+                updateUrl="/api/v1/actuator/postswitchactuator"
+              />
+              <Switch
+                name="switchColdWaterPump"
+                label="Cold water pump"
+                url="/api/v1/actuator/getswitchesactuators"
+                updateUrl="/api/v1/actuator/postswitchactuator"
+              />
+              <Switch
+                name="switchAcidPump"
+                label="Acid pump"
+                url="/api/v1/actuator/getswitchesactuators"
+                updateUrl="/api/v1/actuator/postswitchactuator"
+              />
+              <Switch
+                name="switchBasePump"
+                label="Base pump"
+                url="/api/v1/actuator/getswitchesactuators"
+                updateUrl="/api/v1/actuator/postswitchactuator"
+              />
+            </div>
+            <div className="sliderBox">
+              <Slider
+                name="rotor"
+                label="Rotor"
+                url="/api/v1/actuator/getslideractuators"
+                updateUrl="/api/v1/actuator/postslideractuator"
+              />
+              <Slider
+                name="aerator"
+                label="Aerator"
+                url="/api/v1/actuator/getslideractuators"
+                updateUrl="/api/v1/actuator/postslideractuator"
+              />
+            </div>
+          </aside>
+          <main>
+            <div className="reactorBox">bioreactor</div>
+          </main>
           <aside>
             <Button
               name="temperature"
@@ -77,39 +83,32 @@ function App() {
               height={200}
               data={[
                 {
-                  name: "Page A",
-                  pv: 2400,
-                  amt: 2400,
+                  name: "8:00:00",
+                  pv: 22,
                 },
                 {
-                  name: "Page B",
-                  pv: 1398,
-                  amt: 2210,
+                  name: "8:01:00",
+                  pv: 22.4,
                 },
                 {
-                  name: "Page C",
-                  pv: 9800,
-                  amt: 2290,
+                  name: "8:02:00",
+                  pv: 18.9,
                 },
                 {
-                  name: "Page D",
-                  pv: 3908,
-                  amt: 2000,
+                  name: "8:03:00",
+                  pv: 19.9,
                 },
                 {
-                  name: "Page E",
-                  pv: 4800,
-                  amt: 2181,
+                  name: "8:04:00",
+                  pv: 21.4,
                 },
                 {
-                  name: "Page F",
-                  pv: 3800,
-                  amt: 2500,
+                  name: "8:05:00",
+                  pv: 23.5,
                 },
                 {
-                  name: "Page G",
-                  pv: 4300,
-                  amt: 2100,
+                  name: "8:06:00",
+                  pv: 24.1,
                 },
               ]}
               margin={{
@@ -134,7 +133,22 @@ function App() {
             </LineChart>
           </aside>
         </div>
-        <footer>Bioversee open-source software</footer>
+        <footer>
+          <div className="footerCopy">
+            <p>
+              &copy; 2024 Bioversee <br></br>All rights reserved
+            </p>
+          </div>
+          <div className="footerLinkedin">
+            <a
+              href="https://www.linkedin.com/in/mate-melcher-5a16601bb/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              About me
+            </a>
+          </div>
+        </footer>
       </div>
     </>
   );
