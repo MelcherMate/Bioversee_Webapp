@@ -9,6 +9,8 @@ import {
   YAxis,
 } from "recharts";
 
+import { Canvas } from "./Canvas";
+
 import "./App.css";
 import Button from "./components/Button";
 import Slider from "./components/Slider";
@@ -16,6 +18,9 @@ import Switch from "./components/Switch";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [cards, setCards] = useState<Card[]>([
+    { id: "Hello", coordinates: { x: 0, y: 0 }, text: "Bioreactor" },
+  ]);
 
   return (
     <>
@@ -65,7 +70,9 @@ function App() {
             </div>
           </aside>
           <main>
-            <div className="reactorBox">bioreactor</div>
+            <div className="reactorBox">
+              <Canvas cards={cards} setCards={setCards} />
+            </div>
           </main>
           <aside>
             <Button
