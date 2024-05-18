@@ -80,6 +80,11 @@ function App() {
               label="Temperature LineChart"
               url="/api/v1/sensor/getsensordata"
             />
+            <Chart
+              name="phChart"
+              label="pH value LineChart"
+              url="/api/v1/sensor/getsenrosdata"
+            />
           </aside>
         </div>
         <footer>
