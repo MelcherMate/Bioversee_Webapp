@@ -101,6 +101,14 @@ function App() {
             >
               About me
             </a>
+            <br></br>
+            <a
+              href="https://github.com/MelcherMate"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
           </div>
         </footer>
       </div>

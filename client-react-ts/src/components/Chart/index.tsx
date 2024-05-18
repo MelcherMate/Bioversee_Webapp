@@ -59,7 +59,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         time: reduceTimestampLength(item.createdAt), // X-axis
         value: item.value, // Y-axis
       }));
-      console.log(chartData);
+      // console.log(chartData);
       setFormattedData(chartData);
     }
   }, [data, props.name]);
