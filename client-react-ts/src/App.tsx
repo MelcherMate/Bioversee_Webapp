@@ -67,12 +67,12 @@ function App() {
             <div className="chartBox">
               <Chart
                 name="temperature"
-                label="Temperature LineChart"
+                label="Temperature value"
                 url="/api/v1/sensor/getsensordata"
               />
               <Chart
                 name="ph"
-                label="pH value LineChart"
+                label="pH value"
                 url="/api/v1/sensor/getsensordata"
               />
             </div>
@@ -94,7 +94,7 @@ function App() {
               &copy; 2024 Bioversee <br></br>All rights reserved
             </p>
           </div>
-          <div className="footerLinkedin">
+          <div className="footerLinks">
             <a
               href="https://www.linkedin.com/in/mate-melcher-5a16601bb/"
               target="_blank"
@@ -108,7 +108,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              GitHub Repository
             </a>
           </div>
         </footer>
