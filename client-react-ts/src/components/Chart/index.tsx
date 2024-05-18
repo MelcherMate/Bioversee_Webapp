@@ -1,4 +1,4 @@
-import { isUndefined } from "lodash";
+import { isEmpty, isUndefined } from "lodash";
 import React, { useEffect, useState } from "react";
 import {
   CartesianGrid,
@@ -19,7 +19,9 @@ interface ChartProps {
 
 const Chart: React.FC<ChartProps> = (props) => {
   const [data, setData] = useState<any[]>([]);
+  const [formattedData, setFormattedData] = useState<any[]>([]);
 
+  // Function to get sensor value from database
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
       fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
@@ -37,11 +39,28 @@ const Chart: React.FC<ChartProps> = (props) => {
         })
         .then((data) => {
           setData(data);
-          console.log("Data pull success:", data);
+          //console.log("Data pull success:", data);
         })
         .catch((error) => console.error("Fetch error:", error));
     }
   }, [props.url, props.name]);
+
+  // Function to format sensor data for the chart
+  useEffect(() => {
+    if (!isEmpty(data)) {
+      // Filter data by props.name
+      const filteredData = data.filter((item: any) => item.name === props.name);
+
+      // Select the last 6 data points
+      const lastSixData = filteredData.slice(-6);
+
+      // Reverse the order of data
+      const reversedSixData = lastSixData.reverse();
+      console.log(reversedSixData);
+
+      setFormattedData(reversedSixData);
+    }
+  }, [data, props.name]);
 
   return (
     <div className="chartContainer">
@@ -49,16 +68,7 @@ const Chart: React.FC<ChartProps> = (props) => {
       <LineChart
         width={200}
         height={200}
-        data={[
-          //data
-          { time: "8:00:00", pv: 22.1 },
-          { time: "8:01:00", pv: 22.4 },
-          { time: "8:02:00", pv: 18.9 },
-          { time: "8:03:00", pv: 19.9 },
-          { time: "8:04:00", pv: 21.4 },
-          { time: "8:05:00", pv: 23.5 },
-          { time: "8:06:00", pv: 24.1 },
-        ]}
+        data={formattedData}
         margin={{
           top: 5,
           right: 0,

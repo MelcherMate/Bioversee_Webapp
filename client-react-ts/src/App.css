@@ -39,7 +39,7 @@ aside {
   display: flex;
   position: relative;
   flex: 0 1 auto;
-  width: 320px;
+  width: 420px;
   flex-direction: column;
 }
 .container {
