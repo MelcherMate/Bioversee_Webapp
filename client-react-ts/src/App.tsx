@@ -1,18 +1,8 @@
 import { useState } from "react";
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-
-import { Canvas } from "./components/Bioreactor/Canvas";
-
 import "./App.css";
+import { Canvas } from "./components/Bioreactor/Canvas";
 import Button from "./components/Button";
+import Chart from "./components/Chart/index";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
 
@@ -85,59 +75,11 @@ function App() {
               label="pH value button"
               url="/api/v1/sensor/getsensordata"
             />
-            <LineChart
-              width={200}
-              height={200}
-              data={[
-                {
-                  name: "8:00:00",
-                  pv: 22,
-                },
-                {
-                  name: "8:01:00",
-                  pv: 22.4,
-                },
-                {
-                  name: "8:02:00",
-                  pv: 18.9,
-                },
-                {
-                  name: "8:03:00",
-                  pv: 19.9,
-                },
-                {
-                  name: "8:04:00",
-                  pv: 21.4,
-                },
-                {
-                  name: "8:05:00",
-                  pv: 23.5,
-                },
-                {
-                  name: "8:06:00",
-                  pv: 24.1,
-                },
-              ]}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              />
-              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-            </LineChart>
+            <Chart
+              name="tempChart"
+              label="Temperature LineChart"
+              url="/api/v1/sensor/getsensordata"
+            />
           </aside>
         </div>
         <footer>
