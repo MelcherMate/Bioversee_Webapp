@@ -76,8 +76,8 @@ const Chart: React.FC<ChartProps> = (props) => {
   };
 
   return (
-    <div className="chartContainer">
-      <h2 id="title">{props.label}</h2>
+    <div>
+      <h3 id="title">{props.label}</h3>
       <LineChart
         width={200}
         height={200}

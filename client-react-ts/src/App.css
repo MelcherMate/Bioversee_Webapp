@@ -99,6 +99,13 @@ footer {
   width: 100%;
 }
 
+.chartBox {
+  margin: 10px;
+  background-color: lightgray;
+  border-radius: 24px;
+  padding: 8px;
+}
+
 .footerCopy {
   margin-right: 5px;
 }

@@ -64,16 +64,18 @@ function App() {
             </div>
           </main>
           <aside>
-            <Chart
-              name="temperature"
-              label="Temperature LineChart"
-              url="/api/v1/sensor/getsensordata"
-            />
-            <Chart
-              name="ph"
-              label="pH value LineChart"
-              url="/api/v1/sensor/getsensordata"
-            />
+            <div className="chartBox">
+              <Chart
+                name="temperature"
+                label="Temperature LineChart"
+                url="/api/v1/sensor/getsensordata"
+              />
+              <Chart
+                name="ph"
+                label="pH value LineChart"
+                url="/api/v1/sensor/getsensordata"
+              />
+            </div>
             {/* <Button
               name="temperature"
               label="Temperature button"
