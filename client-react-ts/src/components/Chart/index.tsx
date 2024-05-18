@@ -54,13 +54,26 @@ const Chart: React.FC<ChartProps> = (props) => {
       // Select the last 6 data points
       const lastSixData = filteredData.slice(-6);
 
-      // Reverse the order of data
-      const reversedSixData = lastSixData.reverse();
-      console.log(reversedSixData);
-
-      setFormattedData(reversedSixData);
+      // Prepare data for the chart (selecting only 'name' and 'pv' fields)
+      const chartData = lastSixData.map((item) => ({
+        time: reduceTimestampLength(item.createdAt), // X-axis
+        value: item.value, // Y-axis
+      }));
+      console.log(chartData);
+      setFormattedData(chartData);
     }
   }, [data, props.name]);
+
+  // Function to reduce timestamp length to "HH:mm" format
+  const reduceTimestampLength = (timestamp: string) => {
+    const date = new Date(timestamp);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${
+      seconds < 10 ? "0" + seconds : seconds
+    }`;
+  };
 
   return (
     <div className="chartContainer">
@@ -83,7 +96,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         <Legend />
         <Line
           type="monotone"
-          dataKey={props.name}
+          dataKey="value"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
         />
