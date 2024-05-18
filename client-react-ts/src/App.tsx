@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import { Canvas } from "./components/Bioreactor/Canvas";
-import Button from "./components/Button";
 import Chart from "./components/Chart/index";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
@@ -65,16 +64,6 @@ function App() {
             </div>
           </main>
           <aside>
-            <Button
-              name="temperature"
-              label="Temperature button"
-              url="/api/v1/sensor/getsensordata"
-            />
-            <Button
-              name="ph"
-              label="pH value button"
-              url="/api/v1/sensor/getsensordata"
-            />
             <Chart
               name="temperature"
               label="Temperature LineChart"
@@ -85,6 +74,16 @@ function App() {
               label="pH value LineChart"
               url="/api/v1/sensor/getsensordata"
             />
+            {/* <Button
+              name="temperature"
+              label="Temperature button"
+              url="/api/v1/sensor/getsensordata"
+            />
+            <Button
+              name="ph"
+              label="pH value button"
+              url="/api/v1/sensor/getsensordata"
+            /> */}
           </aside>
         </div>
         <footer>
