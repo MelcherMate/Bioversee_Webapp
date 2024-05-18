@@ -76,12 +76,12 @@ function App() {
               url="/api/v1/sensor/getsensordata"
             />
             <Chart
-              name="tempChart"
+              name="temperature"
               label="Temperature LineChart"
               url="/api/v1/sensor/getsensordata"
             />
             <Chart
-              name="phChart"
+              name="ph"
               label="pH value LineChart"
               url="/api/v1/sensor/getsenrosdata"
             />

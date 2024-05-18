@@ -16,9 +16,9 @@ interface ChartProps {
   url: string;
 }
 
-const Chart: React.FC<ChartProps> = ({ label }) => {
+const Chart: React.FC<ChartProps> = (props) => {
   const data = [
-    { time: "8:00:00", pv: 22 },
+    { time: "8:00:00", pv: 22.1 },
     { time: "8:01:00", pv: 22.4 },
     { time: "8:02:00", pv: 18.9 },
     { time: "8:03:00", pv: 19.9 },
@@ -29,7 +29,7 @@ const Chart: React.FC<ChartProps> = ({ label }) => {
 
   return (
     <div className="chartContainer">
-      <h2 id="title">{label}</h2>
+      <h2 id="title">{props.label}</h2>
       <LineChart
         width={200}
         height={200}
