@@ -18,7 +18,7 @@ interface ChartProps {
 }
 
 const Chart: React.FC<ChartProps> = (props) => {
-  const [data, setData] = useState<any[]>([]); // Inicializáljuk a useState-et egy üres tömbbel
+  const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
@@ -36,7 +36,7 @@ const Chart: React.FC<ChartProps> = (props) => {
           return response.json();
         })
         .then((data) => {
-          setData(data); // Az adatokat állítsuk be
+          setData(data);
           console.log("Data pull success:", data);
         })
         .catch((error) => console.error("Fetch error:", error));
