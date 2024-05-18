@@ -1,6 +1,6 @@
 import { DndContext } from "@dnd-kit/core";
 import { DragEndEvent } from "@dnd-kit/core/dist/types";
-import { Card } from "./App";
+import { Card } from "../../App";
 import { Draggable } from "./Draggable";
 
 export const Canvas = ({

@@ -9,7 +9,7 @@ import {
   YAxis,
 } from "recharts";
 
-import { Canvas } from "./Canvas";
+import { Canvas } from "./components/Bioreactor/Canvas";
 
 import "./App.css";
 import Button from "./components/Button";

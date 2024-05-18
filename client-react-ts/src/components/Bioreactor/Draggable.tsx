@@ -1,5 +1,5 @@
 import { useDraggable } from "@dnd-kit/core";
-import { Card } from "./App";
+import { Card } from "../../App";
 
 export const Draggable = ({ card }: { card: Card }) => {
   // hook up to DndKit
