@@ -83,7 +83,7 @@ function App() {
             <Chart
               name="ph"
               label="pH value LineChart"
-              url="/api/v1/sensor/getsenrosdata"
+              url="/api/v1/sensor/getsensordata"
             />
           </aside>
         </div>
