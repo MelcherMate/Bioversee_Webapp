@@ -1,5 +1,5 @@
 import { isUndefined } from "lodash";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -18,6 +18,8 @@ interface ChartProps {
 }
 
 const Chart: React.FC<ChartProps> = (props) => {
+  const [data, setData] = useState<any[]>([]); // Inicializáljuk a useState-et egy üres tömbbel
+
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
       fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
@@ -34,7 +36,8 @@ const Chart: React.FC<ChartProps> = (props) => {
           return response.json();
         })
         .then((data) => {
-          console.log("Data pull sucess:", data);
+          setData(data); // Az adatokat állítsuk be
+          console.log("Data pull success:", data);
         })
         .catch((error) => console.error("Fetch error:", error));
     }
