@@ -14,7 +14,9 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
     y: 0,
   });
   const [currentCard, setCurrentCard] = useState<Card | null>(null);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
 
+  // Mouse down event handler
   const handleMouseDown = (event: React.MouseEvent, card: Card) => {
     setCurrentCard(card);
     setOffset({
@@ -24,6 +26,7 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
     setDragging(true);
   };
 
+  // Mouse move event handler
   const handleMouseMove = (event: React.MouseEvent) => {
     if (dragging && currentCard) {
       currentCard.coordinates.x = event.clientX - offset.x;
@@ -32,9 +35,22 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
     }
   };
 
+  // Mouse up event handler
   const handleMouseUp = () => {
     setDragging(false);
     setCurrentCard(null);
+  };
+
+  // Wheel event handler
+  const handleWheel = (event: React.WheelEvent) => {
+    const delta = Math.sign(event.deltaY); // Positive or negative value depending on the direction of the scroll
+    if (delta === -1) {
+      // Scroll up: zoom in
+      setZoomLevel((prevZoom) => prevZoom * 1.05); // zoom in
+    } else if (delta === 1) {
+      // Scroll down: zoom out
+      setZoomLevel((prevZoom) => prevZoom / 1.05); // zoom out
+    }
   };
 
   return (
@@ -43,13 +59,14 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      onWheel={handleWheel}
     >
       {cards.map((card) => (
         <div
           key={card.id}
           className="card"
           style={{
-            transform: `translate(${card.coordinates.x}px, ${card.coordinates.y}px)`,
+            transform: `translate(${card.coordinates.x}px, ${card.coordinates.y}px) scale(${zoomLevel})`,
           }}
           onMouseDown={(event) => handleMouseDown(event, card)}
         >
