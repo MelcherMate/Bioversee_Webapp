@@ -71,6 +71,19 @@ const Chart: React.FC<ChartProps> = (props) => {
         time: reduceTimestampLength(item.createdAt), // X-axis
         value: item.value, // Y-axis
       }));
+
+      // Add an empty data point
+      if (lastSixData.length > 0) {
+        const lastTimestamp = new Date(
+          lastSixData[lastSixData.length - 1].createdAt
+        );
+        lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
+        chartData.push({
+          time: reduceTimestampLength(lastTimestamp.toISOString()),
+          value: null,
+        });
+      }
+
       setFormattedData(chartData);
     }
   }, [data, props.name]);
@@ -125,6 +138,7 @@ const Chart: React.FC<ChartProps> = (props) => {
             dataKey="value"
             stroke="#8884d8"
             activeDot={{ r: 8 }}
+            isAnimationActive={true}
           />
         </LineChart>
       )}
