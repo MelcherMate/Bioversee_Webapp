@@ -48,8 +48,8 @@ const Chart: React.FC<ChartProps> = (props) => {
     // Initial fetch
     fetchData();
 
-    // Fetch data every 2 seconds
-    const interval = setInterval(fetchData, 2000);
+    // Fetch data every 5 seconds
+    const interval = setInterval(fetchData, 5000);
     console.log("Data refreshed!");
 
     // Cleanup interval on component unmount
