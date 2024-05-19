@@ -1,5 +1,5 @@
 import { isEmpty, isUndefined } from "lodash";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -20,6 +20,8 @@ interface ChartProps {
 const Chart: React.FC<ChartProps> = (props) => {
   const [data, setData] = useState<any[]>([]);
   const [formattedData, setFormattedData] = useState<any[]>([]);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState<number>(0);
 
   // Function to get sensor value from database
   const fetchData = () => {
@@ -50,7 +52,6 @@ const Chart: React.FC<ChartProps> = (props) => {
 
     // Fetch data every 5 seconds
     const interval = setInterval(fetchData, 5000);
-    console.log("Data refreshed!");
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
@@ -85,32 +86,48 @@ const Chart: React.FC<ChartProps> = (props) => {
     }`;
   };
 
+  // Set chart width based on parent div's width
+  useEffect(() => {
+    const updateWidth = () => {
+      if (chartRef.current) {
+        setWidth(chartRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => {
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={chartRef} style={{ width: "100%" }}>
       <h3 id="title">{props.label}</h3>
-      <LineChart
-        width={200}
-        height={200}
-        data={formattedData}
-        margin={{
-          top: 5,
-          right: 0,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="value"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-      </LineChart>
+      {width > 0 && (
+        <LineChart
+          width={width}
+          height={200}
+          data={formattedData}
+          margin={{
+            top: 5,
+            right: 0,
+            left: 0,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="time" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+        </LineChart>
+      )}
     </div>
   );
 };
