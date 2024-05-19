@@ -1,9 +1,15 @@
 import { useState } from "react";
 import "./App.css";
-import { Canvas } from "./components/Bioreactor/Canvas";
+import Canvas from "./components/Canvas";
 import Chart from "./components/Chart/index";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
+
+interface Card {
+  id: string;
+  coordinates: { x: number; y: number };
+  text: string;
+}
 
 function App() {
   const [count, setCount] = useState(0);
@@ -58,10 +64,8 @@ function App() {
               />
             </div>
           </aside>
-          <main>
-            <div className="reactorBox">
-              <Canvas cards={cards} setCards={setCards} />
-            </div>
+          <main className="reactorBox">
+            <Canvas cards={cards} />
           </main>
           <aside>
             <div className="chartBox">
@@ -76,16 +80,6 @@ function App() {
                 url="/api/v1/sensor/getsensordata"
               />
             </div>
-            {/* <Button
-              name="temperature"
-              label="Temperature button"
-              url="/api/v1/sensor/getsensordata"
-            />
-            <Button
-              name="ph"
-              label="pH value button"
-              url="/api/v1/sensor/getsensordata"
-            /> */}
           </aside>
         </div>
         <footer>

@@ -1,0 +1,17 @@
+.canvas {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  padding: 20px;
+  background: lightgreen;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  cursor: move;
+  user-select: none;
+}
