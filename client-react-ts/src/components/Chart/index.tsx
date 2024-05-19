@@ -22,7 +22,7 @@ const Chart: React.FC<ChartProps> = (props) => {
   const [formattedData, setFormattedData] = useState<any[]>([]);
 
   // Function to get sensor value from database
-  useEffect(() => {
+  const fetchData = () => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
       fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
         method: "GET",
@@ -33,16 +33,27 @@ const Chart: React.FC<ChartProps> = (props) => {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Network response Error");
+            throw new Error("Network response error");
           }
           return response.json();
         })
         .then((data) => {
           setData(data);
-          //console.log("Data pull success:", data);
         })
         .catch((error) => console.error("Fetch error:", error));
     }
+  };
+
+  useEffect(() => {
+    // Initial fetch
+    fetchData();
+
+    // Fetch data every 2 seconds
+    const interval = setInterval(fetchData, 2000);
+    console.log("Data refreshed!");
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, [props.url, props.name]);
 
   // Function to format sensor data for the chart
@@ -59,7 +70,6 @@ const Chart: React.FC<ChartProps> = (props) => {
         time: reduceTimestampLength(item.createdAt), // X-axis
         value: item.value, // Y-axis
       }));
-      // console.log(chartData);
       setFormattedData(chartData);
     }
   }, [data, props.name]);
