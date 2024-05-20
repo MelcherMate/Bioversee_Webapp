@@ -69,7 +69,7 @@ const Chart: React.FC<ChartProps> = (props) => {
       // Prepare data for the chart (selecting only 'name' and 'pv' fields)
       const chartData = lastSixData.map((item) => ({
         time: reduceTimestampLength(item.createdAt), // X-axis
-        value: item.value, // Y-axis
+        [props.name]: item.value, // Y-axis
       }));
 
       // Add an empty data point
@@ -80,7 +80,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
         chartData.push({
           time: reduceTimestampLength(lastTimestamp.toISOString()),
-          value: null,
+          [props.name]: null,
         });
       }
 
@@ -135,7 +135,7 @@ const Chart: React.FC<ChartProps> = (props) => {
           <Legend />
           <Line
             type="monotone"
-            dataKey="value"
+            dataKey={props.name}
             stroke="#8884d8"
             activeDot={{ r: 8 }}
             isAnimationActive={true}
