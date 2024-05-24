@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import BioreactorCard from "./BioreactorCard";
 import "./Canvas.css";
 
 interface Card {
@@ -16,9 +17,14 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
   const [currentCard, setCurrentCard] = useState<Card | null>(null);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
 
+  useEffect(() => {
+    console.log(currentCard);
+  }, [currentCard]);
+
   // Mouse down event handler
   const handleMouseDown = (event: React.MouseEvent, card: Card) => {
     setCurrentCard(card);
+    // console.log(card);
     setOffset({
       x: event.clientX - card.coordinates.x,
       y: event.clientY - card.coordinates.y,
@@ -62,16 +68,16 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
       onWheel={handleWheel}
     >
       {cards.map((card) => (
-        <div
+        <BioreactorCard
           key={card.id}
-          className="card"
-          style={{
-            transform: `translate(${card.coordinates.x}px, ${card.coordinates.y}px) scale(${zoomLevel})`,
+          translateX={card.coordinates.x}
+          translateY={card.coordinates.y}
+          scale={zoomLevel}
+          onMouseDown={(event) => {
+            // console.log(event);
+            handleMouseDown(event, card);
           }}
-          onMouseDown={(event) => handleMouseDown(event, card)}
-        >
-          {card.text}
-        </div>
+        />
       ))}
     </div>
   );
