@@ -10,7 +10,7 @@ function BioreactorCard(props, key) {
           width: 690,
           height: 670,
           transform: `translate(${props.translateX}px, ${props.translateY}px) scale(${props.scale})`,
-          border: "1px solid red",
+          // border: "1px solid red",
           cursor: "move",
           userSelect: "none",
         }}

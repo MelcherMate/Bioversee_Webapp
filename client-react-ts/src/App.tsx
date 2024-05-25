@@ -14,7 +14,7 @@ interface Card {
 function App() {
   const [count, setCount] = useState(0);
   const [cards, setCards] = useState<Card[]>([
-    { id: "bioreactor", coordinates: { x: 50, y: 50 } },
+    { id: "bioreactor", coordinates: { x: 0, y: 0 } },
   ]);
 
   return (

@@ -34,13 +34,13 @@
   border-left: 20px solid grey;
   border-right: 20px solid grey;
   height: 300px;
-  width: 300px;
+  width: 340px;
 }
 
 .thermal_jacket_lower_cap {
   display: block;
   position: relative;
-  width: 300px;
+  width: 340px;
   height: 150px; /* as the half of the width */
   border-bottom-left-radius: 150px;
   border-bottom-right-radius: 150px;
@@ -63,7 +63,7 @@
   height: 7px;
   width: 130px;
   top: 230px;
-  left: 342px;
+  left: 325px;
 }
 
 /* REACTOR BODY */
@@ -72,8 +72,8 @@
   position: absolute;
   top: -120px;
   left: 20px;
-  width: 260px;
-  height: 530px;
+  width: 300px;
+  height: 550px;
   border: 20px solid gold;
   border-radius: 130px;
 }
@@ -94,7 +94,7 @@
   top: 310px;
   left: 40px;
   width: 260px;
-  height: 120px;
+  height: 100px;
   background-color: #87ceeb;
   border-bottom-left-radius: 110px;
   border-bottom-right-radius: 110px;
@@ -152,7 +152,7 @@
   height: 7px;
   width: 220px;
   top: -180px;
-  left: 248px;
+  left: 235px;
 }
 
 /* AGIGATOR */
@@ -242,7 +242,7 @@
   height: 7px;
   width: 173px;
   top: -180px;
-  left: 140px;
+  left: 85px;
 }
 
 /* BASE-ACID SUPPLY PIPE */
@@ -272,7 +272,7 @@
   height: 7px;
   width: 173px;
   top: -175px;
-  left: -100px;
+  left: -125px;
 }
 
 /* AERATOR SUPPLY PIPE */
@@ -313,7 +313,7 @@
   height: 7px;
   width: 173px;
   top: -70px;
-  left: -100px;
+  left: -150px;
 }
 
 /* BUBBLES */
