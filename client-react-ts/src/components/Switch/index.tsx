@@ -5,9 +5,6 @@ import "./Switch.css";
 function Switch(props) {
   // States
   const [val, setVal] = useState(false);
-  const [data, setData] = useState([]); // Optional for set Data
-  const [isLoading, setIsLoading] = useState(false); // Optional for loading state
-  const [error, setError] = useState(null); // Optional for error state
 
   // Functions
   // Function to get state value database
@@ -30,7 +27,7 @@ function Switch(props) {
             data.reverse(),
             props.name
           );
-          setVal(firstWithName.state);
+          props.setVal(firstWithName.state);
         })
         .catch((error) => console.log(error));
     }
@@ -59,11 +56,11 @@ function Switch(props) {
       <div className="switch">
         <input
           type="checkbox"
-          checked={val}
+          checked={props.val}
           id={props.name}
           onChange={(event) => {
             const newValue = event.target.checked;
-            setVal(newValue);
+            props.setVal(newValue);
             sendSwitchStateToDatabase(newValue);
           }}
         />

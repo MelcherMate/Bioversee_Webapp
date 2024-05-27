@@ -1,0 +1,46 @@
+.switch {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: rgb(185, 65, 65);
+  border-radius: 16px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  padding: 5px;
+  min-width: 60px;
+}
+
+.switch label::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.switch input:checked + label::before {
+  transform: translateX(25px) translateY(-50%);
+}
+
+.switch input:checked + label {
+  background-color: rgb(0, 150, 0);
+}
+
+.switch span {
+  margin-left: 5px;
+}

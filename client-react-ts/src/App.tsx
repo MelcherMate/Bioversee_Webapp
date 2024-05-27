@@ -36,6 +36,9 @@ function App() {
     ]);
   }, [canvasRef, canvasSize]);
 
+  const [acidVal, setAcidVal] = useState(false);
+  const [rotorVal, setRotorVal] = useState(0);
+
   return (
     <>
       <div className="grid">
@@ -48,7 +51,7 @@ function App() {
         <div className="container">
           <aside>
             <div className="switchBox">
-              <Switch
+              {/* <Switch
                 name="switchWarmWaterPump"
                 label="Warm water pump"
                 url="/api/v1/actuator/getswitchesactuators"
@@ -59,37 +62,42 @@ function App() {
                 label="Cold water pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
-              />
+              /> */}
               <Switch
                 name="switchAcidPump"
+                setVal={setAcidVal}
+                val={acidVal}
                 label="Acid pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
               />
-              <Switch
+              {/* <Switch
                 name="switchBasePump"
                 label="Base pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
-              />
+              /> */}
+              {/* <SwitchTest name="switchBasePump" label="Base pump" val={false} /> */}
             </div>
             <div className="sliderBox">
               <Slider
                 name="rotor"
+                setVal={setRotorVal}
+                val={rotorVal}
                 label="Rotor"
                 url="/api/v1/actuator/getslideractuators"
                 updateUrl="/api/v1/actuator/postslideractuator"
               />
-              <Slider
+              {/* <Slider
                 name="aerator"
                 label="Aerator"
                 url="/api/v1/actuator/getslideractuators"
                 updateUrl="/api/v1/actuator/postslideractuator"
-              />
+              /> */}
             </div>
           </aside>
           <main className="reactorBox" ref={canvasRef}>
-            <Canvas cards={cards} />
+            <Canvas cards={cards} rotorVal={rotorVal} />
           </main>
           <aside>
             <div className="chartBox">

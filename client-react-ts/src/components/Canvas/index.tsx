@@ -8,7 +8,7 @@ interface Card {
   text: string;
 }
 
-const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
+function Canvas(props) {
   const [dragging, setDragging] = useState<boolean>(false);
   const [offset, setOffset] = useState<{ x: number; y: number }>({
     x: 0,
@@ -74,9 +74,10 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
         // onMouseLeave={handleMouseUp}
         onWheel={handleWheel}
       >
-        {cards.map((card) => (
+        {props.cards.map((card) => (
           <BioreactorCard
             key={card.id}
+            rotorVal={props.rotorVal}
             translateX={card.coordinates.x}
             translateY={card.coordinates.y}
             scale={zoomLevel}
@@ -96,6 +97,6 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
       </div>
     </>
   );
-};
+}
 
 export default Canvas;
