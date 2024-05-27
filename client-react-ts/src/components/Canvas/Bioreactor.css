@@ -81,10 +81,10 @@
 .reaction_medium {
   display: block;
   position: absolute;
-  top: 40px;
+  top: 60px;
   left: 40px;
   width: 260px;
-  height: 280px;
+  height: 260px;
   background-color: #7496d7;
 }
 
@@ -438,7 +438,7 @@
   left: 40px;
   /* border: 1px solid red; */
   width: 260px;
-  height: 40px;
+  height: 60px;
   overflow: hidden;
 }
 
