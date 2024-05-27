@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Canvas from "./components/Canvas";
 import Chart from "./components/Chart/index";
+import MenuButton from "./components/MenuButton";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
 
@@ -20,7 +21,12 @@ function App() {
   return (
     <>
       <div className="grid">
-        <header>Bioversee</header>
+        <header>
+          <div>Bioversee</div>
+          <div className="menuButton">
+            <MenuButton></MenuButton>
+          </div>
+        </header>
         <div className="container">
           <aside>
             <div className="switchBox">

@@ -35,6 +35,12 @@ header {
   flex: 0 1 auto;
   height: 50px;
 }
+
+.menuButton {
+  position: absolute;
+  right: 20px;
+}
+
 aside {
   display: flex;
   position: relative;

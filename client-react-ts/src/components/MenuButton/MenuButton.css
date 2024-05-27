@@ -1,0 +1,82 @@
+#circle {
+  width: 45px;
+  height: 45px;
+  background-color: rebeccapurple;
+  border-radius: 50%;
+  transition: border-radius 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#circle.toggled {
+  border-radius: 30%;
+}
+
+.line {
+  display: block;
+  position: absolute;
+  background: white;
+  border-radius: 16px;
+  height: 5px;
+  width: 25px;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+#horizontal_line1 {
+  transform: translate(0px, -10px);
+}
+
+#horizontal_line2 {
+  transform: translate(0px, 0px);
+}
+
+#horizontal_line3 {
+  transform: translate(0px, 10px);
+}
+
+#horizontal_line4 {
+  transform: translate(0px, -10px);
+}
+
+#horizontal_line5 {
+  transform: translate(0px, 0px);
+}
+
+#horizontal_line6 {
+  transform: translate(0px, 10px);
+}
+
+#circle.toggled #horizontal_line1,
+#circle.toggled #horizontal_line2,
+#circle.toggled #horizontal_line3,
+#circle.toggled #horizontal_line4,
+#circle.toggled #horizontal_line5,
+#circle.toggled #horizontal_line6 {
+  width: 12px;
+}
+
+#circle.toggled #horizontal_line1 {
+  transform: translate(-7px, -10px);
+}
+
+#circle.toggled #horizontal_line2 {
+  transform: translate(-7px, 0px);
+}
+
+#circle.toggled #horizontal_line3 {
+  transform: translate(-7px, 10px);
+}
+
+#circle.toggled #horizontal_line4 {
+  transform: translate(7px, -10px);
+}
+
+#circle.toggled #horizontal_line5 {
+  transform: translate(7px, 0px);
+}
+
+#circle.toggled #horizontal_line6 {
+  transform: translate(7px, 10px);
+}
