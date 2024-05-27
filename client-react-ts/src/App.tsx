@@ -32,8 +32,6 @@ function App() {
         },
       },
     ]);
-
-    // console.log(canvasSize.width / 2 - 690 / 2);
   }, [canvasRef, canvasSize]);
 
   return (
