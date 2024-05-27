@@ -6,12 +6,23 @@
   overflow: hidden;
 }
 
-.card {
+.zoom-buttons {
   position: absolute;
-  padding: 20px;
-  background: lightgreen;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.zoom-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 16px;
-  cursor: move;
-  user-select: none;
+  border-radius: 5px;
 }

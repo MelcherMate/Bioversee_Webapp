@@ -59,6 +59,16 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
     }
   };
 
+  // Zoom in button handler
+  const handleZoomIn = () => {
+    setZoomLevel((prevZoom) => prevZoom * 1.15);
+  };
+
+  // Zoom out button handler
+  const handleZoomOut = () => {
+    setZoomLevel((prevZoom) => prevZoom / 1.15);
+  };
+
   return (
     <div
       className="canvas"
@@ -79,6 +89,14 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
           }}
         />
       ))}
+      <div className="zoom-buttons">
+        <div className="zoom-button" onClick={handleZoomIn}>
+          +
+        </div>
+        <div className="zoom-button" onClick={handleZoomOut}>
+          -
+        </div>
+      </div>
     </div>
   );
 };
