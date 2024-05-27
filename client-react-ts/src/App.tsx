@@ -19,6 +19,7 @@ function App() {
     {
       id: "bioreactor",
       coordinates: { x: 0, y: 0 },
+      text: "",
     },
   ]);
 
@@ -30,6 +31,7 @@ function App() {
           x: canvasSize.width / 2 - 690 / 2,
           y: canvasSize.height / 2 - 670 / 2,
         },
+        text: "",
       },
     ]);
   }, [canvasRef, canvasSize]);

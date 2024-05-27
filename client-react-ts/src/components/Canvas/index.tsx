@@ -81,7 +81,6 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
             translateY={card.coordinates.y}
             scale={zoomLevel}
             onMouseDown={(event) => {
-              // console.log(event);
               handleMouseDown(event, card);
             }}
           />
