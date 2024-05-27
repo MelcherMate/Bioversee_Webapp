@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BioreactorCard from "./BioreactorCard";
 import "./Canvas.css";
 
@@ -16,10 +16,6 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
   });
   const [currentCard, setCurrentCard] = useState<Card | null>(null);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
-
-  useEffect(() => {
-    console.log(currentCard);
-  }, [currentCard]);
 
   // Mouse down event handler
   const handleMouseDown = (event: React.MouseEvent, card: Card) => {
@@ -70,34 +66,36 @@ const Canvas: React.FC<{ cards: Card[] }> = ({ cards }) => {
   };
 
   return (
-    <div
-      className="canvas"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      onWheel={handleWheel}
-    >
-      {cards.map((card) => (
-        <BioreactorCard
-          key={card.id}
-          translateX={card.coordinates.x}
-          translateY={card.coordinates.y}
-          scale={zoomLevel}
-          onMouseDown={(event) => {
-            // console.log(event);
-            handleMouseDown(event, card);
-          }}
-        />
-      ))}
-      <div className="zoom-buttons">
-        <div className="zoom-button" onClick={handleZoomIn}>
-          +
-        </div>
-        <div className="zoom-button" onClick={handleZoomOut}>
-          -
+    <>
+      <div
+        className="canvas"
+        // onMouseMove={handleMouseMove}
+        // onMouseUp={handleMouseUp}
+        // onMouseLeave={handleMouseUp}
+        onWheel={handleWheel}
+      >
+        {cards.map((card) => (
+          <BioreactorCard
+            key={card.id}
+            translateX={card.coordinates.x}
+            translateY={card.coordinates.y}
+            scale={zoomLevel}
+            onMouseDown={(event) => {
+              // console.log(event);
+              handleMouseDown(event, card);
+            }}
+          />
+        ))}
+        <div className="zoom-buttons">
+          <div className="zoom-button" onClick={handleZoomIn}>
+            +
+          </div>
+          <div className="zoom-button" onClick={handleZoomOut}>
+            -
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

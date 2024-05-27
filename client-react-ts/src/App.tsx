@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Canvas from "./components/Canvas";
 import Chart from "./components/Chart/index";
 import MenuButton from "./components/MenuButton";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
+import useDimensions from "./utils/hooks/useDimensions";
 
 interface Card {
   id: string;
@@ -13,10 +14,27 @@ interface Card {
 }
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [canvasRef, canvasSize] = useDimensions();
   const [cards, setCards] = useState<Card[]>([
-    { id: "bioreactor", coordinates: { x: 0, y: 0 } },
+    {
+      id: "bioreactor",
+      coordinates: { x: 0, y: 0 },
+    },
   ]);
+
+  useEffect(() => {
+    setCards([
+      {
+        id: "bioreactor",
+        coordinates: {
+          x: canvasSize.width / 2 - 690 / 2,
+          y: canvasSize.height / 2 - 670 / 2,
+        },
+      },
+    ]);
+
+    // console.log(canvasSize.width / 2 - 690 / 2);
+  }, [canvasRef, canvasSize]);
 
   return (
     <>
@@ -70,7 +88,7 @@ function App() {
               />
             </div>
           </aside>
-          <main className="reactorBox">
+          <main className="reactorBox" ref={canvasRef}>
             <Canvas cards={cards} />
           </main>
           <aside>
