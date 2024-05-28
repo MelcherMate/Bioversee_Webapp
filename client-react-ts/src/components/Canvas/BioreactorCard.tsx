@@ -4,10 +4,16 @@ import "./Bioreactor.css";
 function BioreactorCard(props, key) {
   const SLOWEST_ROTOR_0_SPEED = 8;
   const FASTEST_ROTOR_0_SPEED = 0;
-  const ROTOR_0_INTERVAL = SLOWEST_ROTOR_0_SPEED - FASTEST_ROTOR_0_SPEED; // 8-0
-  const ROTOR_0_STEP = ROTOR_0_INTERVAL / 100; // 0.08
+  const ROTOR_0_INTERVAL = SLOWEST_ROTOR_0_SPEED - FASTEST_ROTOR_0_SPEED; // 8-0=8
+  const ROTOR_0_STEP = ROTOR_0_INTERVAL / 100;
+
+  const SLOWEST_ROTOR_90_SPEED = 4;
+  const FASTEST_ROTOR_90_SPEED = 0;
+  const ROTOR_90_INTERVAL = SLOWEST_ROTOR_90_SPEED - FASTEST_ROTOR_90_SPEED; // 4-0=4
+  const ROTOR_90_STEP = ROTOR_90_INTERVAL / 100; // 4/100=0.04
 
   const [rotor0Speed, setRotor0Speed] = useState(0);
+  const [rotor90Speed, setRotor90Speed] = useState(0);
 
   useEffect(() => {
     if (props.rotorVal == 100) {
@@ -21,6 +27,20 @@ function BioreactorCard(props, key) {
       setRotor0Speed((100 - props.rotorVal) * ROTOR_0_STEP);
     }
   }, [props.rotorVal]);
+
+  useEffect(() => {
+    if (props.rotorVal == 100) {
+      console.log("top boundry");
+      setRotor90Speed(0.5);
+    } else if (props.rotorVal == 0) {
+      console.log("bottom boundry");
+      setRotor90Speed(0);
+    } else {
+      console.log("normal values");
+      setRotor90Speed((100 - props.rotorVal) * ROTOR_90_STEP);
+    }
+  }, [props.rotorVal]);
+
   return (
     <>
       <div
@@ -153,7 +173,7 @@ function BioreactorCard(props, key) {
               className="agitator_blade90"
               style={{
                 transform: "rotateY(90deg)",
-                animation: `rotateProp90 ${1}s infinite`,
+                animation: `rotateProp90 ${rotor90Speed}s infinite`,
                 animationTimingFunction: "linear",
               }}
             ></div>

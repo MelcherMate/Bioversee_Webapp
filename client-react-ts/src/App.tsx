@@ -36,8 +36,12 @@ function App() {
     ]);
   }, [canvasRef, canvasSize]);
 
+  const [warmWVal, setWarmWVal] = useState(false);
+  const [coldWVal, setColdWVal] = useState(false);
   const [acidVal, setAcidVal] = useState(false);
+  const [baseVal, setBaseVal] = useState(false);
   const [rotorVal, setRotorVal] = useState(0);
+  const [aeratorVal, setAeratorVal] = useState(0);
 
   return (
     <>
@@ -51,18 +55,22 @@ function App() {
         <div className="container">
           <aside>
             <div className="switchBox">
-              {/* <Switch
+              <Switch
                 name="switchWarmWaterPump"
+                setVal={setWarmWVal}
+                val={warmWVal}
                 label="Warm water pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
               />
               <Switch
                 name="switchColdWaterPump"
+                setVal={setColdWVal}
+                val={coldWVal}
                 label="Cold water pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
-              /> */}
+              />
               <Switch
                 name="switchAcidPump"
                 setVal={setAcidVal}
@@ -71,13 +79,14 @@ function App() {
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
               />
-              {/* <Switch
+              <Switch
                 name="switchBasePump"
+                setVal={setBaseVal}
+                val={baseVal}
                 label="Base pump"
                 url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
-              /> */}
-              {/* <SwitchTest name="switchBasePump" label="Base pump" val={false} /> */}
+              />
             </div>
             <div className="sliderBox">
               <Slider
@@ -88,12 +97,14 @@ function App() {
                 url="/api/v1/actuator/getslideractuators"
                 updateUrl="/api/v1/actuator/postslideractuator"
               />
-              {/* <Slider
+              <Slider
                 name="aerator"
+                setVal={setAeratorVal}
+                val={aeratorVal}
                 label="Aerator"
                 url="/api/v1/actuator/getslideractuators"
                 updateUrl="/api/v1/actuator/postslideractuator"
-              /> */}
+              />
             </div>
           </aside>
           <main className="reactorBox" ref={canvasRef}>
