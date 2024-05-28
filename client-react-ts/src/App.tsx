@@ -47,7 +47,7 @@ function App() {
     <>
       <div className="grid">
         <header>
-          <div>Bioversee</div>
+          <div className="title">Bioversee</div>
           <div className="menuButton">
             <MenuButton></MenuButton>
           </div>

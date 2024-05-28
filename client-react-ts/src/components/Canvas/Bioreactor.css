@@ -1,10 +1,10 @@
 .wrapper {
   display: block;
   position: relative;
-  margin: 200px;
+  margin-top: 200px;
+  margin-left: 175px;
   width: 340px;
   height: 470px;
-  /* border: 1px solid red; */
 }
 
 /* TEMPERATURE CONTROL WATER SYSTEM */

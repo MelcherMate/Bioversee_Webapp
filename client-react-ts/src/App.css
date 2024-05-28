@@ -36,6 +36,11 @@ header {
   height: 50px;
 }
 
+.title {
+  width: 100%;
+  text-align: center;
+}
+
 .menuButton {
   position: absolute;
   right: 20px;
