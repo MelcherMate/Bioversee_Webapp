@@ -3,14 +3,10 @@ import "./Bioreactor.css";
 
 function BioreactorCard(props, key) {
   const SLOWEST_ROTOR_0_SPEED = 8;
-  const FASTEST_ROTOR_0_SPEED = 0;
-  const ROTOR_0_INTERVAL = SLOWEST_ROTOR_0_SPEED - FASTEST_ROTOR_0_SPEED; // 8-0=8
-  const ROTOR_0_STEP = ROTOR_0_INTERVAL / 100;
+  const FASTEST_ROTOR_0_SPEED = 1;
 
   const SLOWEST_ROTOR_90_SPEED = 4;
-  const FASTEST_ROTOR_90_SPEED = 0;
-  const ROTOR_90_INTERVAL = SLOWEST_ROTOR_90_SPEED - FASTEST_ROTOR_90_SPEED; // 4-0=4
-  const ROTOR_90_STEP = ROTOR_90_INTERVAL / 100; // 4/100=0.04
+  const FASTEST_ROTOR_90_SPEED = 0.5;
 
   const [rotor0Speed, setRotor0Speed] = useState(0);
   const [rotor90Speed, setRotor90Speed] = useState(0);
@@ -24,7 +20,11 @@ function BioreactorCard(props, key) {
       setRotor0Speed(0);
     } else {
       console.log("normal values");
-      setRotor0Speed((100 - props.rotorVal) * ROTOR_0_STEP);
+      setRotor0Speed(
+        SLOWEST_ROTOR_0_SPEED -
+          ((SLOWEST_ROTOR_0_SPEED - FASTEST_ROTOR_0_SPEED) / 99) *
+            (props.rotorVal - 1)
+      );
     }
   }, [props.rotorVal]);
 
@@ -37,7 +37,11 @@ function BioreactorCard(props, key) {
       setRotor90Speed(0);
     } else {
       console.log("normal values");
-      setRotor90Speed((100 - props.rotorVal) * ROTOR_90_STEP);
+      setRotor90Speed(
+        SLOWEST_ROTOR_90_SPEED -
+          ((SLOWEST_ROTOR_90_SPEED - FASTEST_ROTOR_90_SPEED) / 99) *
+            (props.rotorVal - 1)
+      );
     }
   }, [props.rotorVal]);
 
