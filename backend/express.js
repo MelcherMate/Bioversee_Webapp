@@ -12,14 +12,14 @@ import sensorRoutes from "./routes/sensor.routes";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
-dotenv.config({ path: path.resolve(__dirname, "./.env") });
+dotenv.config({ path: path.resolve(__dirname + "./.env") });
 
 // # Server Creation
 const app = express();
 
 // # Middleware
 app.use(cookieParser());
-// parse body params and attach them to req.body
+// parse body params and attache them to req.body
 app.use(express.urlencoded({ extended: true }));
 // To parse the incoming requests with JSON payloads
 app.use(express.json());
@@ -37,34 +37,25 @@ var corsOptions = {
 app.use(cors());
 
 // # Routes
-app.use("/api/v1/actuator/sliders", actuatorSlidersRoutes);
-app.use("/api/v1/actuator/switches", actuatorSwitchesRoutes);
-app.use("/api/v1/sensor", sensorRoutes);
+app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
 
-// # Serving the frontend build files
-// Make sure to serve the static files from the Vite build output directory
-app.use(express.static(path.join(__dirname, "../dist")));
+// # Serving
+// serving the frontend dev, and prod folders as static resources
 
-// Catch-all routes for the different entry points
-app.get("/landing/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "landing", "index.html"));
-});
+// app.use("/", express.static(path.join(__dirname, "../client/")));
+// /* final catch-all route to index.html defined last; trailing / is important (!!!) */
+// app.get("/*", (req, res, next) => {
+//   res.sendFile(path.join(__dirname, "../client/"));
+// });
+// app.use("*", function (req, res, next) {
+//   // serve files upon refresh window
+// });
 
-app.get("/user/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "user", "index.html"));
-});
+// app.use("/", express.static(path.join(__dirname, "indexReact.html")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "indexReact.html"));
+// });
 
-app.get("/settings/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "settings", "index.html"));
-});
-
-app.get("/dashboard/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "dashboard", "index.html"));
-});
-
-// Default catch-all route to serve the main index.html file
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});
+app.use("*", function (req, res, next) {});
 
 export default app;
