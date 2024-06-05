@@ -14,6 +14,7 @@ function Switch(props) {
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
+      console.log(import.meta.env.VITE_SERVER_BASE_URL);
       fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
         method: "GET",
         headers: {
@@ -34,7 +35,7 @@ function Switch(props) {
   }, [props.url, props.name]);
 
   // Function send new state value to the database
-  const sendSwitchStateToDatabase = (newValue) => {
+  const sendSwitchStateToDatabase = (newValue: boolean) => {
     const data = { name: props.name, state: newValue };
     fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.updateUrl}`, {
       method: "POST",

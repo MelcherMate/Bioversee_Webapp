@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Canvas from "../components/Canvas";
-import Chart from "../components/Chart/index";
-import Menu from "../components/Menu";
-import Slider from "../components/Slider";
-import Switch from "../components/Switch";
-import useDimensions from "../utils/hooks/useDimensions";
-import "./App.css";
+import Canvas from "../../components/Canvas";
+import Chart from "../../components/Chart/index";
+import Menu from "../../components/Menu";
+import Slider from "../../components/Slider";
+import Switch from "../../components/Switch";
+import useDimensions from "../../utils/hooks/useDimensions";
+import "./Dasboard.css";
 
 interface Card {
   id: string;
@@ -13,7 +13,7 @@ interface Card {
   text: string;
 }
 
-function App() {
+function Dashboard() {
   const [canvasRef, canvasSize] = useDimensions();
   const [cards, setCards] = useState<Card[]>([
     {
@@ -76,7 +76,7 @@ function App() {
                 setVal={setAcidVal}
                 val={acidVal}
                 label="Acid pump"
-                url="dasboard/api/v1/actuator/getswitchesactuators"
+                url="/api/v1/actuator/getswitchesactuators"
                 updateUrl="/api/v1/actuator/postswitchactuator"
               />
               <Switch
@@ -154,4 +154,4 @@ function App() {
   );
 }
 
-export default App;
+export default Dashboard;
