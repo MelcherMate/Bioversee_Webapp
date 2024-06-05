@@ -1,15 +1,15 @@
 #menu {
   display: flex;
   position: fixed;
-  left: 1625px;
+  right: -395px;
   z-index: 1;
   width: 450px;
   height: 600px;
-  transition: left 0.5s ease;
+  transition: right 0.5s ease;
 }
 
 #menu.toggled {
-  left: 1225px;
+  right: 5px;
 }
 
 #openTab {
