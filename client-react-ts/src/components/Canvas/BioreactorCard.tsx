@@ -9,13 +9,13 @@ function BioreactorCard(props, key) {
 
   useEffect(() => {
     if (props.rotorVal == 100) {
-      console.log("top boundry");
+      // console.log("top boundry");
       setRotorSpeed(0.5);
     } else if (props.rotorVal == 0) {
-      console.log("bottom boundry");
+      // console.log("bottom boundry");
       setRotorSpeed(0);
     } else {
-      console.log("normal values");
+      // console.log("normal values");
       setRotorSpeed(
         SLOWEST_ROTOR_SPEED -
           ((SLOWEST_ROTOR_SPEED - FASTEST_ROTOR_SPEED) / 99) *
