@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Canvas from "./components/Canvas";
 import Chart from "./components/Chart/index";
-import MenuButton from "./components/MenuButton";
+import Menu from "./components/Menu";
 import Slider from "./components/Slider";
 import Switch from "./components/Switch";
 import useDimensions from "./utils/hooks/useDimensions";
@@ -48,8 +48,8 @@ function App() {
       <div className="grid">
         <header>
           <div className="title">Bioversee</div>
-          <div className="menuButton">
-            <MenuButton></MenuButton>
+          <div className="menu">
+            <Menu></Menu>
           </div>
         </header>
         <div className="container">

@@ -33,7 +33,7 @@ header {
   display: flex;
   position: relative;
   flex: 0 1 auto;
-  height: 50px;
+  height: 65px;
 }
 
 .title {
@@ -41,9 +41,10 @@ header {
   text-align: center;
 }
 
-.menuButton {
-  position: absolute;
-  right: 20px;
+.menu {
+  position: fixed;
+  top: 5px;
+  z-index: 1;
 }
 
 aside {
