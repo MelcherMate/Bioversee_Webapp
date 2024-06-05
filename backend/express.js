@@ -51,10 +51,10 @@ app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
 //   // serve files upon refresh window
 // });
 
-app.use("/", express.static(path.join(__dirname, "indexReact.html")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "indexReact.html"));
-});
+// app.use("/", express.static(path.join(__dirname, "indexReact.html")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "indexReact.html"));
+// });
 
 app.use("*", function (req, res, next) {});
 
