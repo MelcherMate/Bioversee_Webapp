@@ -2,44 +2,23 @@ import { useEffect, useState } from "react";
 import "./Bioreactor.css";
 
 function BioreactorCard(props, key) {
-  const SLOWEST_ROTOR_0_SPEED = 8;
-  const FASTEST_ROTOR_0_SPEED = 1;
+  const SLOWEST_ROTOR_SPEED = 4;
+  const FASTEST_ROTOR_SPEED = 0.5;
 
-  const SLOWEST_ROTOR_90_SPEED = 4;
-  const FASTEST_ROTOR_90_SPEED = 0.5;
-
-  const [rotor0Speed, setRotor0Speed] = useState(0);
-  const [rotor90Speed, setRotor90Speed] = useState(0);
+  const [rotorSpeed, setRotorSpeed] = useState(0);
 
   useEffect(() => {
     if (props.rotorVal == 100) {
       console.log("top boundry");
-      setRotor0Speed(1);
+      setRotorSpeed(0.5);
     } else if (props.rotorVal == 0) {
       console.log("bottom boundry");
-      setRotor0Speed(0);
+      setRotorSpeed(0);
     } else {
       console.log("normal values");
-      setRotor0Speed(
-        SLOWEST_ROTOR_0_SPEED -
-          ((SLOWEST_ROTOR_0_SPEED - FASTEST_ROTOR_0_SPEED) / 99) *
-            (props.rotorVal - 1)
-      );
-    }
-  }, [props.rotorVal]);
-
-  useEffect(() => {
-    if (props.rotorVal == 100) {
-      console.log("top boundry");
-      setRotor90Speed(0.5);
-    } else if (props.rotorVal == 0) {
-      console.log("bottom boundry");
-      setRotor90Speed(0);
-    } else {
-      console.log("normal values");
-      setRotor90Speed(
-        SLOWEST_ROTOR_90_SPEED -
-          ((SLOWEST_ROTOR_90_SPEED - FASTEST_ROTOR_90_SPEED) / 99) *
+      setRotorSpeed(
+        SLOWEST_ROTOR_SPEED -
+          ((SLOWEST_ROTOR_SPEED - FASTEST_ROTOR_SPEED) / 99) *
             (props.rotorVal - 1)
       );
     }
@@ -168,7 +147,7 @@ function BioreactorCard(props, key) {
               className="agitator_blade0"
               style={{
                 transform: "rotateY(0deg)",
-                animation: `rotateProp0 ${rotor0Speed}s infinite`,
+                animation: `rotateProp0 ${rotorSpeed}s infinite`,
                 animationTimingFunction: "linear",
               }}
             ></div>
@@ -177,7 +156,7 @@ function BioreactorCard(props, key) {
               className="agitator_blade90"
               style={{
                 transform: "rotateY(90deg)",
-                animation: `rotateProp90 ${rotor90Speed}s infinite`,
+                animation: `rotateProp90 ${rotorSpeed}s infinite`,
                 animationTimingFunction: "linear",
               }}
             ></div>
