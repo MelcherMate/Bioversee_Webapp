@@ -17,10 +17,7 @@ Now that we have oxygen provided, organisms can grow and work inside. Every orga
 The idea was to have a Raspberry PI and through the GPIO pins hook up the devices from an existing fermenter and access the device setting on a website. To do that, first I need to create the webservice and when that’s ready to test I need to build the actual device. As a product I want to give the code and documentation to the customer. They must buy their own devices for the system. I will create a guidebook on how to set up the hardware. On the customer side we will need to run python codes to control the bioreactor. On the server side the website must communicate with the database. We can set the current state we want for the controllers in the database. From there the locally running python codes can give feedback to the server and the customer will be able to see the current state of their device on the website.
 In theory the website works separately from the local python codes, but they relate to using the same database.
 
-## How to run the code:
-
-Run server: `node app.js` in terminal within the backend library
-Stop server: `control+c`
+## Tools:
 
 Designed on Apple Macbook Air M1 (2020) and PC on Windows 10 (latest version) and will be tested on Raspberry PI 5 8GB.
 
