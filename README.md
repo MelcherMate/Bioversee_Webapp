@@ -2,7 +2,9 @@
 
 ## General idea:
 
-This is a prototype project of my idea to create a basic fermenter controller website, which can control any hooked-up device. For the system it doesn't matter how old or new a fermenter is. It just needs a Raspberry PI to connect the devices with a computer and access to the internet and it will be good to go.
+This is a prototype project of my idea to create a basic fermenter controller website, which can control any hooked-up device.
+For the system it doesn't matter how old or new a fermenter is.
+It just needs a Raspberry PI to connect the devices with a computer and access to the internet and it will be good to go.
 
 ## In dept review of a basic fermenter:
 
