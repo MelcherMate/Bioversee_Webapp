@@ -1,6 +1,6 @@
 import pymongo
 from pymongo import MongoClient
-from gpiozero import Motor, OutputDevice
+from gpiozero import PWMLED
 
 # MongoDB Atlas settings
 URI = "mongodb+srv://matemelcher:Mate2000@bioreactor.3u294gi.mongodb.net/"
@@ -12,15 +12,15 @@ client = pymongo.MongoClient(URI)
 db = client[db_name]
 collection = db[collection_name]
 
-# Rotor and aerator setup
-rotor = Motor(forward=23, backward=24)
-aerator = Motor(forward=17, backward=27)
+# PWM setup on GPIO pin 23 and 24
+rotor_pwm = PWMLED(23)
+aerator_pwm = PWMLED(24)
 
-# Function to set rotor speed based on database state
+# Function to set the duty cycle (speed) based on database state
 def initialize_and_watch_collection():
-    # Initialize rotor and aerator based on current state in the database
-    initialize_rotor_and_aerator()
-    
+    # Initialize PWM based on current state in the database
+    initialize_pwm()
+
     # Start watching for changes in the collection
     pipeline = [{'$match': {'operationType': 'insert'}}]
     with collection.watch(pipeline) as stream:
@@ -29,44 +29,25 @@ def initialize_and_watch_collection():
             new_document = change['fullDocument']
             name = new_document['name']
             state = new_document['state']
-            
+
             if name == "rotor":
-                set_rotor_speed(state)
+                set_duty_cycle(rotor_pwm, state)
             elif name == "aerator":
-                set_aerator_speed(state)
+                set_duty_cycle(aerator_pwm, state)
 
-def initialize_rotor_and_aerator():
-    # Fetch the latest state of rotor and aerator from the database
-    latest_rotor_state = collection.find_one({"name": "rotor"}, sort=[("_id", pymongo.DESCENDING)])
-    latest_aerator_state = collection.find_one({"name": "aerator"}, sort=[("_id", pymongo.DESCENDING)])
-    
-    # Set rotor and aerator speed based on the latest state
-    if latest_rotor_state:
-        set_rotor_speed(latest_rotor_state["state"])
-    if latest_aerator_state:
-        set_aerator_speed(latest_aerator_state["state"])
+def initialize_pwm():
+    # Fetch the latest state from the database (assuming a single document)
+    latest_state = collection.find_one()
+    if latest_state:
+        rotor_state = latest_state.get("rotor", 0)
+        aerator_state = latest_state.get("aerator", 0)
+        set_duty_cycle(rotor_pwm, rotor_state)
+        set_duty_cycle(aerator_pwm, aerator_state)
 
-def set_rotor_speed(state):
-    if state > 0:
-        rotor.forward()
-    elif state < 0:
-        rotor.backward()
-    else:
-        rotor.stop()
-    rotor_speed = abs(state) / 100  # Convert state to rotor speed (0-1)
-    rotor.value = rotor_speed
-    print(f"New rotor speed set: {rotor_speed}")
-
-def set_aerator_speed(state):
-    if state > 0:
-        aerator.forward()
-    elif state < 0:
-        aerator.backward()
-    else:
-        aerator.stop()
-    aerator_speed = abs(state) / 100  # Convert state to aerator speed (0-1)
-    aerator.value = aerator_speed
-    print(f"New aerator speed set: {aerator_speed}")
+def set_duty_cycle(pwm_pin, state):
+    duty_cycle = abs(state) / 100  # Convert state to duty cycle (0-1)
+    pwm_pin.value = duty_cycle
+    print(f"New duty cycle set on GPIO {pwm_pin.pin}: {duty_cycle}")
 
 if __name__ == "__main__":
     try:
@@ -74,3 +55,5 @@ if __name__ == "__main__":
         initialize_and_watch_collection()
     except KeyboardInterrupt:
         print("Program terminated by user.")
+
+

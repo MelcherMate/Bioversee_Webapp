@@ -19,36 +19,36 @@ acid_pump = GPIO.OutputDevice(20)
 base_pump = GPIO.OutputDevice(16)
 
 def control_warm_water_pump(state):
-    if state:
+    if not state:
         warm_w_pump.on()
-        print('Warm water pump ON')
+        print('Warm water pump OFF')
     else:
         warm_w_pump.off()
-        print('Warm water pump OFF')
+        print('Warm water pump ON')
 
 def control_cold_water_pump(state):
-    if state:
+    if not state:
         cold_w_pump.on()
-        print('Cold water pump ON')
+        print('Cold water pump OFF')
     else:
         cold_w_pump.off()
-        print('Cold water pump OFF')
+        print('Cold water pump ON')
 
 def control_acid_pump(state):
-    if state:
+    if not state:
         acid_pump.on()
-        print('Acid pump ON')
+        print('Acid pump OFF')
     else:
         acid_pump.off()
-        print('Acid pump OFF')
+        print('Acid pump ON')
 
 def control_base_pump(state):
-    if state:
+    if not state:
         base_pump.on()
-        print('Base pump ON')
+        print('Base pump OFF')
     else:
         base_pump.off()
-        print('Base pump OFF')
+        print('Base pump ON')
 
 def monitor_database_changes():
     prev_states = {}
@@ -64,7 +64,6 @@ def monitor_database_changes():
             if switch_name not in prev_states or prev_states[switch_name] != switch_state:
                 print('---------------------------------------------')
                 print(f"Latest state for '{switch_name}': {switch_state}")
-                print('---------------------------------------------')
                 prev_states[switch_name] = switch_state
 
                 # Call the corresponding control function based on the switch name
@@ -81,3 +80,4 @@ def monitor_database_changes():
 
 if __name__ == "__main__":
     monitor_database_changes()
+

@@ -9,6 +9,7 @@ import json
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
+# Temperature sensor is connected on GPIO4 pin to the Raspberry Pi
 base_dir = '/sys/bus/w1/devices/'
 device_path = glob.glob(base_dir + '28*')[0]  # file path of the sensor
 rom = device_path.split('/')[-1]  # rom name
@@ -34,7 +35,7 @@ def read_temp():
 def connect_to_mongodb():
     client = MongoClient("mongodb+srv://matemelcher:Mate2000@bioreactor.3u294gi.mongodb.net/")  # MongoDB server access
     db = client["bioreactor"]  # Selecting the database
-    collection = db["sensormonitor"]  # Selecting the collection
+    collection = db["sensors"]  # Selecting the collection
     return collection
 
 def insert_temperature_data(collection, temperature_c):
@@ -63,3 +64,7 @@ if __name__ == "__main__":
         insert_temperature_data(collection, c)
         
         time.sleep(2)
+
+
+
+
