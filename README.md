@@ -2,9 +2,10 @@
 
 ## General idea:
 
-This is a prototype project of my idea to create a basic fermenter controller website, which can control any hooked-up device.
-For the system it doesn't matter how old or new a fermenter is.
-It just needs a Raspberry PI to connect the devices with a computer and access to the internet and it will be good to go.
+This is a Vite project for my idea to create a basic fermenter controller website, which can control any bioreactor wired to a computer and set to handle the commands from the cloud server.
+For the system it doesn't matter how old or new a fermenter is. It is capable to be connected to all kind.
+The user needs an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the bioreactor. After that the computer will need configuration to be able to communicate with the sensors and actuatros of the bioreactor.
+In the future I will create a detailed user manual to help the user with the setup.
 
 ## In dept review of a basic fermenter:
 
@@ -16,8 +17,7 @@ Now that we have oxygen provided, organisms can grow and work inside. Every orga
 
 ## System setup theory:
 
-The idea was to have a Raspberry PI and through the GPIO pins hook up the devices from an existing fermenter and access the device setting on a website. To do that, first I need to create the webservice and when that’s ready to test I need to build the actual device. As a product I want to give the code and documentation to the customer. They must buy their own devices for the system. I will create a guidebook on how to set up the hardware. On the customer side we will need to run python codes to control the bioreactor. On the server side the website must communicate with the database. We can set the current state we want for the controllers in the database. From there the locally running python codes can give feedback to the server and the customer will be able to see the current state of their device on the website.
-In theory the website works separately from the local python codes, but they relate to using the same database.
+The idea I to have an off-the-self customisable computer (Raspberry Pi 5 is used in the prototypes) wired to a bioreactor and connected to a cloud database. The controll website POST records into the database. The computer uses an event listener in order to detect new records in the database. Once a new record is detected, the software GETs the new state and sets it for the actuator. The method is the same with the sensors except it works to the other way.
 
 ## Tools:
 
