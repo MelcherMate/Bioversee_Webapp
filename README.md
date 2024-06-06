@@ -7,7 +7,7 @@ For the system it doesn't matter how old or new a fermenter is. It is capable to
 The user needs an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the bioreactor. After that the computer will need configuration to be able to communicate with the sensors and actuatros of the bioreactor.
 In the future I will create a detailed user manual to help the user with the setup.
 
-## In dept review of a basic fermenter:
+## Basics about bioreactors:
 
 A fermenter is a common machine with a few controllers and devices attached to it. Fermenters al also called bioreactors which refers to their purpose. We call a device bioreactor, when inside of them, there is a biologically active environment, in which a chemical process is carried out involving organisms or biochemically active substance. (like enzymes)
 The organisms inside of a bioreactor might have special needs. We must provide oxygen; therefore, we use submerged aerators. We need to provide and even distribution in our chamber and for that we mostly use an agitation system. (basically, some kind of rotor in the fluid) There are some examples for fermenters which use the aerator system to create flow inside, but these are used in special scenarios.
