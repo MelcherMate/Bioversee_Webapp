@@ -1,7 +1,12 @@
+import ConstructionPage from "../../components/ConstructionPage";
 import "./User.css";
 
 function User() {
-  return <>User</>;
+  return (
+    <>
+      <ConstructionPage></ConstructionPage>
+    </>
+  );
 }
 
 export default User;
