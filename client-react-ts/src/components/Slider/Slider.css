@@ -5,8 +5,8 @@
 }
 
 .slider input[type="range"] {
-  margin-bottom: 5px;
-  width: 85%;
+  margin-bottom: 1px;
+  width: 80%;
   align-self: center;
   min-width: 180px;
 }
