@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Menu.css";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +27,16 @@ const Menu: React.FC = () => {
           </div>
         </div>
         <div id="mainTab">
-          <div id="field1">email</div>
-          <div id="field2">submit email</div>
-          <div id="field3">password</div>
-          <div id="field4">submit password</div>
-          <div id="field5">login</div>
-          <div id="field6">ect...</div>
+          <div id="naviAbout">
+            <Link className="link" to="/about">
+              About
+            </Link>
+          </div>
+          <div id="naviSettings">
+            <Link className="link" to="settings">
+              Settings
+            </Link>
+          </div>
         </div>
       </div>
     </>

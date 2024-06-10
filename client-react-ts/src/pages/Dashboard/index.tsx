@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
-import Menu from "../../components/Menu";
+import Menu from "../../components/Navbar";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
@@ -136,6 +136,7 @@ function Dashboard() {
               href="https://www.linkedin.com/in/mate-melcher-5a16601bb/"
               target="_blank"
               rel="noopener noreferrer"
+              className="link"
             >
               About me
             </a>
@@ -144,6 +145,7 @@ function Dashboard() {
               href="https://github.com/MelcherMate"
               target="_blank"
               rel="noopener noreferrer"
+              className="link"
             >
               GitHub Repository
             </a>

@@ -124,3 +124,8 @@ footer {
 .footerLinks {
   margin-left: 10px;
 }
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}

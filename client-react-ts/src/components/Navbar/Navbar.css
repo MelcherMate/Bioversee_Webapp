@@ -35,12 +35,12 @@
   position: absolute;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
   z-index: 1;
   left: 55px;
   background: whitesmoke;
   width: 395px;
-  height: 600px;
+  height: 200px;
   border-radius: 0px;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -131,4 +131,27 @@
 
 #circle.toggled #horizontal_line6 {
   transform: translate(7px, 10px);
+}
+
+#naviAbout {
+  display: block;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  border-radius: 16px;
+  width: 100px;
+  height: 40px;
+  background-color: lightgrey;
+  margin-bottom: 5px;
+}
+
+#naviSettings {
+  display: block;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  border-radius: 16px;
+  width: 100px;
+  height: 40px;
+  background-color: lightgrey;
 }

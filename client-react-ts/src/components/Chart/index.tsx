@@ -1,5 +1,5 @@
 import { isEmpty, isUndefined } from "lodash";
-import React, { useEffect, Aboutef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -20,7 +20,7 @@ interface ChartProps {
 const Chart: React.FC<ChartProps> = (props) => {
   const [data, setData] = useState<any[]>([]);
   const [formattedData, setFormattedData] = useState<any[]>([]);
-  const chartRef = Aboutef<HTMLDivElement>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
 
   // Function to get sensor value from database
