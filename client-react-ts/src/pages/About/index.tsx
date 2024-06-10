@@ -1,7 +1,7 @@
 import ConstructionPage from "../../components/ConstructionPage";
-import "./User.css";
+import "./About.css";
 
-function User() {
+function About() {
   return (
     <>
       <ConstructionPage></ConstructionPage>
@@ -9,4 +9,4 @@ function User() {
   );
 }
 
-export default User;
+export default About;

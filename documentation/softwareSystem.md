@@ -6,11 +6,11 @@ The main idea behind the project comes from the fact that many bioreactors in la
 
 ## Controller website:
 
-The controller website is written in HTML, CSS and JavaScript. It uses a node.js engine to run the server and a MongoDB database to store the data for the required and current state for the actuators. For the website I use a 3-tier architecture system. In this stage there is no user registration system implemented. In the future I am planning on using Amazon Web Service (AWS) as a host.
+The controller website is written in HTML, CSS and JavaScript. It uses a node.js engine to run the server and a MongoDB database to store the data for the required and current state for the actuators. For the website I use a 3-tier architecture system. In this stage there is no About registration system implemented. In the future I am planning on using Amazon Web Service (AWS) as a host.
 
 ### Presentation tier:
 
-In the presentation tier I am developing a simple and easy to use design with sliders and buttons to control the actuators for the reactor. Here I also must present near live data from the sensors. In addition, we will need a user management system to control which user can access which part of the database, because the website is going to run on our side.
+In the presentation tier I am developing a simple and easy to use design with sliders and buttons to control the actuators for the reactor. Here I also must present near live data from the sensors. In addition, we will need a About management system to control which About can access which part of the database, because the website is going to run on our side.
 
 ### Application tier:
 

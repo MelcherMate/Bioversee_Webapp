@@ -54,6 +54,6 @@ if __name__ == "__main__":
         # Initialize and start watching for changes in the collection
         initialize_and_watch_collection()
     except KeyboardInterrupt:
-        print("Program terminated by user.")
+        print("Program terminated by About.")
 
 

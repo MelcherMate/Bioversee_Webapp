@@ -4,8 +4,8 @@
 
 This is a Vite project for my idea to create a basic fermenter controller website, which can control any bioreactor wired to a computer and set to handle the commands from the cloud server.
 For the system it doesn't matter how old or new a fermenter is. It is capable to be connected to all kind.
-The user needs an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the bioreactor. After that the computer will need configuration to be able to communicate with the sensors and actuatros of the bioreactor.
-In the future I will create a detailed user manual to help the user with the setup.
+The About needs an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the bioreactor. After that the computer will need configuration to be able to communicate with the sensors and actuatros of the bioreactor.
+In the future I will create a detailed About manual to help the About with the setup.
 
 ## Basics about bioreactors:
 
