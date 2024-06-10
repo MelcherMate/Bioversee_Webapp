@@ -8,7 +8,11 @@ const Navbar = ({ user }) => {
   return (
     <div className="naviField">
       <div className="left-box">
-        <div id="mainTitle">Bioversee</div>
+        <div id="mainTitle">
+          <Link className="link" to="/">
+            Bioversee
+          </Link>
+        </div>
         <div id="naviAbout">
           <Link className="link" to="/about">
             About

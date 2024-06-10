@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
+import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
@@ -45,9 +46,7 @@ function Dashboard() {
   return (
     <>
       <div className="grid">
-        {/* <header>
-          <Navbar user={undefined}></Navbar>
-        </header> */}
+        <header></header>
         <div className="container">
           <aside>
             <div className="switchBox">
@@ -122,30 +121,7 @@ function Dashboard() {
           </aside>
         </div>
         <footer>
-          <div className="footerCopy">
-            <p>
-              &copy; 2024 Bioversee <br></br>All rights reserved
-            </p>
-          </div>
-          <div className="footerLinks">
-            <a
-              href="https://www.linkedin.com/in/mate-melcher-5a16601bb/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              About me
-            </a>
-            <br></br>
-            <a
-              href="https://github.com/MelcherMate"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link"
-            >
-              GitHub Repository
-            </a>
-          </div>
+          <Footer></Footer>
         </footer>
       </div>
     </>
