@@ -1,46 +1,40 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Menu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+const Navbar = ({ user }) => {
+  const logout = () => {
+    window.open("http://localhost:5000/auth/logout", "_self");
   };
-
   return (
-    <>
-      <div id="menu" className={isOpen ? "toggled" : ""}>
-        <div id="openTab" className={isOpen ? "toggled" : ""}>
-          <div
-            id="circle"
-            className={isOpen ? "toggled" : ""}
-            onClick={toggleMenu}
-          >
-            <div id="horizontal_line1" className="line"></div>
-            <div id="horizontal_line2" className="line"></div>
-            <div id="horizontal_line3" className="line"></div>
-            <div id="horizontal_line4" className="line"></div>
-            <div id="horizontal_line5" className="line"></div>
-            <div id="horizontal_line6" className="line"></div>
-          </div>
+    <div className="naviField">
+      <div className="left-box">
+        <div id="mainTitle">Bioversee</div>
+        <div id="naviAbout">
+          <Link className="link" to="/about">
+            About
+          </Link>
         </div>
-        <div id="mainTab">
-          <div id="naviAbout">
-            <Link className="link" to="/about">
-              About
-            </Link>
-          </div>
-          <div id="naviSettings">
-            <Link className="link" to="settings">
-              Settings
-            </Link>
-          </div>
+        <div id="naviSettings">
+          <Link className="link" to="/settings">
+            Settings
+          </Link>
         </div>
       </div>
-    </>
+      {user ? (
+        <ul className="list">
+          <li className="listItem"></li>
+          <li className="listItem">{user.displayName}</li>
+          <li className="listItem" onClick={logout}>
+            Logout
+          </li>
+        </ul>
+      ) : (
+        <Link className="link" to="login">
+          Login
+        </Link>
+      )}
+    </div>
   );
 };
 
-export default Menu;
+export default Navbar;

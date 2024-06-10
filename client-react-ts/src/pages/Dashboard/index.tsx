@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
-import Menu from "../../components/Navbar";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
@@ -46,12 +45,9 @@ function Dashboard() {
   return (
     <>
       <div className="grid">
-        <header>
-          <div className="title">Bioversee</div>
-          <div className="menu">
-            <Menu></Menu>
-          </div>
-        </header>
+        {/* <header>
+          <Navbar user={undefined}></Navbar>
+        </header> */}
         <div className="container">
           <aside>
             <div className="switchBox">
