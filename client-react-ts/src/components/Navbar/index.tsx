@@ -7,19 +7,19 @@ const Navbar = ({ user }) => {
   };
   return (
     <div className="naviField">
-      <div className="left-box">
+      <div className="naviButtonBox">
         <div id="mainTitle">
-          <Link className="link" to="/">
+          <Link className="naviButton" to="/dashboard">
             Bioversee
           </Link>
         </div>
         <div id="naviAbout">
-          <Link className="link" to="/about">
+          <Link className="naviButton" to="/about">
             About
           </Link>
         </div>
         <div id="naviSettings">
-          <Link className="link" to="/settings">
+          <Link className="naviButton" to="/settings">
             Settings
           </Link>
         </div>
@@ -33,7 +33,7 @@ const Navbar = ({ user }) => {
           </li>
         </ul>
       ) : (
-        <Link className="link" to="login">
+        <Link className="link" to="/">
           Login
         </Link>
       )}
