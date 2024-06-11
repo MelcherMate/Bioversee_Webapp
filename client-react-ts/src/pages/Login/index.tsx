@@ -5,7 +5,7 @@ import "./Login.css";
 
 const Login = () => {
   const google = () => {
-    window.open("http://localhost:5173/auth/google", "_self");
+    window.open("http://localhost:4321/auth/google", "_self");
   };
 
   const github = () => {

@@ -1,14 +1,19 @@
 import compress from "compression";
 import cookieParser from "cookie-parser";
+import cookieSession from "cookie-session";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
+import passport from "passport";
 import path from "path";
+
 // * Importing Routes
 import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
 import sensorRoutes from "./routes/sensor.routes";
+const passportSetup = require("./passport");
+const authRoute = require("./routes/auth.routes");
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
@@ -36,8 +41,22 @@ var corsOptions = {
 //app.use(cors(corsOptions));
 app.use(cors());
 
+// # Cookie Session Middleware
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["lama"],
+    maxAge: 24 * 60 * 60 * 1000,
+  })
+);
+
+// # Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // # Routes
 app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
+app.use("/auth", authRoute);
 
 // # Serving
 // serving the frontend dev, and prod folders as static resources

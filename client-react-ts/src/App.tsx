@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Settings from "./pages/Settings";
 
 const App = () => {
-  const user = true;
+  const user = false;
 
   return (
     <>
