@@ -1,6 +1,6 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GithubStrategy = require("passport-github2").Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
+// const GithubStrategy = require("passport-github2").Strategy;
+// const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
 
 const GOOGLE_CLIENT_ID =

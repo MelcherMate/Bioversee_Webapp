@@ -31,21 +31,21 @@ app.use(express.json());
 app.use(compress());
 // secure apps by setting various HTTP headers
 app.use(helmet());
-// CORS middleware
+// # CORS middleware
 var corsFrontendSources = process.env.CORS_ALLOWED_ORIGINS;
 var corsOptions = {
   origin: corsFrontendSources,
-  // credentials: true,
   optionsSuccessStatus: 200, // For legacy browser support
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true,
 };
-//app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
 
 // # Cookie Session Middleware
 app.use(
   cookieSession({
     name: "session",
-    keys: ["lama"],
+    keys: ["bioversee"],
     maxAge: 24 * 60 * 60 * 1000,
   })
 );
@@ -67,7 +67,7 @@ app.use("/auth", authRoute);
 //   res.sendFile(path.join(__dirname, "../client/"));
 // });
 // app.use("*", function (req, res, next) {
-//   // serve files upon refresh window
+// // serve files upon refresh window
 // });
 
 // app.use("/", express.static(path.join(__dirname, "indexReact.html")));
