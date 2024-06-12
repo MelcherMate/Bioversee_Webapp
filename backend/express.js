@@ -7,12 +7,12 @@ import express from "express";
 import helmet from "helmet";
 import passport from "passport";
 import path from "path";
+require("./passport");
 
 // * Importing Routes
 import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
 import sensorRoutes from "./routes/sensor.routes";
-const passportSetup = require("./passport");
 const authRoute = require("./routes/auth.routes");
 
 // # DotEnv configuration
@@ -21,6 +21,19 @@ dotenv.config({ path: path.resolve(__dirname + "./.env") });
 
 // # Server Creation
 const app = express();
+
+// # Cookie Session Middleware
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["bioversee"],
+    maxAge: 24 * 60 * 60 * 100,
+  })
+);
+
+// # Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // # Middleware
 app.use(cookieParser());
@@ -39,20 +52,8 @@ var corsOptions = {
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
 };
-app.use(cors(corsOptions));
-
-// # Cookie Session Middleware
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["bioversee"],
-    maxAge: 24 * 60 * 60 * 1000,
-  })
-);
-
-// # Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(cors(corsOptions));
+app.use(cors());
 
 // # Routes
 app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
