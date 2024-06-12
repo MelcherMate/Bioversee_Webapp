@@ -46,10 +46,10 @@ body {
 }
 
 .list {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
   align-items: center;
 }
 
@@ -60,6 +60,7 @@ body {
 }
 
 /* #avatar {
+  display: flex;
   width: 32px;
   height: 32px;
   border-radius: 50%;
