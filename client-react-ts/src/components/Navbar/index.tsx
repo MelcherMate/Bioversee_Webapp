@@ -3,8 +3,9 @@ import "./Navbar.css";
 
 const Navbar = ({ user }) => {
   const logout = () => {
-    window.open("http://localhost:5000/auth/logout", "_self");
+    window.open("http://localhost:4321/auth/logout", "_self");
   };
+
   return (
     <div className="naviField">
       <div className="naviButtonBox">
@@ -26,7 +27,6 @@ const Navbar = ({ user }) => {
       </div>
       {user ? (
         <ul className="list">
-          <li className="listItem"></li>
           <li className="listItem">{user.displayName}</li>
           <li className="listItem" onClick={logout}>
             Logout

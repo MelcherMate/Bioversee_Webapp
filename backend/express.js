@@ -53,7 +53,13 @@ var corsOptions = {
   credentials: true,
 };
 //app.use(cors(corsOptions));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 // # Routes
 app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
