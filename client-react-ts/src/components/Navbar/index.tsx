@@ -27,9 +27,9 @@ const Navbar = ({ user }) => {
       </div>
       {user ? (
         <ul className="list">
-          {/* <li className="listItem">
-            <img src={user.photos[0].value} alt="" className="avatar" />
-          </li> */}
+          <li className="listItem">
+            <img src={user.photos[0].value} alt="" id="avatar" />
+          </li>
           <li className="listItem">{user.displayName}</li>
           <li className="listItem" onClick={logout}>
             Logout

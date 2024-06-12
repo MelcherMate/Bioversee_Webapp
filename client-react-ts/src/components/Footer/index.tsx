@@ -5,7 +5,7 @@ function Footer() {
     <>
       <div className="footerCopy">
         <p>
-          &copy; 2024 Bioversee <br></br>All rights reserved
+          &copy; 2024 Bioversee <br></br>All rights reserved. Mate Melcher.
         </p>
       </div>
       <div className="footerLinks">
@@ -17,7 +17,6 @@ function Footer() {
         >
           About me
         </a>
-        <br></br>
         <a
           href="https://github.com/MelcherMate"
           target="_blank"

@@ -46,15 +46,16 @@ app.use(compress());
 app.use(helmet());
 // # CORS middleware
 var corsFrontendSources = process.env.CORS_ALLOWED_ORIGINS;
-var corsOptions = {
-  origin: corsFrontendSources,
-  optionsSuccessStatus: 200, // For legacy browser support
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true,
-};
+// var corsOptions = {
+//   origin: corsFrontendSources,
+//   optionsSuccessStatus: 200, // For legacy browser support
+//   methods: "GET,POST,PUT,DELETE",
+//   credentials: true,
+// };
 //app.use(cors(corsOptions));
 app.use(
   cors({
+    origin: corsFrontendSources,
     origin: "http://localhost:5173",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
