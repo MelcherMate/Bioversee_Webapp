@@ -35,7 +35,7 @@ const App = () => {
     getUser();
   }, []);
 
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     const saveUser = async () => {

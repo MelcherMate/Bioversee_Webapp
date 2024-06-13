@@ -1,10 +1,10 @@
 import { isUndefined } from "lodash";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Slider.css";
 
 function Slider(props) {
   // States
-  const [val, setVal] = useState(0);
+  // const [val, setVal] = useState(0);
 
   // Functions
   // Function to get state value database
