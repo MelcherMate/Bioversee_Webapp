@@ -12,8 +12,8 @@ require("./passport");
 // * Importing Routes
 import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
+import authRoute from "./routes/auth.routes";
 import sensorRoutes from "./routes/sensor.routes";
-const authRoute = require("./routes/auth.routes");
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
