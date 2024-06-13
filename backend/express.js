@@ -14,6 +14,7 @@ import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
 import authRoute from "./routes/auth.routes";
 import sensorRoutes from "./routes/sensor.routes";
+import userRoutes from "./routes/user.routes";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
@@ -63,7 +64,13 @@ app.use(
 );
 
 // # Routes
-app.use("/", actuatorSlidersRoutes, actuatorSwitchesRoutes, sensorRoutes);
+app.use(
+  "/",
+  actuatorSlidersRoutes,
+  actuatorSwitchesRoutes,
+  sensorRoutes,
+  userRoutes
+);
 app.use("/auth", authRoute);
 
 // # Serving

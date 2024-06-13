@@ -37,6 +37,39 @@ const App = () => {
 
   console.log(user);
 
+  useEffect(() => {
+    const saveUser = async () => {
+      if (user) {
+        try {
+          const response = await fetch(
+            "http://localhost:4321/api/v1/user/postUser",
+            {
+              method: "POST",
+              credentials: "include",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true,
+              },
+              body: JSON.stringify(user),
+            }
+          );
+
+          if (response.status !== 200) {
+            throw new Error("Failed to save or update user");
+          }
+
+          const data = await response.json();
+          console.log("User saved or updated successfully:", data);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    };
+
+    saveUser();
+  }, [user]);
+
   return (
     <>
       <BrowserRouter>
