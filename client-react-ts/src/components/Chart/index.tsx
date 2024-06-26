@@ -19,6 +19,8 @@ interface ChartProps {
 const Chart: React.FC<ChartProps> = (props) => {
   const [data, setData] = useState<any[]>([]);
   const [formattedData, setFormattedData] = useState<any[]>([]);
+  const [minValue, setMinValue] = useState<number>(0);
+  const [maxValue, setMaxValue] = useState<number>(35);
   const chartRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
 
@@ -71,17 +73,28 @@ const Chart: React.FC<ChartProps> = (props) => {
         [props.name]: item.value, // Y-axis
       }));
 
-      // // Add an empty data point
-      // if (lastSixData.length > 0) {
-      //   const lastTimestamp = new Date(
-      //     lastSixData[lastSixData.length - 1].createdAt
-      //   );
-      //   lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
-      //   chartData.push({
-      //     time: reduceTimestampLength(lastTimestamp.toISOString()),
-      //     [props.name]: null,
-      //   });
-      // }
+      // Add an empty data point
+      if (lastSixData.length > 0) {
+        const lastTimestamp = new Date(
+          lastSixData[lastSixData.length - 1].createdAt
+        );
+        lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
+        chartData.push({
+          time: reduceTimestampLength(lastTimestamp.toISOString()),
+          [props.name]: null,
+        });
+      }
+
+      // Find min and max values
+      const values = filteredData.map((item: any) => item.value);
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+
+      // Calculate margin (e.g., 20% of the range)
+      const margin = (max - min) * 0.2;
+
+      setMinValue(min - margin);
+      setMaxValue(max + margin);
 
       setFormattedData(chartData);
     }
@@ -119,17 +132,16 @@ const Chart: React.FC<ChartProps> = (props) => {
           height={200}
           data={formattedData}
           margin={{
-            top: 5,
+            top: 0,
             right: 10,
-            left: 0,
-            bottom: 0,
+            left: -15,
+            bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="time" />
-          <YAxis domain={[0, 35]} />
+          <YAxis domain={[minValue, maxValue]} />
           <Tooltip />
-          {/* <Legend /> */}
           <Line
             type="monotone"
             dataKey={props.name}
