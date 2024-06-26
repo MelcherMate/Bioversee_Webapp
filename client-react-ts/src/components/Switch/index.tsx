@@ -1,15 +1,15 @@
 import { isUndefined } from "lodash";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Switch.css";
 
-function Switch(props) {
+function Switch(props: any) {
   // States
-  const [val, setVal] = useState(false);
+  // const [val, setVal] = useState(false);
 
   // Functions
   // Function to get state value database
-  const getFirstObjectByName = (arr, nameToFind) => {
-    return arr.find((obj) => obj.name === nameToFind);
+  const getFirstObjectByName = (arr: any, nameToFind: any) => {
+    return arr.find((obj: any) => obj.name === nameToFind);
   };
 
   useEffect(() => {

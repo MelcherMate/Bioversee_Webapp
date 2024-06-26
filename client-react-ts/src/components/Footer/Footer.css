@@ -13,16 +13,9 @@ footer {
 
 .footerCopy p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .footerLinks {
   display: flex;
-  gap: 20px;
-}
-
-.footerLinks a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
 }

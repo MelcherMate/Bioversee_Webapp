@@ -2,7 +2,6 @@ import { isEmpty, isUndefined } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   Tooltip,
@@ -72,17 +71,17 @@ const Chart: React.FC<ChartProps> = (props) => {
         [props.name]: item.value, // Y-axis
       }));
 
-      // Add an empty data point
-      if (lastSixData.length > 0) {
-        const lastTimestamp = new Date(
-          lastSixData[lastSixData.length - 1].createdAt
-        );
-        lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
-        chartData.push({
-          time: reduceTimestampLength(lastTimestamp.toISOString()),
-          [props.name]: null,
-        });
-      }
+      // // Add an empty data point
+      // if (lastSixData.length > 0) {
+      //   const lastTimestamp = new Date(
+      //     lastSixData[lastSixData.length - 1].createdAt
+      //   );
+      //   lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
+      //   chartData.push({
+      //     time: reduceTimestampLength(lastTimestamp.toISOString()),
+      //     [props.name]: null,
+      //   });
+      // }
 
       setFormattedData(chartData);
     }
@@ -93,10 +92,8 @@ const Chart: React.FC<ChartProps> = (props) => {
     const date = new Date(timestamp);
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
-    return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${
-      seconds < 10 ? "0" + seconds : seconds
-    }`;
+    // const seconds = date.getSeconds();
+    return `${hours}:${minutes < 10 ? "0" + minutes : minutes}`;
   };
 
   // Set chart width based on parent div's width
@@ -123,16 +120,16 @@ const Chart: React.FC<ChartProps> = (props) => {
           data={formattedData}
           margin={{
             top: 5,
-            right: 0,
+            right: 10,
             left: 0,
             bottom: 0,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="time" />
-          <YAxis />
+          <YAxis domain={[0, 35]} />
           <Tooltip />
-          <Legend />
+          {/* <Legend /> */}
           <Line
             type="monotone"
             dataKey={props.name}

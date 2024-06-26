@@ -11,14 +11,14 @@ const Navbar = ({ user }) => {
       <div className="naviButtonBox">
         <div id="mainTitle">
           <Link className="naviButton" to="/dashboard">
-            Bioversee
+            Dashboard
           </Link>
         </div>
-        <div id="naviAbout">
+        {/* <div id="naviAbout">
           <Link className="naviButton" to="/about">
             About
           </Link>
-        </div>
+        </div> */}
         <div id="naviSettings">
           <Link className="naviButton" to="/settings">
             Settings
@@ -31,7 +31,7 @@ const Navbar = ({ user }) => {
             <img src={user.photos[0].value} alt="" id="avatar" />
           </li>
           <li className="listItem">{user.displayName}</li>
-          <li className="listItem" onClick={logout}>
+          <li className="naviButton" onClick={logout}>
             Logout
           </li>
         </ul>
