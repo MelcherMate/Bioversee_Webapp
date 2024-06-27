@@ -12,7 +12,7 @@ function Footer() {
       <div className="footerLinks">
         <div id="naviAbout">
           <Link className="naviButton" to="/about">
-            About
+            About Project Bioversee
           </Link>
         </div>
         <a
