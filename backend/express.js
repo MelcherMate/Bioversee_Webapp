@@ -76,19 +76,17 @@ app.use("/auth", authRoute);
 // # Serving
 // serving the frontend dev, and prod folders as static resources
 
-// app.use("/", express.static(path.join(__dirname, "../client/")));
-// /* final catch-all route to index.html defined last; trailing / is important (!!!) */
-// app.get("/*", (req, res, next) => {
-//   res.sendFile(path.join(__dirname, "../client/"));
-// });
-// app.use("*", function (req, res, next) {
-// // serve files upon refresh window
-// });
-
-// app.use("/", express.static(path.join(__dirname, "indexReact.html")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "indexReact.html"));
-// });
+app.use(
+  "/",
+  express.static(path.join(__dirname, "../client-react-ts/src/dist/"))
+);
+/* final catch-all route to index.html defined last; trailing / is important (!!!) */
+app.get("/*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "../client-react-ts/src/dist/"));
+});
+app.use("*", function (req, res, next) {
+  // serve files upon refresh window
+});
 
 app.use("*", function (req, res, next) {});
 
