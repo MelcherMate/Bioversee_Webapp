@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "app.js",
-    "start": "NODE_ENV=production pm2 start app.js --name 'bioreactor' --watch"
+    "start": "NODE_ENV=production app.js"
   },
   "nodemonConfig": {
     "verbose": true,

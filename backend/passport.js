@@ -1,15 +1,21 @@
+import dotenv from "dotenv";
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
+const path = require("path");
 
-const GOOGLE_CLIENT_ID =
-  "1092956765782-nivmn9pnugk6224vunqu2ij2hcqm8ttt.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
+// # DotEnv configuration
+// letting it know where to look for the .env file
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: path.resolve(__dirname + "/.env.dev") });
+} else {
+  dotenv.config({ path: path.resolve(__dirname + "/.env.prod") });
+}
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {

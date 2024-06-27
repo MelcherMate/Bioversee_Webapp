@@ -18,7 +18,11 @@ import userRoutes from "./routes/user.routes";
 
 // # DotEnv configuration
 // letting it know where to look for the .env file
-dotenv.config({ path: path.resolve(__dirname + "./.env") });
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: path.resolve(__dirname + "/.env.dev") });
+} else {
+  dotenv.config({ path: path.resolve(__dirname + "/.env.prod") });
+}
 
 // # Server Creation
 const app = express();
