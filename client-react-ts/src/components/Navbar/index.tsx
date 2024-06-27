@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ user }) => {
+  const location = useLocation();
+
   const logout = () => {
     window.open("http://localhost:4321/auth/logout", "_self");
   };
@@ -10,17 +12,22 @@ const Navbar = ({ user }) => {
     <div className="naviField">
       <div className="naviButtonBox">
         <div id="mainTitle">
-          <Link className="naviButton" to="/dashboard">
+          <Link
+            className={`naviButton ${
+              location.pathname === "/dashboard" ? "active" : ""
+            }`}
+            to="/dashboard"
+          >
             Dashboard
           </Link>
         </div>
-        {/* <div id="naviAbout">
-          <Link className="naviButton" to="/about">
-            About
-          </Link>
-        </div> */}
         <div id="naviSettings">
-          <Link className="naviButton" to="/settings">
+          <Link
+            className={`naviButton ${
+              location.pathname === "/settings" ? "active" : ""
+            }`}
+            to="/settings"
+          >
             Settings
           </Link>
         </div>
