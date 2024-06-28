@@ -221,18 +221,22 @@
 @keyframes rotateProp0 {
   from {
     transform: rotateY(0deg);
+    animation-timing-function: linear;
   }
   to {
-    transform: rotateY(180deg);
+    transform: rotateY(360deg);
+    animation-timing-function: linear;
   }
 }
 
 @keyframes rotateProp90 {
   from {
     transform: rotateY(90deg);
+    animation-timing-function: linear;
   }
   to {
-    transform: rotateY(270deg);
+    transform: rotateY(450deg);
+    animation-timing-function: linear;
   }
 }
 
