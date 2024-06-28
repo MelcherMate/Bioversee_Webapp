@@ -14,7 +14,7 @@ function Slider(props) {
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
-      fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
+      fetch(`${process.env.VITE_SERVER_URL + props.url}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -43,7 +43,7 @@ function Slider(props) {
   // Function to send the value to the database
   const sendSliderValueToDatabase = (newValue) => {
     const data = { name: props.name, state: newValue }; // Modification here
-    fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.updateUrl}`, {
+    fetch(`${process.env.VITE_SERVER_URL + props.updateUrl}`, {
       method: "POST",
       headers: {
         Accept: "application/json",

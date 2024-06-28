@@ -1,7 +1,15 @@
 const router = require("express").Router();
 const passport = require("passport");
+const dotenv = require("dotenv");
+const path = require("path");
 
-const CLIENT_URL = "http://localhost:4321/";
+// # DotEnv configuration
+// Letting it know where to look for the .env file
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: path.resolve(__dirname, "../.env.dev") });
+} else {
+  dotenv.config({ path: path.resolve(__dirname, "../.env.prod") });
+}
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
@@ -9,7 +17,6 @@ router.get("/login/success", (req, res) => {
       success: true,
       message: "successfull",
       user: req.user,
-      //   cookies: req.cookies
     });
   }
 });
@@ -23,7 +30,7 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect(CLIENT_URL);
+  res.redirect(process.env.CORS_ALLOWED_ORIGINS);
 });
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
@@ -31,7 +38,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: CLIENT_URL,
+    successRedirect: process.env.CORS_ALLOWED_ORIGINS,
     failureRedirect: "/login/failed",
   })
 );

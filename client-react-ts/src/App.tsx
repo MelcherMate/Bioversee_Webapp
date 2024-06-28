@@ -11,8 +11,14 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    // console.log("Environment Variables:", process.env);
+    console.log("Frontend Env:", process.env.VITE_CLIENT_URL);
+    console.log("Server URL:", process.env.VITE_SERVER_URL);
+  }, []);
+
+  useEffect(() => {
     const getUser = () => {
-      fetch("http://localhost:4321/auth/login/success", {
+      fetch(`${process.env.VITE_SERVER_URL}/auth/login/success`, {
         method: "GET",
         credentials: "include",
         headers: {
@@ -34,14 +40,12 @@ const App = () => {
     getUser();
   }, []);
 
-  // console.log(user);
-
   useEffect(() => {
     const saveUser = async () => {
       if (user) {
         try {
           const response = await fetch(
-            "http://localhost:4321/api/v1/user/postUser",
+            `${process.env.VITE_SERVER_URL}/api/v1/user/postUser`,
             {
               method: "POST",
               credentials: "include",

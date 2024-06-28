@@ -8,14 +8,14 @@ import server from "./express";
 dotenv.config({ path: path.resolve(__dirname + "/.env") });
 
 // # DB Connection
-// Mongoose connecting
+// # Mongoose connecting
 mongoose.Promise = global.Promise;
 mongoose.set("strictQuery", true);
 mongoose.connect(process.env.MONGODB_URI);
 
 console.log("*********************************************************");
 
-// Opening the Connection
+// # Opening the Connection
 const db = mongoose.connection;
 db.once("open", () => {
   console.log(
@@ -27,7 +27,7 @@ db.once("open", () => {
   console.log("*********************************************************");
 });
 
-// Detecting Connection Error
+// ! Detecting Connection Error
 db.on("error", () => {
   console.log(
     "** UNABLE TO CONNECT TO DATABASE(",

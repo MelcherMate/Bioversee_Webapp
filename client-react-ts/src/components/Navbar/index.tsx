@@ -5,7 +5,7 @@ const Navbar = ({ user }) => {
   const location = useLocation();
 
   const logout = () => {
-    window.open("http://localhost:4321/auth/logout", "_self");
+    window.open(`${process.env.VITE_SERVER_URL}/auth/logout`, "_self");
   };
 
   return (

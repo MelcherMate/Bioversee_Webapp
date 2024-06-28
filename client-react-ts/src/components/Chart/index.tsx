@@ -27,7 +27,7 @@ const Chart: React.FC<ChartProps> = (props) => {
   // Function to get sensor value from database
   const fetchData = () => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
-      fetch(`${import.meta.env.VITE_SERVER_BASE_URL + props.url}`, {
+      fetch(`${process.env.VITE_SERVER_URL + props.url}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
