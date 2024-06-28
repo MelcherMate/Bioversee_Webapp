@@ -73,18 +73,6 @@ const Chart: React.FC<ChartProps> = (props) => {
         [props.name]: item.value, // Y-axis
       }));
 
-      // Add an empty data point
-      if (lastSixData.length > 0) {
-        const lastTimestamp = new Date(
-          lastSixData[lastSixData.length - 1].createdAt
-        );
-        lastTimestamp.setMinutes(lastTimestamp.getMinutes() + 1); // Add one minute to the last timestamp
-        chartData.push({
-          time: reduceTimestampLength(lastTimestamp.toISOString()),
-          [props.name]: null,
-        });
-      }
-
       // Find min and max values
       const values = filteredData.map((item: any) => item.value);
       const min = Math.min(...values);
