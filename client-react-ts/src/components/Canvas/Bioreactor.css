@@ -225,7 +225,6 @@
   }
   to {
     transform: rotateY(360deg);
-    animation-timing-function: linear;
   }
 }
 
@@ -236,7 +235,6 @@
   }
   to {
     transform: rotateY(450deg);
-    animation-timing-function: linear;
   }
 }
 
