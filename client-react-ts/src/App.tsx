@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     // console.log("Environment Variables:", process.env);
-    console.log("Frontend Env:", process.env.VITE_CLIENT_URL);
+    console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
     console.log("Server URL:", process.env.VITE_SERVER_URL);
   }, []);
 

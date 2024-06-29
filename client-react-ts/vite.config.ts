@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       "process.env": {
-        VITE_CLIENT_URL: env.VITE_CLIENT_URL,
+        VITE_PUBLIC_URL: env.VITE_PUBLIC_URL,
         VITE_SERVER_URL: env.VITE_SERVER_URL,
       },
     },
