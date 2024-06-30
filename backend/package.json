@@ -5,8 +5,9 @@
   "author": "Mate Melcher",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "NODE_ENV=production node app.js"
+    "build": "npx babel app.js --out-file app-compiled.js",
+    "dev": "NODE_ENV=development nodemon app.js",
+    "start": "NODE_ENV=production nodemon - exec babel-node app.js"
   },
   "nodemonConfig": {
     "verbose": true,
@@ -22,7 +23,9 @@
     "delay": 3000
   },
   "dependencies": {
+    "@babel/cli": "^7.24.7",
     "@babel/core": "^7.11.6",
+    "@babel/node": "^7.24.7",
     "@babel/register": "^7.11.5",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
