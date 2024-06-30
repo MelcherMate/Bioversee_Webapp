@@ -30,7 +30,7 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect(process.env.CORS_ALLOWED_ORIGINS);
+  res.redirect(process.env.PUBLIC_URL);
 });
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
@@ -38,7 +38,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.CORS_ALLOWED_ORIGINS,
+    successRedirect: process.env.PUBLIC_URL + "/dashboard",
     failureRedirect: "/login/failed",
   })
 );
