@@ -38,7 +38,7 @@ db.on("error", () => {
 });
 
 // # Server Start
-const actualPort = process.env.PORT || 8080;
+const actualPort = process.env.PORT || 10000;
 server.listen(actualPort, (err) => {
   if (err) {
     console.log(
