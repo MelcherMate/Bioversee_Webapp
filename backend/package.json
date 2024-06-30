@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx babel app.js --out-file app-compiled.js",
     "dev": "NODE_ENV=development nodemon app.js",
-    "start": "NODE_ENV=production node app.js"
+    "start": "cp -r ../client-react-ts/src/dist . && NODE_ENV=production node app.js"
   },
   "nodemonConfig": {
     "verbose": true,
