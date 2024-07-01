@@ -84,6 +84,8 @@ const App = () => {
           <Route path="/dashboard" element={user ? <Dashboard /> : <Login />} />
           <Route path="/settings" element={user ? <Settings /> : <Login />} />
           <Route path="/about" element={user ? <About /> : <Login />} />
+          <Route path="login/failed" element={<>failed login</>} />
+          <Route path="login/success" element={<>success login</>} />
         </Routes>
       </BrowserRouter>
     </>
