@@ -51,7 +51,7 @@ app.use(compress());
 app.use(helmet());
 
 // # CORS middleware
-var corsFrontendSources = "https://www.bioversee.com";
+var corsFrontendSources = process.env.PUBLIC_URL;
 var corsOptions = {
   origin: corsFrontendSources,
   optionsSuccessStatus: 200,
