@@ -12,8 +12,8 @@ const App = () => {
 
   useEffect(() => {
     // console.log("Environment Variables:", process.env);
-    console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
-    console.log("Server URL:", process.env.VITE_SERVER_URL);
+    // console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
+    // console.log("Server URL:", process.env.VITE_SERVER_URL);
   }, []);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ const App = () => {
   useEffect(() => {
     const saveUser = async () => {
       if (user) {
+        console.log(user);
         try {
           const response = await fetch(
             `${process.env.VITE_SERVER_URL}/api/v1/user/postUser`,
