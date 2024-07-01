@@ -20,7 +20,7 @@ const App = () => {
     const getUser = () => {
       fetch(`${process.env.VITE_SERVER_URL}/auth/login/success`, {
         method: "GET",
-        credentials: "include",
+        // credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const App = () => {
             `${process.env.VITE_SERVER_URL}/api/v1/user/postUser`,
             {
               method: "POST",
-              credentials: "include",
+              // credentials: "include",
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
