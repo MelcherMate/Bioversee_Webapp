@@ -42,7 +42,7 @@ app.use(passport.session());
 
 // # Middleware
 app.use(cookieParser());
-// parse body params and attache them to req.body
+// parse body params and attach them to req.body
 app.use(express.urlencoded({ extended: true }));
 // To parse the incoming requests with JSON payloads
 app.use(express.json());
@@ -51,15 +51,13 @@ app.use(compress());
 app.use(helmet());
 
 // # CORS middleware
-var corsFrontendSources = process.env.CORS_ALLOWED_ORIGINS;
+var corsFrontendSources = "https://www.bioversee.com";
+var corsOptions = {
+  origin: corsFrontendSources,
+  optionsSuccessStatus: 200,
+};
 
-app.use(
-  cors({
-    origin: corsFrontendSources,
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 
 // # Routes
 app.use(
@@ -73,11 +71,11 @@ app.use("/auth", authRoute);
 
 // # Serving
 // serving the frontend dev, and prod folders as static resources
-
 app.use(
   "/",
   express.static(path.join(__dirname, "../client-react-ts/src/dist/"))
 );
+
 /* final catch-all route to index.html defined last; trailing / is important (!!!) */
 app.get("/*", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../client-react-ts/src/dist/"));
