@@ -51,7 +51,7 @@ app.use(compress());
 app.use(helmet());
 
 // # CORS middleware
-var corsFrontendSources = process.env.CORS_ALLOWED_ORIGINS;
+var corsFrontendSources = process.env.PUBLIC_URL;
 var corsOptions = {
   origin: corsFrontendSources,
   optionsSuccessStatus: 200,
