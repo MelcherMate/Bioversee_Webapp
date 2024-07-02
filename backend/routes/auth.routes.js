@@ -38,8 +38,8 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    // successRedirect: process.env.PUBLIC_URL + "/dashboard",
-    successRedirect: "/login/success",
+    successRedirect: "/dashboard",
+    // successRedirect: "/login/success",
     failureRedirect: "/login/failed",
   })
 );
