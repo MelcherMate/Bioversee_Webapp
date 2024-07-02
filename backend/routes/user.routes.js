@@ -3,7 +3,7 @@ import userCtrl from "../controllers/user.controller";
 
 const router = express.Router();
 
-router.post("/api/v1/user/postUser", async (req, res) => {
+router.post("/api/v1/user/postuser", async (req, res) => {
   try {
     const profile = req.body;
 

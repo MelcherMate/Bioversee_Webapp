@@ -46,7 +46,7 @@ const App = () => {
         console.log(user);
         try {
           const response = await fetch(
-            `${process.env.VITE_SERVER_URL}/api/v1/user/postUser`,
+            `${process.env.VITE_SERVER_URL}/api/v1/user/postuser`,
             {
               method: "POST",
               // credentials: "include",
