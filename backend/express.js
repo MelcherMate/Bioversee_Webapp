@@ -56,14 +56,14 @@ app.use(
       scriptSrc: [
         "'self'",
         "'unsafe-inline'",
-        "https://www.bioversee.com/",
-        "https://bioreactor-0qwh.onrender.com/",
+        "https://www.bioversee.com/*",
+        "https://bioreactor-0qwh.onrender.com/*",
       ],
       connectSrc: [
         "'self'",
         "'unsafe-inline'",
-        "https://www.bioversee.com/",
-        "https://bioreactor-0qwh.onrender.com/",
+        "https://www.bioversee.com/*",
+        "https://bioreactor-0qwh.onrender.com/*",
       ],
     },
   })
