@@ -5,7 +5,7 @@ const Navbar = ({ user }) => {
   const location = useLocation();
 
   const logout = () => {
-    window.open(`${process.env.VITE_CLIENT_URL}/auth/logout`, "_self");
+    window.open(`${process.env.VITE_PUBLIC_URL}/auth/logout`, "_self");
   };
 
   return (
