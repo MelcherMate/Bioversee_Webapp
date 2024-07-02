@@ -1,7 +1,6 @@
 import compress from "compression";
 import cookieParser from "cookie-parser";
 import cookieSession from "cookie-session";
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
@@ -48,7 +47,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(compress());
 // secure apps by setting various HTTP headers
-app.use(helmet());
+// app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.bioversee.com/"],
+    },
+  })
+);
 
 // # CORS middleware
 var corsFrontendSources = process.env.PUBLIC_URL;
@@ -57,7 +64,8 @@ var corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 // # Routes
 app.use(
