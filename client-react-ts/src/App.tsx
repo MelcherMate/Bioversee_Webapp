@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     const getUser = () => {
-      fetch(`${process.env.VITE_SERVER_URL}/auth/login/success`, {
+      fetch(`${process.env.VITE_PUBLIC_URL}/auth/login/success`, {
         method: "GET",
         // credentials: "include",
         headers: {
@@ -46,7 +46,7 @@ const App = () => {
         console.log(user);
         try {
           const response = await fetch(
-            `${process.env.VITE_SERVER_URL}/api/v1/user/postuser`,
+            `${process.env.VITE_PUBLIC_URL}/api/v1/user/postuser`,
             {
               method: "POST",
               // credentials: "include",
