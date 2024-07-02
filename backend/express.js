@@ -53,7 +53,18 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.bioversee.com/"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://www.bioversee.com/",
+        "https://bioreactor-0qwh.onrender.com/",
+      ],
+      connectSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://www.bioversee.com/",
+        "https://bioreactor-0qwh.onrender.com/",
+      ],
     },
   })
 );
