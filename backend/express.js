@@ -67,6 +67,7 @@ app.use(
         "https://www.bioversee.com/",
         "https://bioreactor-0qwh.onrender.com/",
       ],
+      imgSrc: ["data:"],
     },
   })
 );
