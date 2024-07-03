@@ -14,7 +14,7 @@ function Switch(props: any) {
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
-      console.log(process.env.VITE_SERVER_URL);
+      // console.log(process.env.VITE_SERVER_URL);
       fetch(`${process.env.VITE_SERVER_URL + props.url}`, {
         method: "GET",
         headers: {

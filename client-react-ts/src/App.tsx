@@ -14,7 +14,7 @@ const App = () => {
     // console.log("Environment Variables:", process.env);
     // console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
     // console.log("Server URL:", process.env.VITE_SERVER_URL);
-    console.log("Auth URL:", process.env.VITE_AUTH_URL);
+    // console.log("Auth URL:", process.env.VITE_AUTH_URL);
   }, []);
 
   useEffect(() => {
@@ -86,8 +86,8 @@ const App = () => {
           <Route path="/dashboard" element={user ? <Dashboard /> : <Login />} />
           <Route path="/settings" element={user ? <Settings /> : <Login />} />
           <Route path="/about" element={user ? <About /> : <Login />} />
-          {/* <Route path="login/failed" element={<>failed login</>} />
-          <Route path="login/success" element={<>success login</>} /> */}
+          <Route path="login/failed" element={<>failed login</>} />
+          {/* <Route path="login/success" element={<>success login</>} /> */}
         </Routes>
       </BrowserRouter>
     </>
