@@ -62,7 +62,7 @@ function Slider(props) {
   // Create a debounced version of the sendSliderValueToDatabase function
   const debouncedSendSliderValueToDatabase = debounce(
     sendSliderValueToDatabase,
-    100
+    500
   );
 
   return (
