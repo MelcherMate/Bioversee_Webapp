@@ -14,11 +14,12 @@ const App = () => {
     // console.log("Environment Variables:", process.env);
     // console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
     // console.log("Server URL:", process.env.VITE_SERVER_URL);
+    console.log("Auth URL:", process.env.VITE_AUTH_URL);
   }, []);
 
   useEffect(() => {
     const getUser = () => {
-      fetch(`${process.env.VITE_PUBLIC_URL}/auth/login/success`, {
+      fetch(`${process.env.VITE_AUTH_URL}/auth/login/success`, {
         method: "GET",
         // credentials: "include",
         headers: {
@@ -46,7 +47,7 @@ const App = () => {
         console.log(user);
         try {
           const response = await fetch(
-            `${process.env.VITE_PUBLIC_URL}/api/v1/user/postuser`,
+            `${process.env.VITE_AUTH_URL}/api/v1/user/postuser`,
             {
               method: "POST",
               // credentials: "include",

@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
       "process.env": {
         VITE_PUBLIC_URL: env.VITE_PUBLIC_URL,
         VITE_SERVER_URL: env.VITE_SERVER_URL,
+        VITE_AUTH_URL: env.VITE_AUTH_URL,
       },
     },
   };
