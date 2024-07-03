@@ -1,4 +1,5 @@
 import { isUndefined } from "lodash";
+import debounce from "lodash/debounce";
 import { useEffect } from "react";
 import "./Slider.css";
 
@@ -37,7 +38,7 @@ function Slider(props) {
   const handleChange = (event) => {
     const newValue = parseInt(event.target.value, 10);
     props.setVal(newValue);
-    sendSliderValueToDatabase(newValue);
+    debouncedSendSliderValueToDatabase(newValue);
   };
 
   // Function to send the value to the database
@@ -57,6 +58,12 @@ function Slider(props) {
       })
       .catch((error) => console.log(error));
   };
+
+  // Create a debounced version of the sendSliderValueToDatabase function
+  const debouncedSendSliderValueToDatabase = debounce(
+    sendSliderValueToDatabase,
+    100
+  );
 
   return (
     <>
