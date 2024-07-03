@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
-import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
@@ -120,9 +119,6 @@ function Dashboard() {
             </div>
           </aside>
         </div>
-        <footer>
-          <Footer></Footer>
-        </footer>
       </div>
     </>
   );
