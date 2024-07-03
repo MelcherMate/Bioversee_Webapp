@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === "development") {
   dotenv.config({ path: path.resolve(__dirname, "../.env.prod") });
 }
 
-router.get("/login/success", (req, res) => {
+router.get("/auth/login/success", (req, res) => {
   if (req.user) {
     res.status(200).json({
       success: true,
@@ -21,25 +21,28 @@ router.get("/login/success", (req, res) => {
   }
 });
 
-router.get("/login/failed", (req, res) => {
+router.get("/auth/login/failed", (req, res) => {
   res.status(401).json({
     success: false,
     message: "failure",
   });
 });
 
-router.get("/logout", (req, res) => {
+router.get("/auth/logout", (req, res) => {
   req.logout();
   res.redirect(process.env.PUBLIC_URL);
 });
 
-router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
 
 router.get(
-  "/google/callback",
+  "/auth/google/callback",
   passport.authenticate("google", {
     successRedirect: process.env.PUBLIC_URL + "/dashboard",
-    // successRedirect: "/login/success",
+    // successRedirect: "http://localhost:4321",
     failureRedirect: "/login/failed",
   })
 );

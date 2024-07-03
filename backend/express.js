@@ -48,39 +48,44 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(compress());
 // secure apps by setting various HTTP headers
-// app.use(helmet());
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: [
-        "'self'",
-        "'unsafe-inline'",
-        "https://bioversee.com/",
-        "https://www.bioversee.com/",
-        "https://bioreactor-0qwh.onrender.com/",
-      ],
-      connectSrc: [
-        "'self'",
-        "'unsafe-inline'",
-        "https://bioversee.com/",
-        "https://www.bioversee.com/",
-        "https://bioreactor-0qwh.onrender.com/",
-      ],
-      imgSrc: ["*", "data:"],
-    },
-  })
-);
+
+if (process.env.NODE_ENV === "development") {
+  app.use(helmet());
+} else {
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://bioversee.com/",
+          "https://www.bioversee.com/",
+          "https://bioreactor-0qwh.onrender.com/",
+        ],
+        connectSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://bioversee.com/",
+          "https://www.bioversee.com/",
+          "https://bioreactor-0qwh.onrender.com/",
+        ],
+        imgSrc: ["*", "data:"],
+      },
+    })
+  );
+}
 
 // # CORS middleware
 var corsFrontendSources = process.env.PUBLIC_URL;
 var corsOptions = {
   origin: corsFrontendSources,
   optionsSuccessStatus: 200,
+  credentials: true,
 };
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 
 // # Routes
 app.use(
@@ -88,25 +93,28 @@ app.use(
   actuatorSlidersRoutes,
   actuatorSwitchesRoutes,
   sensorRoutes,
-  userRoutes
+  userRoutes,
+  authRoute
 );
-app.use("/auth", authRoute);
 
 // # Serving
-// serving the frontend dev, and prod folders as static resources
-app.use(
-  "/",
-  express.static(path.join(__dirname, "../client-react-ts/src/dist/"))
-);
+if (process.env.NODE_ENV === "development") {
+} else {
+  // serving the frontend dev, and prod folders as static resources
+  app.use(
+    "/",
+    express.static(path.join(__dirname, "../client-react-ts/src/dist/"))
+  );
+  /* final catch-all route to index.html defined last; trailing / is important (!!!) */
+  app.get("/*", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "../client-react-ts/src/dist/"));
+  });
+  app.use("*", function (req, res, next) {
+    // serve files upon refresh window
+  });
 
-/* final catch-all route to index.html defined last; trailing / is important (!!!) */
-app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../client-react-ts/src/dist/"));
-});
-app.use("*", function (req, res, next) {
-  // serve files upon refresh window
-});
+  app.use("*", function (req, res, next) {});
+}
 
 app.use("*", function (req, res, next) {});
-
 export default app;

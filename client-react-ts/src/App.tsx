@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
@@ -20,9 +19,10 @@ const App = () => {
 
   useEffect(() => {
     const getUser = () => {
+      console.log("Call starts!");
       fetch(`${process.env.VITE_AUTH_URL}/auth/login/success`, {
         method: "GET",
-        // credentials: "include",
+        credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -34,6 +34,7 @@ const App = () => {
         })
         .then((resObject) => {
           setUser(resObject.user);
+          console.log(resObject.user);
         })
         .catch((err) => {
           console.log(err);
@@ -51,7 +52,7 @@ const App = () => {
             `${process.env.VITE_AUTH_URL}/api/v1/user/postuser`,
             {
               method: "POST",
-              // credentials: "include",
+              credentials: "include",
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -90,7 +91,6 @@ const App = () => {
           <Route path="login/failed" element={<>failed login</>} />
           {/* <Route path="login/success" element={<>success login</>} /> */}
         </Routes>
-        <Footer></Footer>
       </BrowserRouter>
     </>
   );
