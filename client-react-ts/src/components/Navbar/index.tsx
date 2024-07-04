@@ -10,6 +10,7 @@ const Navbar = ({ user }) => {
 
   return (
     <div className="naviField">
+      {/* <img src="../../img/bioverseeLogo.png" alt="" id="logo"></img> */}
       <div className="naviButtonBox">
         <div id="mainTitle">
           <Link
@@ -21,16 +22,6 @@ const Navbar = ({ user }) => {
             Dashboard
           </Link>
         </div>
-        <div id="naviSettings">
-          <Link
-            className={`naviButton ${
-              location.pathname === "/settings" ? "active" : ""
-            }`}
-            to="/settings"
-          >
-            Settings
-          </Link>
-        </div>
       </div>
       {user ? (
         <ul className="list">
@@ -38,6 +29,16 @@ const Navbar = ({ user }) => {
             <img src={user.photos[0].value} alt="" id="avatar" />
           </li>
           <li className="listItem">{user.displayName}</li>
+          <div id="naviSettings">
+            <Link
+              className={`naviButton ${
+                location.pathname === "/settings" ? "active" : ""
+              }`}
+              to="/settings"
+            >
+              Settings
+            </Link>
+          </div>
           <li className="naviButton" onClick={logout}>
             Logout
           </li>

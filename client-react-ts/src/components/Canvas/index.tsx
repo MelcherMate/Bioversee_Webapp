@@ -86,11 +86,11 @@ function Canvas(props) {
             }}
           />
         ))}
-        <div className="zoom-buttons">
-          <div className="zoom-button" onClick={handleZoomIn}>
+        <div className="zoomButtons">
+          <div className="zoomButton" onClick={handleZoomIn}>
             +
           </div>
-          <div className="zoom-button" onClick={handleZoomOut}>
+          <div className="zoomButton" onClick={handleZoomOut}>
             -
           </div>
         </div>

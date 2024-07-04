@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
@@ -34,7 +35,7 @@ const App = () => {
         })
         .then((resObject) => {
           setUser(resObject.user);
-          console.log(resObject.user);
+          // console.log(resObject.user);
         })
         .catch((err) => {
           console.log(err);
@@ -46,7 +47,7 @@ const App = () => {
   useEffect(() => {
     const saveUser = async () => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         try {
           const response = await fetch(
             `${process.env.VITE_AUTH_URL}/api/v1/user/postuser`,
@@ -91,6 +92,9 @@ const App = () => {
           <Route path="login/failed" element={<>failed login</>} />
           {/* <Route path="login/success" element={<>success login</>} /> */}
         </Routes>
+        <footer>
+          <Footer></Footer>
+        </footer>
       </BrowserRouter>
     </>
   );

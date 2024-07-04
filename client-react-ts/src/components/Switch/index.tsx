@@ -32,7 +32,7 @@ function Switch(props: any) {
         })
         .catch((error) => console.log(error));
     }
-  }, [props.url, props.name]);
+  }, [props.url, props.name, props]);
 
   // Function send new state value to the database
   const sendSwitchStateToDatabase = (newValue: boolean) => {

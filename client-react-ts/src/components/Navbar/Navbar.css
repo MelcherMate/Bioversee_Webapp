@@ -18,6 +18,11 @@ body {
   display: flex;
 }
 
+#logo {
+  height: 50px;
+  /* width: 50px; */
+}
+
 .naviButton {
   display: block;
   position: relative;

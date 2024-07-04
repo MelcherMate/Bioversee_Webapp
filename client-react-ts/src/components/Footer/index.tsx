@@ -3,28 +3,19 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <>
+    <div className="footerContainer">
       <div className="footerCopy">
-        <p>
-          &copy; 2024 Bioversee <br></br>All rights reserved. Mate Melcher.
-        </p>
+        <p>&copy; 2024 Bioversee &#124; All rights reserved. Mate Melcher.</p>
       </div>
-      <div className="footerLinks">
-        <div id="naviAbout">
-          <Link className="naviButton" to="/about">
-            About Project Bioversee
-          </Link>
-        </div>
-        <a
-          href="https://github.com/MelcherMate"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="naviButton"
-        >
-          GitHub Repository
+      <div id="linkBox">
+        <Link className="footerLink" to="/about">
+          &#124; About Project Bioversee
+        </Link>
+        <a href="https://github.com/MelcherMate" className="footerLink">
+          &#124; GitHub Repository
         </a>
       </div>
-    </>
+    </div>
   );
 }
 

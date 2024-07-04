@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
-import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
@@ -46,10 +45,10 @@ function Dashboard() {
   return (
     <>
       <div className="grid">
-        <header></header>
         <div className="container">
           <aside>
             <div className="switchBox">
+              <h4 className="boxTitle">Pump settings</h4>
               <Switch
                 name="switchWarmWaterPump"
                 setVal={setWarmWVal}
@@ -84,6 +83,7 @@ function Dashboard() {
               />
             </div>
             <div className="sliderBox">
+              <h4 className="boxTitle">Agitator / Aerator Settings</h4>
               <Slider
                 name="rotor"
                 setVal={setRotorVal}
@@ -109,7 +109,7 @@ function Dashboard() {
             <div className="chartBox">
               <Chart
                 name="temperature"
-                label="Temperature value"
+                label="Temperature"
                 url="/api/v1/sensor/getsensordata"
               />
               <Chart
@@ -117,12 +117,14 @@ function Dashboard() {
                 label="pH value"
                 url="/api/v1/sensor/getsensordata"
               />
+              <Chart
+                name="inlethumidity"
+                label="Inlet Humidity"
+                url="/api/v1/sensor/getsensordata"
+              />
             </div>
           </aside>
         </div>
-        <footer>
-          <Footer></Footer>
-        </footer>
       </div>
     </>
   );

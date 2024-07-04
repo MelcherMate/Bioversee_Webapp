@@ -31,13 +31,9 @@ aside {
   margin-bottom: 10px;
 }
 
-main {
-  display: flex;
-  position: relative;
-  flex: 1 1 auto;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+.boxTitle {
+  text-align: center;
+  margin: 5px;
 }
 
 .switchBox {
@@ -48,9 +44,7 @@ main {
   box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   border: 1px solid lightgrey;
   border-radius: 24px;
-  padding-top: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px 8px 0px 8px;
 }
 
 .sliderBox {
@@ -62,13 +56,13 @@ main {
   border-radius: 24px;
   flex-direction: column;
   align-items: center;
+  padding: 8px 8px 0px 8px;
 }
 
 .reactorBox {
   display: block;
   position: relative;
   text-align: center;
-  height: 100%;
   width: 100%;
 }
 
