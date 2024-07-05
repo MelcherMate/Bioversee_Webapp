@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ConstructionPage.css";
 
 function ConstructionPage() {
@@ -25,9 +26,9 @@ function ConstructionPage() {
           <span>.</span>
           <span>.</span>
         </h1>
-        <div id="rights">
-          &copy; 2024 Bioversee. All rights reserved. Mate Melcher.
-        </div>
+        <Link to="/dashboard" className="back-button">
+          Go to Dashboard
+        </Link>
       </div>
     </>
   );

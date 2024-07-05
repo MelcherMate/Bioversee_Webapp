@@ -11,7 +11,12 @@ function Footer() {
         <Link className="footerLink" to="/about">
           &#124; About Project Bioversee
         </Link>
-        <a href="https://github.com/MelcherMate" className="footerLink">
+        <a
+          href="https://github.com/MelcherMate"
+          className="footerLink"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           &#124; GitHub Repository
         </a>
       </div>

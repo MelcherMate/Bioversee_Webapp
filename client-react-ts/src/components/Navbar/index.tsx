@@ -16,7 +16,6 @@ const Navbar = ({ user }) => {
 
   return (
     <div className="naviField">
-      {/* <img src="../../img/bioverseeLogo.png" alt="" id="logo"></img> */}
       <div className="naviButtonBox">
         <div id="mainTitle">
           {user && (
