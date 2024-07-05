@@ -46,7 +46,7 @@ function Dashboard() {
     <>
       <div className="grid">
         <div className="container">
-          <aside>
+          <aside id="actuatorSide">
             <div className="switchBox">
               <h4 className="boxTitle">Pump settings</h4>
               <Switch
@@ -105,7 +105,7 @@ function Dashboard() {
           <main className="reactorBox" ref={canvasRef}>
             <Canvas cards={cards} rotorVal={rotorVal} />
           </main>
-          <aside>
+          <aside id="sensorSide">
             <div className="chartBox">
               <Chart
                 name="temperature"
