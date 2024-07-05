@@ -16,6 +16,7 @@ const App = () => {
     // console.log("Frontend Env:", process.env.VITE_PUBLIC_URL);
     // console.log("Server URL:", process.env.VITE_SERVER_URL);
     // console.log("Auth URL:", process.env.VITE_AUTH_URL);
+    // console.log("User:", user);
   }, []);
 
   useEffect(() => {

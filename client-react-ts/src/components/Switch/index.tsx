@@ -36,7 +36,10 @@ function Switch(props: any) {
 
   // Function send new state value to the database
   const sendSwitchStateToDatabase = (newValue: boolean) => {
-    const data = { name: props.name, state: newValue };
+    const data = {
+      name: props.name,
+      state: newValue,
+    };
     fetch(`${process.env.VITE_SERVER_URL + props.updateUrl}`, {
       method: "POST",
       headers: {
