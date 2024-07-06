@@ -5,19 +5,21 @@ function Footer() {
   return (
     <div className="footerContainer">
       <div className="footerCopy">
-        <p>&copy; 2024 Bioversee &#124; All rights reserved. Mate Melcher.</p>
+        <p>&copy; 2024 Bioversee. All rights reserved. Mate Melcher. </p>
       </div>
       <div id="linkBox">
+        <span className="divider"> &#124; </span>
         <Link className="footerLink" to="/about">
-          &#124; About Project Bioversee
+          About Project Bioversee
         </Link>
+        <span className="divider"> &#124; </span>
         <a
           href="https://github.com/MelcherMate"
           className="footerLink"
           target="_blank"
           rel="noopener noreferrer"
         >
-          &#124; GitHub Repository
+          GitHub Repository
         </a>
       </div>
     </div>

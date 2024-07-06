@@ -14,8 +14,35 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.naviButtonBox {
+#naviFieldLeft {
   display: flex;
+  /* border: 1px solid red; */
+  flex-direction: row;
+  align-items: center;
+  height: 65px;
+}
+
+#navbarTitle {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: whitesmoke;
+}
+
+#naviFieldRight {
+  display: flex;
+  flex-direction: row;
+  height: 65px;
+}
+
+#settingsButton {
+  padding: 0%;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  background-color: #66bb6a;
+  color: white;
+  border-radius: 50%;
 }
 
 .naviButton {
@@ -63,14 +90,14 @@ body {
 
 #popup {
   position: absolute;
-  top: 60px; /* adjust based on your layout */
-  right: 20px; /* adjust based on your layout */
+  top: 60px;
+  right: 20px;
   width: 250px;
   padding: 10px;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  z-index: 1;
+  z-index: 100;
 }
 
 #popupTitle {

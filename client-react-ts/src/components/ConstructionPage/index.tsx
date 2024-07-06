@@ -27,7 +27,7 @@ function ConstructionPage() {
           <span>.</span>
         </h1>
         <Link to="/dashboard" className="back-button">
-          Go to Dashboard
+          Back to mainpage
         </Link>
       </div>
     </>
