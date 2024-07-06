@@ -1,3 +1,12 @@
+.container {
+  display: flex;
+  position: relative;
+  flex: 1 1 auto;
+  align-items: stretch;
+  background-color: #f0f4f8;
+  animation: fadeIn 1s ease-in-out;
+}
+
 aside {
   display: flex;
   position: absolute;
@@ -15,13 +24,6 @@ aside {
 #sensorSide {
   right: 0px;
   top: 0px;
-}
-
-.container {
-  display: flex;
-  position: relative;
-  flex: 1 1 auto;
-  align-items: stretch;
 }
 
 .boxTitle {
@@ -72,4 +74,13 @@ aside {
   border-radius: 24px;
   padding: 8px;
   background-color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -8,6 +8,7 @@
   background-color: #282c34;
   font-family: "Arial", sans-serif;
   color: whitesmoke;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .wip-text {
@@ -111,4 +112,13 @@
 
 .back-button:hover {
   background-color: #55a660;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

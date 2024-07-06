@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #f0f4f8;
+  animation: fadeIn 1s ease-in-out;
 }
 
 #loginBox {
@@ -10,39 +12,75 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 250px;
-  height: 100px;
-  -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  width: 280px;
+  padding: 20px;
+  background-color: white;
   border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-in-out;
+}
+
+#loginTitle {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  animation: textFadeIn 1.5s ease-in-out;
+}
+
+#loginLogo {
+  height: 100px;
+}
+
+#slogan {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  font-size: 16px;
+  animation: textFadeIn 2s ease-in-out;
 }
 
 .loginButton {
   width: 200px;
-  padding: 15px 25px;
+  padding: 10px 20px;
   border-radius: 5px;
   color: white;
   display: flex;
   align-items: center;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .google {
   background-color: #df4930;
 }
 
-.facebook {
-  background-color: #507cc0;
-}
-
-.github {
-  background-color: black;
+.google:hover {
+  background-color: #c03a22;
 }
 
 .icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
