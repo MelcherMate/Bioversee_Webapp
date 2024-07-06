@@ -47,32 +47,4 @@ router.get(
   })
 );
 
-//# Gihub Login
-router.get(
-  "/auth/github",
-  passport.authenticate("github", { scope: ["profile"] })
-);
-
-router.get(
-  "/auth/github/callback",
-  passport.authenticate("github", {
-    successRedirect: process.env.PUBLIC_URL + "/dashboard",
-    failureRedirect: "/login/failed",
-  })
-);
-
-// # Facebook Login
-// router.get(
-//   "/facebook",
-//   passport.authenticate("facebook", { scope: ["profile"] })
-// );
-
-// router.get(
-//   "/facebook/callback",
-//   passport.authenticate("facebook", {
-//     successRedirect: process.env.PUBLIC_URL + "/dashboard",
-//     failureRedirect: "/login/failed",
-//   })
-// );
-
 module.exports = router;
