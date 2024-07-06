@@ -17,7 +17,7 @@ const Login = () => {
         </p>
         <div className="loginButton google" onClick={google}>
           <img src={Google} alt="Google icon" className="icon" />
-          Google Login
+          Login
         </div>
       </div>
     </div>
