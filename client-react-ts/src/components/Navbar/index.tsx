@@ -79,9 +79,11 @@ const Navbar = ({ user }) => {
             {showPopup && (
               <div id="popup" ref={popupRef}>
                 <p className="popupList">Family Name:</p>
-                <p className="popupItem">{user.name.familyName}</p>
+                <p className="popupItem">
+                  {user.name?.familyName || "Unknown"}
+                </p>
                 <p className="popupList">Given Name:</p>
-                <p className="popupItem">{user.name.givenName}</p>
+                <p className="popupItem">{user.name?.givenName || "Unknown"}</p>
                 <button className="popupButton" onClick={logout}>
                   Logout
                 </button>
