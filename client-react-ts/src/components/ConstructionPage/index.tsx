@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./ConstructionPage.css";
 
 function ConstructionPage() {
@@ -26,9 +25,6 @@ function ConstructionPage() {
           <span>.</span>
           <span>.</span>
         </h1>
-        <Link to="/dashboard" className="back-button">
-          Back to mainpage
-        </Link>
       </div>
     </>
   );
