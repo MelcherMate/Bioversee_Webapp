@@ -1,0 +1,32 @@
+.infoCard {
+  height: 400px;
+  width: 300px;
+  text-align: center;
+  -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  border-radius: 24px;
+  padding: 8px 8px 0px 8px;
+  background-color: white;
+  margin: 10px;
+  cursor: default;
+}
+
+#image {
+  position: relative;
+  height: 160px;
+  width: 125px;
+  border-radius: 25%;
+  border: 6px solid #fff;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.infoCard:hover #image {
+  transform: scale(1.1);
+}
+
+#text {
+  font-style: italic;
+  font-size: 16px;
+}

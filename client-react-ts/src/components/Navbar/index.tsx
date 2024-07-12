@@ -37,7 +37,9 @@ const Navbar = ({ user }) => {
   return (
     <div className="naviField">
       <div id="naviFieldLeft">
-        <p id="navbarTitle">Bioversee</p>
+        <Link to="/dashboard" id="navbarTitle">
+          Bioversee
+        </Link>
         <div>
           {user && (
             <Link
