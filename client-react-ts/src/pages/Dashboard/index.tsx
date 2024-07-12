@@ -116,11 +116,11 @@ function Dashboard() {
               label="pH value"
               url="/api/v1/sensor/getsensordata"
             />
-            <Chart
+            {/* <Chart
               name="inlethumidity"
               label="Inlet Humidity"
               url="/api/v1/sensor/getsensordata"
-            />
+            /> */}
           </div>
         </aside>
       </div>
