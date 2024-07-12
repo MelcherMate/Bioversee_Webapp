@@ -1,4 +1,7 @@
 import InfoCard from "../../components/infoCard";
+import Mate from "../../img/Mate.png";
+import Logo from "../../img/noBackgroundLogo.png";
+
 import "../../img/noBackgroundLogo.png";
 import "./About.css";
 
@@ -8,7 +11,7 @@ function About(props: any) {
     <main className="container" id="aboutContainer">
       <InfoCard
         title="Founder"
-        imagePath="../../img/Mate.png"
+        imagePath={Mate}
         subtitle="Mate Melcher"
         content="Biochemical engineer aiming to make industrial bioprocess automation as easy as child's play"
       />
@@ -20,7 +23,7 @@ function About(props: any) {
       /> */}
       <InfoCard
         title="Company"
-        imagePath="../../img/noBackgroundLogo.png"
+        imagePath={Logo}
         subtitle=""
         content="Bioversee aims to create an affordable solution for fermentation and other bioprocess purposes as well as becoming a proper educational software for bioengineering students"
       />
