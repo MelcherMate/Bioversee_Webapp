@@ -48,7 +48,7 @@ const Navbar = ({ user }) => {
               }`}
               to="/dashboard"
             >
-              Dashboard
+              Bioreactor
             </Link>
           )}
         </div>
