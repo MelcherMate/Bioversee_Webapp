@@ -13,7 +13,7 @@ const Login = () => {
         <h2 id="loginTitle">Bioversee</h2>
         <img src={Logo} id="loginLogo"></img>
         <p id="slogan">
-          Connect and remote control <br /> bioreactors around the world
+          Make industrial automation <br /> like a child's play
         </p>
         <div className="loginButton google" onClick={google}>
           <img src={Google} alt="Google icon" className="icon" />
