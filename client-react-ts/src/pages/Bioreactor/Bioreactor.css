@@ -57,7 +57,7 @@ aside {
   background-color: white;
 }
 
-.reactorBox {
+#reactorBox {
   position: relative;
   text-align: center;
   width: 100%;

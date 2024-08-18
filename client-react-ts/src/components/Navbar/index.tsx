@@ -37,18 +37,30 @@ const Navbar = ({ user }) => {
   return (
     <div className="naviField">
       <div id="naviFieldLeft">
-        <Link to="/dashboard" id="navbarTitle">
+        <Link to="/bioreactor" id="navbarTitle">
           Bioversee
         </Link>
         <div>
           {user && (
             <Link
               className={`naviButton ${
-                location.pathname === "/dashboard" ? "active" : ""
+                location.pathname === "/bioreactor" ? "active" : ""
               }`}
-              to="/dashboard"
+              to="/bioreactor"
             >
-              Dashboard
+              Bioreactor
+            </Link>
+          )}
+        </div>
+        <div>
+          {user && (
+            <Link
+              className={`naviButton ${
+                location.pathname === "/waterpurifier" ? "active" : ""
+              }`}
+              to="/waterpurifier"
+            >
+              Water Purifier
             </Link>
           )}
         </div>

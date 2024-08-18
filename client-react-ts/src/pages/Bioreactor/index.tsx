@@ -4,7 +4,7 @@ import Chart from "../../components/Chart/index";
 import Slider from "../../components/Slider";
 import Switch from "../../components/Switch";
 import useDimensions from "../../utils/hooks/useDimensions";
-import "./Dasboard.css";
+import "./Bioreactor.css";
 
 interface Card {
   id: string;
@@ -12,7 +12,7 @@ interface Card {
   text: string;
 }
 
-function Dashboard() {
+function Bioreactor() {
   const [canvasRef, canvasSize] = useDimensions();
   const [cards, setCards] = useState<Card[]>([
     {
@@ -101,7 +101,7 @@ function Dashboard() {
             />
           </div>
         </aside>
-        <main className="reactorBox" ref={canvasRef}>
+        <main id="reactorBox" ref={canvasRef}>
           <Canvas cards={cards} rotorVal={rotorVal} />
         </main>
         <aside id="sensorSide">
@@ -116,11 +116,11 @@ function Dashboard() {
               label="pH value"
               url="/api/v1/sensor/getsensordata"
             />
-            <Chart
+            {/* <Chart
               name="inlethumidity"
               label="Inlet Humidity"
               url="/api/v1/sensor/getsensordata"
-            />
+            /> */}
           </div>
         </aside>
       </div>
@@ -128,4 +128,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Bioreactor;

@@ -42,7 +42,7 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.PUBLIC_URL + "/dashboard",
+    successRedirect: process.env.PUBLIC_URL + "/bioreactor",
     failureRedirect: "/login/failed",
   })
 );

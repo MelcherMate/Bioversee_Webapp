@@ -1,9 +1,23 @@
 import "./WaterPurifier.css";
 
-function WaterPurifierCard() {
+function WaterPurifierCard(props, key) {
   return (
     <>
-      <body>
+      <body
+        key={key}
+        style={{
+          position: "absolute",
+          width: 690,
+          height: 670,
+          transform: `translate(${props.translateX}px, ${props.translateY}px) scale(${props.scale})`,
+          // border: "1px solid red",
+          // cursor: "move",
+          userSelect: "none",
+        }}
+        onMouseDown={(event) => {
+          props.onMouseDown(event);
+        }}
+      >
         <div id="wrapper">
           <div className="tank" id="pufferTank">
             <p>PUFFER</p>

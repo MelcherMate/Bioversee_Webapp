@@ -1,22 +1,17 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f0f0f0;
 }
 
 #wrapper {
   position: relative;
-  width: 1000px;
-  height: 800px;
-  margin: 50px auto;
+  left: -100px;
 }
 
 .tank {
-  width: 150px;
-  height: 250px;
   border-radius: 100% / 25px;
   background: radial-gradient(60% 10px at 50% 10px, #0002 99.99%, #0000 0),
     radial-gradient(50% 10px at 50% calc(100% - 10px), #fff2 99.99%, #0000 0),
-    #b0e0e6;
+    #369dab;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +90,7 @@ body {
   top: -285px;
   left: 658px;
   width: 25px;
-  height: 100px;
+  height: 50px;
   background: #9ccd9b;
 }
 
@@ -111,7 +106,7 @@ body {
 #cleanTank {
   position: relative;
   z-index: 1;
-  top: -360px;
+  top: -380px;
   height: 250px;
   width: 250px;
   background-color: #9ccd9b;

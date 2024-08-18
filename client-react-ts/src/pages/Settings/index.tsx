@@ -1,11 +1,10 @@
-import WaterPurifierCard from "../../components/Canvas/WaterPurifierCard";
+import ConstructionPage from "../../components/ConstructionPage";
 import "./Settings.css";
 
 function Settings() {
   return (
     <>
-      {/* <ConstructionPage></ConstructionPage> */}
-      <WaterPurifierCard></WaterPurifierCard>
+      <ConstructionPage></ConstructionPage>
     </>
   );
 }

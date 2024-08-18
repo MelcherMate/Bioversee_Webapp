@@ -4,9 +4,10 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
-import Dashboard from "./pages/Dashboard";
+import Bioreactor from "./pages/Bioreactor";
 import Login from "./pages/Login";
 import Settings from "./pages/Settings";
+import WaterPurifier from "./pages/WaterPurifier";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -86,11 +87,15 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={user ? <Navigate to="/dashboard" /> : <Login />}
+              element={user ? <Navigate to="/bioreactor" /> : <Login />}
             />
             <Route
-              path="/dashboard"
-              element={user ? <Dashboard /> : <Login />}
+              path="/bioreactor"
+              element={user ? <Bioreactor /> : <Login />}
+            />
+            <Route
+              path="/waterpurifier"
+              element={user ? <WaterPurifier /> : <Login />}
             />
             <Route path="/settings" element={user ? <Settings /> : <Login />} />
             <Route path="/about" element={<About />} />
