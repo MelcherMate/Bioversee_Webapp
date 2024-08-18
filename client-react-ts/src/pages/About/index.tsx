@@ -25,7 +25,7 @@ function About(props: any) {
         title="Company"
         imagePath={Logo}
         subtitle=""
-        content="Bioversee aims to create an affordable solution for fermentation and other bioprocess purposes as well as becoming a proper educational software for bioengineering students"
+        content="Bioversee aims to create an affordable and playful solution for industrial automation as well as becoming a proper educational software for engineering students"
       />
     </main>
   );
