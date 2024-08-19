@@ -58,20 +58,76 @@ body {
   background-color: lightblue;
 }
 
+#tubePufferToActive {
+  position: relative;
+  top: -100px;
+  left: 95px;
+}
+
 #tubePufferToActive1 {
   position: relative;
-  top: 0px;
-  left: 110px;
+  top: 112px;
+  left: 17.5px;
   width: 25px;
   height: 20px;
   background: #8baacd;
 }
 
+#pumpWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+  width: 100px;
+  top: 135px;
+}
+
+.pumpBody {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pumpBase {
+  position: relative;
+  top: -10px;
+  border-bottom: solid 25px grey;
+  border-left: solid 15px transparent;
+  border-right: solid 15px transparent;
+  width: 70px;
+}
+
+#pipeInlet {
+  position: relative;
+  top: -120px;
+  left: -20px;
+  height: 50px;
+  width: 25px;
+  background-color: #8baacd;
+}
+
+#pipeOutlet {
+  position: relative;
+  top: -110px;
+  left: 50px;
+  height: 25px;
+  width: 50px;
+  background-color: #8baacd;
+}
+
 #tubePufferToActive2 {
   position: relative;
   top: 0px;
-  left: 110px;
-  width: 490px;
+  left: 125px;
+  width: 380px;
   height: 25px;
   background: #8baacd;
 }
@@ -79,7 +135,7 @@ body {
 #activeTank {
   position: relative;
   z-index: 1;
-  top: -60px;
+  top: -150px;
   left: 600px;
   height: 200px;
   width: 140px;
@@ -88,7 +144,7 @@ body {
 
 #tubeAdditiveToActive1 {
   position: relative;
-  top: -295px;
+  top: -370px;
   left: 840px;
   height: 70px;
   width: 25px;
@@ -97,17 +153,17 @@ body {
 
 #tubeAdditiveToActive2 {
   position: relative;
-  top: -295px;
-  left: 660px;
+  top: -395px;
+  left: 740px;
   height: 25px;
-  width: 205px;
+  width: 100px;
   background-color: #e89084;
 }
 
 #additiveTank {
   position: relative;
   z-index: 1;
-  top: -520px;
+  top: -590px;
   left: 802px;
   height: 130px;
   width: 100px;
@@ -117,7 +173,7 @@ body {
 
 #tubeActiveToClean1 {
   position: relative;
-  top: -285px;
+  top: -375px;
   left: 658px;
   width: 25px;
   height: 50px;
@@ -126,7 +182,7 @@ body {
 
 #tubeActiveToClean2 {
   position: relative;
-  top: -310px;
+  top: -400px;
   left: 250px;
   width: 410px;
   height: 25px;
@@ -136,7 +192,7 @@ body {
 #cleanTank {
   position: relative;
   z-index: 1;
-  top: -380px;
+  top: -520px;
   height: 250px;
   width: 250px;
   background-color: #9ccd9b;
