@@ -22,18 +22,21 @@ body {
 
 #pufferTank {
   position: relative;
+  top: 10px;
+  left: 10px;
   z-index: 1;
-  height: 250px;
-  width: 250px;
+  height: 230px;
+  width: 230px;
   background-color: #a2b9e3;
 }
 
 .wt_lvl {
-  top: -20px;
+  top: -15px;
 }
 
 .sensor_wt_lvl_base {
-  height: 20px;
+  border-radius: 5%;
+  height: 15px;
   width: 50px;
   background-color: gray;
 }
