@@ -9,7 +9,7 @@ body {
 
 .tank {
   border-radius: 100% / 25px;
-  background: radial-gradient(60% 10px at 50% 10px, #0002 99.99%, #0000 0),
+  background: radial-gradient(50% 10px at 50% 10px, #0002 99.99%, #0000 0),
     radial-gradient(50% 10px at 50% calc(100% - 10px), #fff2 99.99%, #0000 0),
     #369dab;
   display: flex;
@@ -26,6 +26,33 @@ body {
   height: 250px;
   width: 250px;
   background-color: #a2b9e3;
+}
+
+.wt_lvl {
+  top: -20px;
+}
+
+.sensor_wt_lvl_base {
+  height: 20px;
+  width: 50px;
+  background-color: gray;
+}
+
+.sensor_wt_lvl_head1 {
+  position: relative;
+  left: -12px;
+  height: 7px;
+  width: 15px;
+  background-color: lightsalmon;
+}
+
+.sensor_wt_lvl_head2 {
+  position: relative;
+  top: -7px;
+  left: 12px;
+  height: 7px;
+  width: 15px;
+  background-color: lightblue;
 }
 
 #tubePufferToActive1 {
