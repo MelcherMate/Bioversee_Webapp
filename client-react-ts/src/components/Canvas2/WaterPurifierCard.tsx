@@ -41,8 +41,6 @@ function WaterPurifierCard(props, key) {
                 />
               </div>
               <div className="pumpBase"></div>
-              <div id="pipeInlet"></div>
-              <div id="pipeOutlet"></div>
             </div>
             <div id="tubePufferToActive2"></div>
           </div>
@@ -56,8 +54,19 @@ function WaterPurifierCard(props, key) {
           </div>
           <div className="pipe">
             <div id="tubeAdditiveToActive1"></div>
+            <div id="pumpWrapper2">
+              <div className="pumpBody">
+                <CogOutline
+                  color={"#209CF0"}
+                  rotate={1}
+                  title={"PumpGear"}
+                  height="60px"
+                  width="60px"
+                />
+              </div>
+              <div className="pumpBase"></div>
+            </div>
             <div id="tubeAdditiveToActive2"></div>
-            <div id="tubeAdditiveToActive3"></div>
           </div>
           <div className="tank" id="additiveTank">
             <p>ADDITIVE</p>
@@ -69,7 +78,21 @@ function WaterPurifierCard(props, key) {
           </div>
           <div className="pipe">
             <div id="tubeActiveToClean1"></div>
+            <div id="pumpWrapper3">
+              <div className="pumpBody">
+                <CogOutline
+                  color={"#209CF0"}
+                  rotate={1}
+                  title={"PumpGear"}
+                  height="60px"
+                  width="60px"
+                />
+              </div>
+              <div className="pumpBase"></div>
+            </div>
             <div id="tubeActiveToClean2"></div>
+            <div id="tubeActiveToClean3"></div>
+            <div id="tubeActiveToClean4"></div>
           </div>
           <div className="tank" id="cleanTank">
             <p>CLEAN</p>
