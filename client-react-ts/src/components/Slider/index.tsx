@@ -3,14 +3,14 @@ import debounce from "lodash/debounce";
 import { useEffect } from "react";
 import "./Slider.css";
 
-function Slider(props) {
+function Slider(props: any) {
   // States
   // const [val, setVal] = useState(0);
 
   // Functions
   // Function to get state value database
-  const getFirstObjectByName = (arr, nameToFind) => {
-    return arr.find((obj) => obj.name === nameToFind);
+  const getFirstObjectByName = (arr: any, nameToFind: any) => {
+    return arr.find((obj: any) => obj.name === nameToFind);
   };
 
   useEffect(() => {
@@ -32,17 +32,17 @@ function Slider(props) {
         })
         .catch((error) => console.log(error));
     }
-  }, [props.url, props.name]);
+  }, [props.url, props.name, props]);
 
   // Update the value when the slider is moved
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const newValue = parseInt(event.target.value, 10);
     props.setVal(newValue);
     debouncedSendSliderValueToDatabase(newValue);
   };
 
   // Function to send the value to the database
-  const sendSliderValueToDatabase = (newValue) => {
+  const sendSliderValueToDatabase = (newValue: any) => {
     const data = { name: props.name, state: newValue }; // Modification here
     fetch(`${process.env.VITE_SERVER_URL + props.updateUrl}`, {
       method: "POST",

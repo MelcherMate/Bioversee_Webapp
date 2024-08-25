@@ -77,7 +77,10 @@ function Canvas2(props) {
         {props.cards.map((card) => (
           <WaterPurifierCard
             key={card.id}
-            rotorVal={props.rotorVal}
+            pump1Val={props.pump1Val}
+            pump2Val={props.pump2Val}
+            pump3Val={props.pump3Val}
+            sensorVal={props.sensorVal}
             translateX={card.coordinates.x}
             translateY={card.coordinates.y}
             scale={zoomLevel}

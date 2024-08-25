@@ -2,6 +2,11 @@ import { CogOutline } from "react-ionicons";
 import "./WaterPurifier.css";
 
 function WaterPurifierCard(props, key) {
+  // console.log(props.pump1Val);
+  // console.log(props.pump2Val);
+  // console.log(props.pump3Val);
+  // console.log(props.sensorVal);
+
   return (
     <>
       <body
@@ -26,6 +31,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
           <div id="tubePufferToActive">
@@ -34,7 +42,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump1Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
@@ -50,6 +58,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
           <div className="pipe">
@@ -58,7 +69,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump2Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
@@ -82,7 +93,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump3Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
@@ -100,6 +111,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
         </div>

@@ -58,6 +58,48 @@ body {
   background-color: lightblue;
 }
 
+.signal {
+  position: relative;
+  border: 2px solid #209cf0;
+  border-radius: 100%;
+  border-top: none;
+  opacity: 0;
+  animation: signal-animation 5s infinite;
+}
+
+.signal1 {
+  width: 60px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.signal2 {
+  width: 80px;
+  height: 20px;
+  animation-delay: 0.5s;
+}
+
+.signal3 {
+  width: 100px;
+  height: 20px;
+  animation-delay: 1s;
+}
+
+@keyframes signal-animation {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 #tubePufferToActive {
   position: relative;
   top: -100px;
