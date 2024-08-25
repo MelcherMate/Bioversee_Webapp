@@ -31,6 +31,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
           <div id="tubePufferToActive">
@@ -55,6 +58,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
           <div className="pipe">
@@ -105,6 +111,9 @@ function WaterPurifierCard(props, key) {
               <div className="sensor_wt_lvl_base"></div>
               <div className="sensor_wt_lvl_head1"></div>
               <div className="sensor_wt_lvl_head2"></div>
+              <div className="signal signal1"></div>
+              <div className="signal signal2"></div>
+              <div className="signal signal3"></div>
             </div>
           </div>
         </div>
