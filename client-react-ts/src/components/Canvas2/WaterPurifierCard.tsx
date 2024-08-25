@@ -2,6 +2,11 @@ import { CogOutline } from "react-ionicons";
 import "./WaterPurifier.css";
 
 function WaterPurifierCard(props, key) {
+  // console.log(props.pump1Val);
+  // console.log(props.pump2Val);
+  // console.log(props.pump3Val);
+  // console.log(props.sensorVal);
+
   return (
     <>
       <body
@@ -34,7 +39,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump1Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
@@ -58,7 +63,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump2Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
@@ -82,7 +87,7 @@ function WaterPurifierCard(props, key) {
               <div className="pumpBody">
                 <CogOutline
                   color={"#209CF0"}
-                  rotate={1}
+                  rotate={props.pump3Val}
                   title={"PumpGear"}
                   height="60px"
                   width="60px"
