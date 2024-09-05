@@ -81,8 +81,9 @@ const Chart: React.FC<ChartProps> = (props) => {
       // Calculate margin (e.g., 20% of the range)
       const margin = (max - min) * 0.2;
 
-      setMinValue(min - margin);
-      setMaxValue(max + margin);
+      // Ensure min and max are integers
+      setMinValue(Math.floor(min - margin));
+      setMaxValue(Math.ceil(max + margin));
 
       setFormattedData(chartData);
     }
@@ -93,7 +94,6 @@ const Chart: React.FC<ChartProps> = (props) => {
     const date = new Date(timestamp);
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    // const seconds = date.getSeconds();
     return `${hours}:${minutes < 10 ? "0" + minutes : minutes}`;
   };
 
@@ -110,6 +110,11 @@ const Chart: React.FC<ChartProps> = (props) => {
       window.removeEventListener("resize", updateWidth);
     };
   }, []);
+
+  // Formatter function to ensure Y-axis labels are integers
+  const tickFormatter = (value: number) => {
+    return Math.round(value);
+  };
 
   return (
     <div ref={chartRef} style={{ width: "100%" }}>
@@ -128,7 +133,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="time" />
-          <YAxis domain={[minValue, maxValue]} />
+          <YAxis domain={[minValue, maxValue]} tickFormatter={tickFormatter} />
           <Tooltip />
           <Line
             type="monotone"
