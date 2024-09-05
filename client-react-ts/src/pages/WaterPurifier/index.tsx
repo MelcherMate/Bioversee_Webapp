@@ -59,7 +59,7 @@ function WaterPurifier() {
               name="switchPump2"
               setVal={setPump2Val}
               val={pump2Val}
-              label="Additive to Active Pump"
+              label="Additive to Active pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
             />
