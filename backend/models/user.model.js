@@ -32,6 +32,11 @@ const userSchema = Schema(
       type: String,
       required: true,
     },
+    userId: {
+      type: String,
+      required: true,
+      unique: true, // Safety check
+    },
   },
   { timestamps: true }
 );

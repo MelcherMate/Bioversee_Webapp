@@ -3,18 +3,14 @@ import { useEffect } from "react";
 import "./Switch.css";
 
 function Switch(props: any) {
-  // States
-  // const [val, setVal] = useState(false);
+  const { user } = props; // Destructure user from props
 
-  // Functions
-  // Function to get state value database
   const getFirstObjectByName = (arr: any, nameToFind: any) => {
     return arr.find((obj: any) => obj.name === nameToFind);
   };
 
   useEffect(() => {
     if (!isUndefined(props.url) && !isUndefined(props.name)) {
-      // console.log(process.env.VITE_SERVER_URL);
       fetch(`${process.env.VITE_SERVER_URL + props.url}`, {
         method: "GET",
         headers: {
@@ -32,14 +28,17 @@ function Switch(props: any) {
         })
         .catch((error) => console.log(error));
     }
-  }, [props.url, props.name, props]);
+  }, [props.url, props.name, props, user]);
 
-  // Function send new state value to the database
   const sendSwitchStateToDatabase = (newValue: boolean) => {
     const data = {
       name: props.name,
       state: newValue,
+      userId: user.id, // Ensure this is set correctly
     };
+
+    console.log("Data being sent to the server:", data); // Log the data
+
     fetch(`${process.env.VITE_SERVER_URL + props.updateUrl}`, {
       method: "POST",
       headers: {
@@ -50,7 +49,7 @@ function Switch(props: any) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data sent to the database:", data);
+        console.log("Response from server:", data);
       })
       .catch((error) => console.log(error));
   };

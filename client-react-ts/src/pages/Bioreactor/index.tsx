@@ -12,7 +12,11 @@ interface Card {
   text: string;
 }
 
-function Bioreactor() {
+interface BioreactorProps {
+  user: any;
+}
+
+function Bioreactor({ user }: BioreactorProps) {
   const [canvasRef, canvasSize] = useDimensions();
   const [cards, setCards] = useState<Card[]>([
     {
@@ -55,6 +59,7 @@ function Bioreactor() {
               label="Warm water pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             <Switch
               name="switchColdWaterPump"
@@ -63,6 +68,7 @@ function Bioreactor() {
               label="Cold water pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             <Switch
               name="switchAcidPump"
@@ -71,6 +77,7 @@ function Bioreactor() {
               label="Acid pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             <Switch
               name="switchBasePump"
@@ -79,6 +86,7 @@ function Bioreactor() {
               label="Base pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
           </div>
           <div className="sliderBox">
@@ -90,6 +98,7 @@ function Bioreactor() {
               label="Rotor"
               url="/api/v1/actuator/getslideractuators"
               updateUrl="/api/v1/actuator/postslideractuator"
+              user={user}
             />
             <Slider
               name="aerator"
@@ -98,6 +107,7 @@ function Bioreactor() {
               label="Aerator"
               url="/api/v1/actuator/getslideractuators"
               updateUrl="/api/v1/actuator/postslideractuator"
+              user={user}
             />
           </div>
         </aside>

@@ -12,7 +12,11 @@ interface Card {
   text: string;
 }
 
-function WaterPurifier() {
+interface WaterpurifierProps {
+  user: any;
+}
+
+function WaterPurifier({ user }: WaterpurifierProps) {
   const [canvasRef, canvasSize] = useDimensions();
   const [cards, setCards] = useState<Card[]>([
     {
@@ -38,7 +42,7 @@ function WaterPurifier() {
   const [pump1Val, setPump1Val] = useState(false);
   const [pump2Val, setPump2Val] = useState(false);
   const [pump3Val, setPump3Val] = useState(false);
-  const [sensorVal, setSensorVal] = useState(false);
+  // const [sensorVal, setSensorVal] = useState(false);
   const [rotorVal, setRotorVal] = useState(0);
 
   return (
@@ -54,6 +58,7 @@ function WaterPurifier() {
               label="Puffer to Active pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             <Switch
               name="switchPump2"
@@ -62,6 +67,7 @@ function WaterPurifier() {
               label="Additive to Active pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             <Switch
               name="switchPump3"
@@ -70,6 +76,7 @@ function WaterPurifier() {
               label="Active to Clean pump"
               url="/api/v1/actuator/getswitchesactuators"
               updateUrl="/api/v1/actuator/postswitchactuator"
+              user={user}
             />
             {/* <Switch
               name="switchSensors"
@@ -89,6 +96,7 @@ function WaterPurifier() {
               label="Agitator"
               url="/api/v1/actuator/getslideractuators"
               updateUrl="/api/v1/actuator/postslideractuator"
+              user={user}
             />
           </div>
         </aside>
@@ -98,7 +106,7 @@ function WaterPurifier() {
             pump1Val={pump1Val}
             pump2Val={pump2Val}
             pump3Val={pump3Val}
-            sensorVal={sensorVal}
+            // sensorVal={sensorVal}
           ></Canvas2>
         </main>
         <aside id="sensorSide">

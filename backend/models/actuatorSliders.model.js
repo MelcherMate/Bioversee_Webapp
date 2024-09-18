@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 // # actuatorSlidersSchema
 const actuatorSlidersSchema = Schema(
-  { name: { type: String }, state: { type: Number } },
+  { name: { type: String }, state: { type: Number }, userId: { type: String } },
   { timestamps: true }
 );
 
