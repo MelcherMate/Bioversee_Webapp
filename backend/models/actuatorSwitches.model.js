@@ -3,7 +3,11 @@ const { Schema } = mongoose;
 
 // # actuatorSwitchesSchema
 const actuatorSwitchesSchema = Schema(
-  { name: { type: String }, state: { type: Boolean } },
+  {
+    name: { type: String },
+    state: { type: Boolean },
+    userId: { type: String },
+  },
   { timestamps: true }
 );
 

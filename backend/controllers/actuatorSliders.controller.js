@@ -4,6 +4,7 @@ const addActuator = (req, res, next) => {
   const newActuator = new ActuatorSliders({
     name: req.body.data.name,
     state: req.body.data.state,
+    userId: req.body.data.userId,
   });
 
   newActuator.save((err, savedActuator) => {

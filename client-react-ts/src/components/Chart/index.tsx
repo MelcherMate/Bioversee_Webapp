@@ -113,7 +113,7 @@ const Chart: React.FC<ChartProps> = (props) => {
 
   // Formatter function to ensure Y-axis labels are integers
   const tickFormatter = (value: number) => {
-    return Math.round(value);
+    return Math.round(value).toString();
   };
 
   return (

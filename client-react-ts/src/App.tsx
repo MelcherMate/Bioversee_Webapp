@@ -22,7 +22,6 @@ const App = () => {
 
   useEffect(() => {
     const getUser = () => {
-      console.log("Call starts!");
       fetch(`${process.env.VITE_AUTH_URL}/auth/login/success`, {
         method: "GET",
         credentials: "include",
@@ -33,11 +32,10 @@ const App = () => {
       })
         .then((response) => {
           if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
+          throw new Error("authentication has failed!");
         })
         .then((resObject) => {
           setUser(resObject.user);
-          // console.log(resObject.user);
         })
         .catch((err) => {
           console.log(err);
@@ -49,7 +47,6 @@ const App = () => {
   useEffect(() => {
     const saveUser = async () => {
       if (user) {
-        // console.log(user);
         try {
           const response = await fetch(
             `${process.env.VITE_AUTH_URL}/api/v1/user/postuser`,
@@ -68,8 +65,7 @@ const App = () => {
             throw new Error("Failed to save or update user");
           }
 
-          const data = await response.json();
-          console.log("User saved or updated successfully:", data);
+          console.log("User saved or updated successfully");
         } catch (err) {
           console.error(err);
         }
@@ -83,7 +79,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <div className="appContainer">
-          <Navbar user={user}></Navbar>
+          <Navbar user={user} />
           <Routes>
             <Route
               path="/"
@@ -91,17 +87,17 @@ const App = () => {
             />
             <Route
               path="/bioreactor"
-              element={user ? <Bioreactor /> : <Login />}
+              element={user ? <Bioreactor user={user} /> : <Login />}
             />
             <Route
               path="/waterpurifier"
-              element={user ? <WaterPurifier /> : <Login />}
+              element={user ? <WaterPurifier user={user} /> : <Login />}
             />
             <Route path="/settings" element={user ? <Settings /> : <Login />} />
             <Route path="/about" element={<About />} />
-            <Route path="login/failed" element={<>failed login</>} />
+            <Route path="login/failed" element={<>Failed login</>} />
           </Routes>
-          <Footer></Footer>
+          <Footer />
         </div>
       </BrowserRouter>
     </>
