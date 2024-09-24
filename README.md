@@ -2,10 +2,10 @@
 
 ## General idea:
 
-This is a Vite project for my idea to create a basic fermenter controller website, which can control any bioreactor wired to a computer and set to handle the commands from the cloud server.
-For the system it doesn't matter how old or new a fermenter is. It is capable to be connected to all kind.
-The About needs an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the bioreactor. After that the computer will need configuration to be able to communicate with the sensors and actuatros of the bioreactor.
-In the future I will create a detailed About manual to help the About with the setup.
+This is a Vite project for my idea to create an internet based automation control system (Bioversee), which can control a wide variaty of devices (including bioreactors, waterpurifier ect.) wired to a computer and set to handle the commands from the cloud server.
+For the system it doesn't matter how old or new the equipment is. It`s designed to be universal.
+The customer will need an off-the-self customisable computer (such as a Raspberry Pi) and some electrical knowledge to wire the computer with the. Then the computer will need configuration (I am building a desktop app for that) to be able to communicate with the sensors and actuatros of the machine.
+I want Bioversee to become a both a modeling tool for engineers (like AutoCad) and a control system for industrial automation.
 
 ## Basics about bioreactors:
 
@@ -17,8 +17,10 @@ Now that we have oxygen provided, organisms can grow and work inside. Every orga
 
 ## System setup theory:
 
-The idea I to have an off-the-self customisable computer (Raspberry Pi 5 is used in the prototypes) wired to a bioreactor and connected to a cloud database. The controll website POST records into the database. The computer uses an event listener in order to detect new records in the database. Once a new record is detected, the software GETs the new state and sets it for the actuator. The method is the same with the sensors except it works to the other way.
-To controll the bioreactor I used the GPIO pins on my Raspberry Pi. For the language I choose Python because of the gpiozero library. The website is a React Vite app. The website is connected to the Python codes via a MongoDB database.
+The idea is to have an off-the-self customisable computer (Raspberry Pi 5 is used in the prototypes) wired to a machine and connected to a cloud database. The controll website POST records into the database. The computer uses an event listener in order to detect new records in the database. Once a new record is detected, the software GETs the new state and sets it for the actuator. The method is the same with the sensors except it works to the other way.
+I’ve decided to use a database for communication between the web and the local server. This could cause performance difficulties in the future, but right now I want to ensure that all changes on the devices are recorded and stored.
+To controll the equipment I used the GPIO pins on my Raspberry Pi.
+For the local machine control language I choose Python because of the gpiozero library. The website is a React Vite app written in TypeScript. The database is MongoDB.
 
 ## Tools:
 
@@ -27,4 +29,4 @@ To controll the bioreactor I used the GPIO pins on my Raspberry Pi. For the lang
 
 ## Prtototype 1:
 
-...will be updated
+The goal, what the first prototype had to achieve was that it needed to demonstrate how the software works. It was never intended to be used for the fermentation process. I was focusing on using simple actuators and sensors and simple circuits. Prototype 1 needed to be as small as possible, I wanted to make it fit on a shoebox for better transport possibilities. This prototype as it is can be a product as well. It can be used for teaching how bioreactors work. With the web application students can try it on site if there is internet connection.
