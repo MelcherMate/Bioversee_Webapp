@@ -1,4 +1,4 @@
-# Solution to controll any fermenter remote via a webapplication
+# Solution to automatize any industrial equipment via a Web Application
 
 ## General idea:
 
