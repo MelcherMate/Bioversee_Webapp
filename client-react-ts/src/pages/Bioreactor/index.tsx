@@ -259,7 +259,7 @@ function Bioreactor({ user }: BioreactorProps) {
         <div
           className="contextMenu"
           style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
-          ref={contextMenuRef} // A context menü ref hozzáadása
+          ref={contextMenuRef}
         >
           <div onClick={() => setIsRenaming(true)}>Rename</div>
           <div onClick={deleteDevice}>Delete</div>

@@ -83,6 +83,7 @@ aside {
   justify-content: start;
   height: 45px;
   background-color: #f0f4f8;
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* Device buttons (naviButton as deviceButton) */
@@ -95,9 +96,10 @@ aside {
   padding: 10px;
   margin-left: 10px;
   background-color: #66bb6a;
+  border-color: #66bb6a;
   color: white;
   font-size: 16px;
-  border-radius: 15px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
