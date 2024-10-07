@@ -120,18 +120,6 @@ function Bioreactor({ user }: BioreactorProps) {
     setContextMenuVisible(true);
   };
 
-  // Handle renaming a device
-  const renameDevice = () => {
-    if (selectedButtonId) {
-      const updatedButtons = buttons.map((button) =>
-        button.id === selectedButtonId ? { ...button, label: newLabel } : button
-      );
-      setButtons(updatedButtons);
-      localStorage.setItem("deviceButtons", JSON.stringify(updatedButtons)); // Save to local storage
-      setContextMenuVisible(false);
-    }
-  };
-
   // Handle deleting a device
   const deleteDevice = () => {
     if (selectedButtonId) {
@@ -141,6 +129,30 @@ function Bioreactor({ user }: BioreactorProps) {
       setButtons(updatedButtons);
       localStorage.setItem("deviceButtons", JSON.stringify(updatedButtons)); // Save to local storage
       setContextMenuVisible(false);
+    }
+  };
+
+  // Handle renaming a device
+  const renameDevice = async () => {
+    if (selectedButtonId) {
+      const updatedButtons = buttons.map((button) =>
+        button.id === selectedButtonId ? { ...button, label: newLabel } : button
+      );
+
+      setButtons(updatedButtons);
+      localStorage.setItem("deviceButtons", JSON.stringify(updatedButtons));
+      setContextMenuVisible(false);
+
+      // Send PUT request to update the device in the database
+      try {
+        await axios.put(
+          `${process.env.VITE_AUTH_URL}/api/v1/updatedevice/${selectedButtonId}`,
+          { name: newLabel }
+        );
+        console.log("Device renamed successfully!");
+      } catch (error) {
+        console.error("Error renaming device:", error);
+      }
     }
   };
 

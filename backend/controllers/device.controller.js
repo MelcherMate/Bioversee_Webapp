@@ -39,8 +39,31 @@ const deleteDevice = (req, res, next) => {
   });
 };
 
+const updateDevice = (req, res, next) => {
+  const { deviceId } = req.params;
+  const { name } = req.body;
+
+  Device.findOneAndUpdate(
+    { deviceId },
+    { name },
+    { new: true } // Returns the updated document
+  )
+    .then((updatedDevice) => {
+      if (!updatedDevice) {
+        return res.status(404).json({ message: "Device not found" });
+      }
+      res
+        .status(200)
+        .json({ message: "Device updated successfully!", updatedDevice });
+    })
+    .catch((err) =>
+      res.status(500).json({ error: "Error updating device", err })
+    );
+};
+
 export default {
   postDevice,
   getDevice,
   deleteDevice,
+  updateDevice,
 };
