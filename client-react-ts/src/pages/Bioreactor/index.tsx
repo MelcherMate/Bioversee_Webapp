@@ -71,11 +71,20 @@ function Bioreactor({ user }: BioreactorProps) {
 
   // Load buttons from local storage on component mount
   useEffect(() => {
-    const savedButtons = JSON.parse(
-      localStorage.getItem("deviceButtons") || "[]"
-    );
-    setButtons(savedButtons);
-  }, []);
+    const fetchUserDevices = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.VITE_AUTH_URL}/api/v1/getdevices/${user.id}`
+        );
+        console.log("Fetched devices:", response.data); // Print the response data
+        setButtons(response.data); // Assume the response data is an array of devices
+      } catch (error) {
+        console.error("Error fetching devices:", error);
+      }
+    };
+
+    fetchUserDevices();
+  }, [user.id]);
 
   // Function to add a new button
   const addButton = async () => {
@@ -279,11 +288,11 @@ function Bioreactor({ user }: BioreactorProps) {
       <div className="deviceList">
         {buttons.map((button) => (
           <button
-            key={button.id}
+            key={button.deviceId} // Use deviceId as the key
             className="deviceButton"
-            onContextMenu={(e) => handleRightClick(e, button.id)}
+            onContextMenu={(e) => handleRightClick(e, button.deviceId)}
           >
-            {button.label}
+            {button.name} {/* Set button text to the device name */}
           </button>
         ))}
         <button

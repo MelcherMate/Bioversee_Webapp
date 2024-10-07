@@ -61,9 +61,20 @@ const updateDevice = (req, res, next) => {
     );
 };
 
+const getDevicesByUserId = (req, res, next) => {
+  const { userId } = req.params; // Get userId from request parameters
+
+  Device.find({ userId }, null, { sort: { createdAt: 1 } })
+    .then((devices) => res.json(devices)) // Return the found devices
+    .catch((err) =>
+      res.status(500).json({ error: "Error retrieving devices" })
+    );
+};
+
 export default {
   postDevice,
   getDevice,
   deleteDevice,
   updateDevice,
+  getDevicesByUserId,
 };
