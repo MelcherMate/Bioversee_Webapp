@@ -91,16 +91,13 @@ function Bioreactor({ user }: BioreactorProps) {
 
     // Send POST request to add the device to the database
     try {
-      await axios.post(
-        `${process.env.VITE_AUTH_URL}/api/v1/actuator/postdevice`,
-        {
-          data: {
-            name: newButton.label,
-            deviceId: newButton.id,
-            userId: user.id,
-          },
-        }
-      );
+      await axios.post(`${process.env.VITE_AUTH_URL}/api/v1/postdevice`, {
+        data: {
+          name: newButton.label,
+          deviceId: newButton.id,
+          userId: user.id,
+        },
+      });
       console.log("Device saved successfully!");
     } catch (error) {
       console.error("Error saving device:", error);

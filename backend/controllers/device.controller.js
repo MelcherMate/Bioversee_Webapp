@@ -24,7 +24,23 @@ const getDevice = (req, res, next) => {
     .catch((err) => res.status(500).json({ error: "Error retrieving device" }));
 };
 
+const deleteDevice = (req, res, next) => {
+  const { deviceId } = req.params;
+
+  Device.deleteOne({ deviceId }, (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: "Error deleting device" });
+    }
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: "Device deleted successfully." });
+    } else {
+      res.status(404).json({ message: "Device not found." });
+    }
+  });
+};
+
 export default {
   postDevice,
   getDevice,
+  deleteDevice,
 };
