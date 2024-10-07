@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import Canvas from "../../components/Canvas";
 import Chart from "../../components/Chart/index";
@@ -53,8 +54,20 @@ function Bioreactor({ user }: BioreactorProps) {
   const [isRenaming, setIsRenaming] = useState(false);
   const [newLabel, setNewLabel] = useState("");
 
-  // Ref a context menü div-hez
+  // Ref to context menu
   const contextMenuRef = useRef<HTMLDivElement | null>(null);
+
+  // Function to generate a 16-character alphanumeric ID
+  const generateRandomId = () => {
+    const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < 16; i++) {
+      result += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return result;
+  };
 
   // Load buttons from local storage on component mount
   useEffect(() => {
@@ -65,14 +78,33 @@ function Bioreactor({ user }: BioreactorProps) {
   }, []);
 
   // Function to add a new button
-  const addButton = () => {
+  const addButton = async () => {
+    const newDeviceId = generateRandomId(); // Generate 16-character random ID
     const newButton = {
-      id: `button-${buttons.length + 1}`,
+      id: newDeviceId,
       label: `Device ${buttons.length + 1}`,
     };
+
     const updatedButtons = [...buttons, newButton];
     setButtons(updatedButtons);
     localStorage.setItem("deviceButtons", JSON.stringify(updatedButtons)); // Save to local storage
+
+    // Send POST request to add the device to the database
+    try {
+      await axios.post(
+        `${process.env.VITE_AUTH_URL}/api/v1/actuator/postdevice`,
+        {
+          data: {
+            name: newButton.label,
+            deviceId: newButton.id,
+            userId: user.id,
+          },
+        }
+      );
+      console.log("Device saved successfully!");
+    } catch (error) {
+      console.error("Error saving device:", error);
+    }
   };
 
   // Handle right-click (context menu) on a button
