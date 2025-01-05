@@ -13,6 +13,7 @@ require("./passport");
 import actuatorSlidersRoutes from "./routes/actuatorSliders.routes";
 import actuatorSwitchesRoutes from "./routes/actuatorSwitches.routes";
 import authRoute from "./routes/auth.routes";
+import deviceRoutes from "./routes/device.routes";
 import sensorRoutes from "./routes/sensor.routes";
 import userRoutes from "./routes/user.routes";
 
@@ -94,7 +95,8 @@ app.use(
   actuatorSwitchesRoutes,
   sensorRoutes,
   userRoutes,
-  authRoute
+  authRoute,
+  deviceRoutes
 );
 
 // # Serving

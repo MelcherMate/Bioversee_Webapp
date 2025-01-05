@@ -15,12 +15,6 @@ function About(props: any) {
         subtitle="Mate Melcher"
         content="Biochemical engineer aiming to make industrial bioprocess automation as easy as child's play"
       />
-      {/* <InfoCard
-        title="Co-Founder"
-        imagePath="../../img/David.png"
-        subtitle="David Kutas"
-        content="An amazing front-end developer from Silicon Valley, Mate's friend since he was born"
-      /> */}
       <InfoCard
         title="Company"
         imagePath={Logo}
