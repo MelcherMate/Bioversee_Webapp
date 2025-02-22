@@ -13,13 +13,16 @@ const Login = () => {
         <h2 id="loginTitle">Bioversee</h2>
         <img src={Logo} id="loginLogo"></img>
         <p id="slogan">
-          Make industrial automation <br /> like a child's play
+          Automation for <br /> EVERYONE
         </p>
         <div className="loginButton google" onClick={google}>
           <img src={Google} alt="Google icon" className="icon" />
           Login
         </div>
       </div>
+      <h6 className="note">
+        Note: This website is just a DEMO site for BIOVERSEE
+      </h6>
     </div>
   );
 };
